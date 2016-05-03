@@ -9,34 +9,46 @@
 }
 
 /* masthead */
-header {
+header.masthead {
 	background:@primaryColor;
 	
 	h1 {
 		display:none;
-		.siteTitle;		
+		.siteTitle;
+		
+		small {
+			color:@cream;
+		}
 	}
 	
 	nav {
-		background:@navBar;
+		background:@cream;
+		height:auto;
 		
 		.top-bar, .top-bar ul li {
-			background:@navBar;
+			background:@cream;
 			padding:0;
+			height:auto;
 		}
 		
 		.top-bar ul li a {
 			padding:1rem 1.5rem;
+			text-transform:uppercase;
 			
-			&:hover {
+			&:link, &:visited {
+				color:@primaryDarkest;
+			}
+			
+			&:hover,&:focus,&:active {
 				background:@primaryDarkest;
+				color:@cream;
 			}
 		}
 	}
 }
 
 @media screen and (min-width: 40em) {
-	header h1 {
+	header.masthead h1 {
 		display:block;
 		padding:1em;
 	}
@@ -56,7 +68,7 @@ header {
 		margin-right:0.5rem;
 		font-size:1.2rem;
 		margin-top:0.2rem;
-		color:@bodyText;
+		color:@cream;
 		position:absolute;
 		right:0;
 	}

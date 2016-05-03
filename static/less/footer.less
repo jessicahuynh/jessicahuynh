@@ -10,10 +10,26 @@ footer {
 	width:100%;
 	font-size:0.75rem;
 	color:@primaryDarkest;
-	margin:0;
-	padding:0;
+	padding-top:.1rem;
 	
 	span {
 		display:block;
+	}
+}
+
+.backToTop {
+	position:fixed;
+	right:2.25rem;
+	bottom:3rem;
+	font-size:3rem;
+	opacity:0.75;
+	display:none;
+	
+	a {
+		color:@secondaryDarker;
+
+		&:hover, &:focus, &:active {
+			color:@secondaryColor;
+		}
 	}
 }

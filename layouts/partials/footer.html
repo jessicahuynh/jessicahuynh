@@ -1,10 +1,11 @@
+      </div>
       <div class="push"></div>
     </div>
     
     <footer>
       <div class="row">
         <aside class="medium-3 columns">
-          <p>Made with HTML5, CSS3, <a href="https://code.visualstudio.com/">Visual Studio Code</a>, <a href="http://foundation.zurb.com/">Foundation</a>, <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>, and <a href="http://gohugo.io/">Hugo</a>. Hosted with <a href="https://www.aerobatic.com/">Aerobatic</a>.</p>
+          <p>Made with HTML5, CSS3, <a href="https://code.visualstudio.com/">Visual Studio Code</a>, <a href="http://foundation.zurb.com/">Foundation</a>, <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>, and <a href="http://gohugo.io/">Hugo</a>. Hosted by <a href="https://www.aerobatic.com/">Aerobatic</a>.</p>
         </aside>
         <div class="medium-3 columns">
         </div>
@@ -22,13 +23,30 @@
       
     </footer>
     
-    <p class="copyright"><span class="text-center">&copy; Jessica Huynh, 2012&ndash;{{ .Now.Year }}</span></p>
+    <p class="copyright">
+      <span class="text-center">&copy; Jessica Huynh, 2012&ndash;{{ .Now.Year }}</span>
+    </p>
+    
+    <div class="backToTop">
+      <a href="#"><i class="fa fa-chevron-circle-up" title="To the top of the page"></i></a>
+    </div>
     
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
     <!--<script src="js/vendor/what-input.min.js"></script>-->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/foundation/6.2.1/foundation.min.js"></script>
     <script>
       $(document).foundation();
+      
+      $(window).scroll(function() {
+        var mastheadHeight = $('.masthead').height();
+        
+        if ($(window).scrollTop() + $(window).height() > $(document).height() - mastheadHeight) {
+          $('.backToTop').fadeIn('medium');
+        }
+        else {
+          $('.backToTop').fadeOut('medium');
+        }
+      });
     </script>
 
   </body>
