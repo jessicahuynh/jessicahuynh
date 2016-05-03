@@ -1,0 +1,6 @@
+baseurl = "/"
+languageCode = "en-us"
+title = "Jessica Huynh"
+
+[params]
+	subtitle = "occasional updates, forever rambling"
