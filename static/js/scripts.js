@@ -10,14 +10,15 @@ $(window).scroll(function() {
 	}
 });
 
-$('.sideBoxHeader').click(function() {
+$('.sideBoxHeader').click(function(e) {
+	e.preventDefault();
 	var block = $(this).next();
 	if (block.css('display') == 'block') {
 		block.slideUp();
-		$(this).children().find('i').filter(':last').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+		$(this).children().find('i').filter(':last').removeClass('fa-chevron-down').removeClass('fa-chevron-right').addClass('fa-chevron-up');
 	}
 	else {
 		block.slideDown();
-		$(this).children().find('i').filter(':last').removeClass('fa-chevron-up').addClass('fa-chevron-down');
+		$(this).children().find('i').filter(':last').removeClass('fa-chevron-up').removeClass('fa-chevron-right').addClass('fa-chevron-down');
 	}
 });

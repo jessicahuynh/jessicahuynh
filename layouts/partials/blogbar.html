@@ -1,29 +1,42 @@
 <div>
 	<aside>
-		<header class="sideBoxHeader"><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;Archives <i class="fa fa-chevron-down" aria-hidden="true"></i></a></header>
+		<header class="sideBoxHeader"><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;Archives <i class="fa fa-chevron-right" aria-hidden="true"></i></a></header>
 		<div class="sideBoxContent">
 			<ul>
 				{{ range $value := .Site.Pages.GroupByDate "January 2006" }}
 					{{ $url := (index $value.Pages 0).Node.Date.Format "2006/01" | urlize }}
-					<li><a href="/{{ $url }}">{{ .Key }}</a></li>
+					<li><a href="/blog/{{ $url }}">{{ .Key }}</a></li>
 				{{ end }}
 			</ul>
 		</div>
 	</aside>
 	
 	<aside>
-		<header class="sideBoxHeader"><a href="#"><i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;Categories <i class="fa fa-chevron-down" aria-hidden="true"></i></a></header>
+		<header class="sideBoxHeader"><a href="#"><i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;Categories <i class="fa fa-chevron-right" aria-hidden="true"></i></a></header>
 		<div class="sideBoxContent">
 			<ul>
-				{{ range $name := .Site.Params.categories  }}
-					<li><a href="/category/{{ $name | urlize }}">{{ $name }}</a></li>
+				{{ $r := .Site.Taxonomies.categories }}
+				{{ $p := .Site.Pages }}
+				{{ range .Site.Params.categories }}
+					{{ $posts := where $p "Type" "blog" }}
+					{{ $n := . | urlize }}
+					<!-- (re)set the counter to 0 -->
+					{{ $.Scratch.Set "catCounter" 0 }}
+					<!-- increment counter if post contains the current tag-->
+					{{ range $posts }}
+						{{ if in $r $n }}
+							{{ $.Scratch.Add "catCounter" 1 }}
+						{{ end }}
+					{{ end }}
+					
+					<li><a href="/category/{{ . | urlize }}">{{ . }}</a></li>
 				{{ end }}
 			</ul>
 		</div>
 	</aside>
 	
 	<aside class="tagCloud">
-		<header class="sideBoxHeader"><a href="#"><i class="fa fa-tags" aria-hidden="true"></i>&nbsp;Tags <i class="fa fa-chevron-down" aria-hidden="true"></i></a></header>
+		<header class="sideBoxHeader"><a href="#"><i class="fa fa-tags" aria-hidden="true"></i>&nbsp;Tags <i class="fa fa-chevron-right" aria-hidden="true"></i></a></header>
 		<div class="sideBoxContent">
 			<ul>
 				{{ range $name, $t := .Site.Taxonomies.tags  }}

@@ -278,6 +278,9 @@ section header h6 {
 .prettySidebarBoxes nav ol {
   list-style-type: none;
 }
+.prettySidebarBoxes i.fa-chevron-right {
+  vertical-align: middle;
+}
 .sidebar aside {
   width: 100%;
   background: #273145;
@@ -312,6 +315,9 @@ section header h6 {
 .sidebar aside nav ul,
 .sidebar aside nav ol {
   list-style-type: none;
+}
+.sidebar aside i.fa-chevron-right {
+  vertical-align: middle;
 }
 .blogbar aside {
   width: 100%;
@@ -349,6 +355,9 @@ section header h6 {
 .blogbar aside nav ul,
 .blogbar aside nav ol {
   list-style-type: none;
+}
+.blogbar aside i.fa-chevron-right {
+  vertical-align: middle;
 }
 .blogbar aside ul {
   list-style-type: none;
