@@ -8,7 +8,7 @@ slug = "sidebars-again"
 
 I figure it would be a good idea to repost my previous entry on custom sidebars in WordPress, partly for fun, partly to remind myself. This should work for any WordPress website on custom hosting (which means not WordPress.com blogs, unfortunately, unless there’s some magical way of getting at the code the Internet has yet to discover). I will be assuming you’re working off one of the WordPress default templates or can modify as needed on your own.<!--more-->
 
-## Registering
+# Registering
 Deep in the WordPress theme files (that would be http://yourblogurl/wp-contents/themes/themefolder), there is a file called functions.php. Open it with Notepad or something similar (or you can use the built-in editor, Appearance then Editor) and search for 
 
 	function nevermind_widgets_init() {
@@ -27,11 +27,11 @@ Deep in the WordPress theme files (that would be http://yourblogurl/wp-contents/
 
 There may be just the one, or there may be multiple bits of code like this, depending on your theme. This is actually (almost) the original snippet from the new Twenty Twelve theme. The function themename_widgets_init() initializes the little widgets you can place in your sidebar. Each register_sidebar() call does exactly what you would think it would, it registers the sidebar in question.
 
-### What if I don’t have a functions.php file?
+## What if I don’t have a functions.php file?
 
 Check again and be sure, but if you don’t, just create a file called functions.php and stick <?php at the beginning of it, without whitespace, and follow along.
 
-### Breaking register_sidebar() down
+## Breaking register_sidebar() down
 
 A good resource, if you’re familiar with coding at all, is the WordPress codex, where there are pages of information about each function you could possibly want to know. To save you a click though, here’s what the codex says:
 
@@ -46,7 +46,7 @@ A good resource, if you’re familiar with coding at all, is the WordPress codex
 		'after_title'   => '</h2>' 
 	); ?>
 
-### Parameters
+## Parameters
 - name – Sidebar name (default is localized ‘Sidebar’ and numeric ID).
 - id – Sidebar id – Must be all in lowercase, with no spaces (default is a numeric auto-incremented ID).
  description – Text description of what/where the sidebar is. Shown on widget management screen. (Since 2.9) (default: empty)
@@ -72,7 +72,7 @@ The bits that say `<li>` and `<h3>` will vary depending on your theme. In the Tw
 
 Upload your new/modified functions.php file to your webhost (you can use something like Filezilla to do so). If you go now to Appearance then Widgets, you’ll see your new sidebar to the right, grouped right below with the others. You can add widgets to it, although nothing will show up yet on any of your pages. To change that, we need to create a new template file.
 
-## Creating the template file
+# Creating the template file
 
 In your theme folder, there should also be a sidebar.php file. 
 
@@ -104,7 +104,7 @@ Make sure to look at your own and substitute accordingly. Luckily, the code here
 	
 What this code will do is display your widgets if there are any, and display nothing if there are none for whatever reason. Upload this file too to your theme directory.
 
-## Include
+# Include
 
 Now the fun part, building a template for you to use your sidebar on. Much of this is self-explanatory.
 

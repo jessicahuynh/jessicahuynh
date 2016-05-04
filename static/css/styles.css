@@ -12,6 +12,12 @@ a:focus,
 a:active {
   color: #ea9629;
   text-decoration: underline;
+  cursor: pointer;
+}
+a .label:hover,
+a .label:focus,
+a .label:active {
+  cursor: pointer;
 }
 footer a:link,
 footer a:visited {
@@ -23,10 +29,16 @@ footer a:active {
   color: #5e7700;
   text-decoration: none;
 }
-header h1,
-header h2,
 header nav a,
-.copyright {
+.copyright,
+header a,
+.postTitle,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Fira Sans", "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
 * {
@@ -192,6 +204,21 @@ footer {
 .backToTop a:active {
   color: #ea9629;
 }
+.sideBox {
+  background: #273145;
+  color: #f7f5e7;
+}
+.sideBox a {
+  color: #ea9629;
+}
+.sideBoxContent {
+  display: none;
+}
+@media screen and (min-width: 40rem) {
+  .sideBoxContent {
+    display: block;
+  }
+}
 section header {
   background: #4b5e87;
   color: #f7f5e7;
@@ -209,6 +236,44 @@ section header h4,
 section header h5,
 section header h6 {
   margin-bottom: 0;
+}
+.toc {
+  width: 100%;
+}
+.toc header {
+  background: #273145;
+  color: #f7f5e7;
+  font-variant: small-caps;
+  font-size: 1.1rem;
+  width: 100%;
+}
+.toc header a {
+  color: #ea9629;
+}
+.toc header a {
+  padding: 0.5rem;
+  color: #273145;
+  text-decoration: none;
+  background: #ea9629;
+  display: block;
+  width: 100%;
+}
+.toc nav {
+  background: #273145;
+  color: #f7f5e7;
+  padding: 0.5rem;
+}
+.toc nav a {
+  color: #ea9629;
+}
+.toc nav ul {
+  list-style-type: none;
+}
+.postTitle {
+  text-align: center;
+}
+.postTitle a {
+  color: #4b5e87;
 }
 form .button {
   background: #4b5e87;

@@ -1,3 +1,19 @@
+.sideBox {
+	background:@primaryDarkest;
+	color:@cream;
+	
+	a {
+		color:@orangish;
+	}	
+}
+
+.sideBoxContent {
+	display:none;
+	@media screen and (min-width:40rem) {
+		display:block;
+	}
+}
+
 section header {
 	background:@primaryDarker;
 	color:@cream;
@@ -10,5 +26,38 @@ section header {
 	
 	h1,h2,h3,h4,h5,h6 {
 		margin-bottom:0;
+	}
+}
+
+.toc {
+	width:100%;
+	header {
+		.sideBox;
+		font-variant:small-caps;
+		font-size:1.1rem;
+		width:100%;
+
+		a {
+			padding:0.5rem;
+			color:@primaryDarkest;
+			text-decoration:none;
+			background:@orangish;
+			display:block;
+			width:100%;
+		}
+	}
+	nav {
+		.sideBox;
+		padding:0.5rem;
+		ul {
+			list-style-type:none;
+		}
+	}
+}
+
+.postTitle {
+	text-align:center;
+	a {
+		color:@primaryDarker;
 	}
 }

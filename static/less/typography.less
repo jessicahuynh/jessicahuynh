@@ -4,6 +4,7 @@ body, html {
 }
 
 a {
+	
 	&:link, &:visited {
 		color:@tertiaryColor;
 	}
@@ -11,6 +12,11 @@ a {
 	&:hover, &:focus, &:active {
 		color:@orangish;
 		text-decoration:underline;
+		cursor:pointer;
+	}
+	
+	.label:hover, .label:focus, .label:active {
+		cursor:pointer;
 	}
 }
 
@@ -27,6 +33,6 @@ footer {
 	}
 }
 
-header h1, header h2, header nav a, .copyright {
+header nav a, .copyright, header a, .postTitle, h1, h2, h3, h4, h5, h6 {
 	font-family:"Fira Sans","Trebuchet MS",Arial, Helvetica, sans-serif;
 }

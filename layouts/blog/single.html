@@ -1,7 +1,28 @@
 {{ partial "header.html" . }}
 
-<article>
-{{ .Content}}
-</article>
+<div class="row">
+	<header>
+		<h1 class="postTitle"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+	</header>
+</div>
+
+<div class="row">
+	<div class="medium-3 columns" data-sticky-container>
+		<div class="sticky" data-sticky data-anchor="article" data-btm-anchor="mainContent:bottom">
+			<aside class="toc">
+				<header class="sideBoxHeader"><a href="#">In this post <i class="fa fa-chevron-down" aria-hidden="true"></i></a></header>
+				<div class="sideBoxContent">{{ .TableOfContents }}</div>
+			</aside>
+		</div>
+	</div>
+	
+	<article class="medium-6 columns" id="article">		
+		{{ .Content}}
+	</article>
+	
+	<div class="medium-3 columns">
+		<aside>blah</aside>
+	</div>
+</div>
 
 {{ partial "footer.html" . }}
