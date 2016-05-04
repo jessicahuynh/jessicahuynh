@@ -384,6 +384,56 @@ section header h6 {
 .prevnextpost a i {
   vertical-align: middle;
 }
+/* labels */
+.label {
+  background: #273145;
+  color: #f7f5e7;
+}
+.reddish {
+  background: #b22217;
+}
+.orangish {
+  background: #ea9629;
+}
+.secondaryDarker {
+  background: #5e7700;
+}
+.transparent {
+  background: transparent;
+  color: #273145;
+}
+/* post types */
+.typeStatus {
+  background: #ea9629;
+  color: #220e10;
+  font-style: italic;
+}
+.typeStatus .statusContent {
+  padding-top: 4rem;
+  font-size: 1.2rem;
+}
+.typeStatus .label {
+  color: #f7f5e7;
+  font-style: normal;
+}
+.typeStatus .postTitle a {
+  color: #eeeeee;
+}
+.typeStatus .prevnextpost {
+  font-style: normal;
+}
+.typeStatus .blogbar {
+  font-style: normal;
+}
+.typeStatus .orangish {
+  background: #220e10;
+  color: #ea9629;
+}
+.typeStatus a:hover,
+.typeStatus a:focus,
+.typeStatus a:active {
+  color: #b22217;
+}
 form .button {
   background: #4b5e87;
   color: #f7f5e7;

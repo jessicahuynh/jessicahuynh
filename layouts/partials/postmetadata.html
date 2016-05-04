@@ -1,8 +1,13 @@
-<span class="secondary label"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{ .Date.Format "Mon, Jan 2, 2006" }}</span>
-<span class="success label"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{ .ReadingTime }}&nbsp;minutes</span>
+<span class="label"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{if eq .Params.kind "status"}}Status&nbsp;on&nbsp;{{end}}{{ .Date.Format "Mon, Jan 2, 2006" }}</span>
+
+<span class="secondaryDarker label"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{if eq .ReadingTime 1}}1&nbsp;minute{{else}}{{ .ReadingTime }}&nbsp;minutes{{end}}</span>
+
+<a href="/blog/type/{{.Params.kind}}"><span class="orangish label"><i class="fa fa-archive" aria-hidden="true"></i>&nbsp;{{ .Params.kind }}</span></a>
+
 {{ range .Params.categories }}
-	<a href="{{ "/category/" | absURL }}{{ . | urlize }}"><span class="alert label"><i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;{{ . }}</span></a>
+	<a href="{{ "/blog/category/" | absURL }}{{ . | urlize }}"><span class="reddish label"><i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;{{ . }}</span></a>
 {{ end }}
+
 {{ range .Params.tags }}
-	<a href="{{ "/tag/" | absURL }}{{ . | urlize }}"><span class="info label"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;{{ . }}</span></a>
+	<a href="{{ "/blog/tag/" | absURL }}{{ . | urlize }}"><span class="transparent label"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;{{ . }}</span></a>
 {{ end }}

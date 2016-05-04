@@ -1,3 +1,4 @@
+<div class="small-12 medium-3 columns blogbar">
 <div>
 	<aside>
 		<header class="sideBoxHeader"><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;Archives <i class="fa fa-chevron-right" aria-hidden="true"></i></a></header>
@@ -6,6 +7,17 @@
 				{{ range $value := .Site.Pages.GroupByDate "January 2006" }}
 					{{ $url := (index $value.Pages 0).Node.Date.Format "2006/01" | urlize }}
 					<li><a href="/blog/{{ $url }}">{{ .Key }}</a></li>
+				{{ end }}
+			</ul>
+		</div>
+	</aside>
+	
+	<aside>
+		<header class="sideBoxHeader"><a href="#"><i class="fa fa-archive" aria-hidden="true"></i>&nbsp;Post Types <i class="fa fa-chevron-right" aria-hidden="true"></i></a></header>
+		<div class="sideBoxContent">
+			<ul>
+				{{ range $k := .Site.Params.kinds }}
+					<li><a href="/blog/{{ $k | urlize }}">{{ $k }}</a></li>
 				{{ end }}
 			</ul>
 		</div>
@@ -29,7 +41,7 @@
 						{{ end }}
 					{{ end }}
 					
-					<li><a href="/category/{{ . | urlize }}">{{ . }}</a></li>
+					<li><a href="/blog/category/{{ . | urlize }}">{{ . }}</a></li>
 				{{ end }}
 			</ul>
 		</div>
@@ -40,9 +52,10 @@
 		<div class="sideBoxContent">
 			<ul>
 				{{ range $name, $t := .Site.Taxonomies.tags  }}
-					<li><a href="/tag/{{ $name | urlize }}">{{ $name }}</a></li>
+					<li><a href="/blog/tag/{{ $name | urlize }}">{{ $name }}</a></li>
 				{{ end }}
 			</ul>
 		</div>
 	</aside>
+</div>
 </div>

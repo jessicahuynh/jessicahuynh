@@ -1,71 +1,11 @@
 {{ partial "header.html" . }}
 
-<div class="row">
-	<header class="small-12 columns">
-		<h1 class="postTitle text-center"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-		<p class="text-center">{{ partial "postmetadata.html" . }}</p>
-	</header> 
-</div>
-
-<div class="row">
-	<div class="medium-3 columns sidebar" data-sticky-container>
-		<div class="sticky" data-sticky data-anchor="article" data-btm-anchor="mainContent:bottom">
-
-			<aside class="toc">
-				<header class="sideBoxHeader"><a href="#">In this post <i class="fa fa-chevron-right" aria-hidden="true"></i></a></header>
-				<div class="sideBoxContent">{{ .TableOfContents }}</div>
-			</aside>
-			
-			{{ $p := .Site.Taxonomies.projects }}
-			{{ $t := .Title }}
-			{{ range .Params.projects }}
-				{{$c := . | urlize}} <!--slug for current project being iterated through-->
-				<aside class="alsoInProject">
-					<header class="sideBoxHeader"><a href="#">Posts about {{ . }} <i class="fa fa-chevron-right" aria-hidden="true"></i></a></header>
-					<div class="sideBoxContent">
-						<ol>
-							<!-- go through every project again and list the ones with the same project as the current page-->
-							{{ range $key, $tax := $p }}
-								{{ if eq $key $c }}
-									{{ range $tax.Pages }}
-										<li>
-											{{if (eq $t .Title)}}
-												{{ .Title }}
-											{{else}}
-											<a href="{{ .Permalink }}">{{ .Title }}</a>
-											{{end}}
-										</li> 
-									{{ end }}
-								{{end}}
-							{{ end }}
-						</ol>
-						<span class="text-right"><a href="/portfolio/{{$c}}">All&hellip;</a></span>
-					</div>
-				</aside>
-			{{ end }}
-		</div>
-	</div>
-	
-	<article class="medium-6 columns" id="article">		
-		{{ .Content}}
-		<hr>
-		<section class="row prevnextpost">
-			<div class="small-6 columns">
-				{{ if .PrevInSection }}
-					<p><a href="{{.PrevInSection.Permalink}}"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;{{ .PrevInSection.Title }}</a></p>
-				{{ end }}
-			</div>
-			<div class="small-6 columns">
-				{{ if .NextInSection }}
-					<p class="text-right"><a href="{{.NextInSection.Permalink}}">{{.NextInSection.Title}}&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></a></a>
-				{{ end }}
-			</div>
-		</section>
-	</article>
-	
-	<div class="medium-3 columns blogbar">
-		{{ partial "blogbar.html" . }}
-	</div>
-</div>
+{{ if eq .Params.kind "post" }}
+	{{ partial "type_post.html" . }}
+{{ else }}
+	{{ if eq .Params.kind "status" }}
+		{{ partial "type_status.html" . }}
+	{{ end }}
+{{ end }}
 
 {{ partial "footer.html" . }}

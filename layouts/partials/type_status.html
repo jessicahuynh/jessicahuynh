@@ -1,0 +1,12 @@
+<div class="typeStatus">
+	<div class="row">
+		<div class="medium-9 columns">
+			<div class="statusContent">{{ .Content }}</div>
+			
+			<div>{{ partial "postmetadata.html" . }}</div>
+			{{ partial "nextprev.html" . }}
+		</div>
+		
+		{{ partial "blogbar.html" . }}
+	</div>
+</div>

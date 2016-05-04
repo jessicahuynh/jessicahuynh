@@ -6,12 +6,14 @@ pluralizeListTitles = false
 
 [params]
 	subtitle = "/hwɪn/"
-	categories = ["Web development","WordPress"]
+	categories = ["jessicahuynh.info","Web development","WordPress"]
+	kinds = ["post","status"]
 	
 [taxonomies]
 	project = "projects"
 	tag = "tags"
 	category = "categories"
+	kind = "kinds"
 	
 [[menu.main]]
 	name = "about"

@@ -7,7 +7,7 @@ categories = ["WordPress"]
 slug = "sidebars-again"
 +++
 
-I figure it would be a good idea to repost my previous entry on custom sidebars in WordPress, partly for fun, partly to remind myself. This should work for any WordPress website on custom hosting (which means not WordPress.com blogs, unfortunately, unless there’s some magical way of getting at the code the Internet has yet to discover). I will be assuming you’re working off one of the WordPress default templates or can modify as needed on your own.<!--more-->
+I figure it would be a good idea to repost my previous entry on custom sidebars in WordPress, partly for fun, partly to remind myself. This should work for any WordPress website on custom hosting (which means not WordPress.com blogs, unfortunately, unless there’s some magical way of getting at the code the Internet has yet to discover). I will be assuming you’re working off one of the WordPress default templates or can modify as needed on your own.
 
 # Registering
 Deep in the WordPress theme files (that would be http://yourblogurl/wp-contents/themes/themefolder), there is a file called functions.php. Open it with Notepad or something similar (or you can use the built-in editor, Appearance then Editor) and search for 
