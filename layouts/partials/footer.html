@@ -34,20 +34,30 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
     <!--<script src="js/vendor/what-input.min.js"></script>-->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/foundation/6.2.1/foundation.min.js"></script>
-    <script>
-      $(document).foundation();
+    <script type="text/javascript" src="/js/scripts.js"></script>
+    
+    {{ if eq .Type "contact" }}
+    <script type="text/javascript">     
+      $('label.required').each(function() {
+        $(this).find('input').before('&nbsp;<i class=\"fa fa-asterisk\" aria-hidden=\"true\"></i>');
+        $(this).find('textarea').before('&nbsp;<i class=\"fa fa-asterisk\" aria-hidden=\"true\"></i>');
+      });
       
-      $(window).scroll(function() {
-        var mastheadHeight = $('.masthead').height();
+      $('#contact-form').submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+          type:"POST",
+          url:"https://zapier.com/hooks/catch/1292593/u13i29/?name="+$("input#name").val()+"&email="+$("input#email").val()+"&subject="+$("input#subject").val()+"&message="+$("textarea#message").val()
+        });
         
-        if ($(window).scrollTop() + $(window).height() > $(document).height() - mastheadHeight) {
-          $('.backToTop').fadeIn('medium');
-        }
-        else {
-          $('.backToTop').fadeOut('medium');
-        }
+        $('#successfulSubmission').css('display','block');
+        $("input#name").val('');
+        $("input#email").val('');
+        $("input#subject").val('');
+        $("textarea#message").val('');
       });
     </script>
+    {{ end }}
 
   </body>
 </html>
