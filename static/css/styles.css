@@ -403,6 +403,40 @@ section header h6 {
   color: #273145;
 }
 /* post types */
+.blogListBar {
+  background: #f7f5e7;
+}
+.blogListBar aside {
+  width: 25%;
+  float: left;
+}
+@media screen and (max-width: 39.9375em) {
+  .blogListBar aside {
+    width: 100%;
+  }
+  .blogListBar aside header a {
+    padding: 0.25rem;
+  }
+  .blogListBar aside .decoration {
+    display: none;
+  }
+  .blogListBar aside .sideBoxContent {
+    padding: 0.25rem;
+  }
+  .blogListBar aside .sideBoxContent ul,
+  .blogListBar aside .sideBoxContent ol {
+    margin: 0;
+    list-style-type: none;
+  }
+  .blogListBar aside i {
+    display: none;
+  }
+}
+@media screen and (min-width: 40rem) {
+  .blogListBar aside .sideBoxContent {
+    display: none;
+  }
+}
 .typeStatus {
   background: #ea9629;
   color: #220e10;

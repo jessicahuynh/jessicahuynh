@@ -1,5 +1,6 @@
 {{ partial "header.html" . }}
 
+{{ partial "blogbar.html" . }}
 
 {{ range .Data.Pages }}
 	{{ if eq .Params.kind "post" }}

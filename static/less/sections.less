@@ -130,6 +130,47 @@ section header {
 }
 
 /* post types */
+.blogListBar {
+	background:@cream;
+	aside {
+		width:25%;
+		float:left;
+		
+		@media screen and (max-width:39.9375em) {
+			width:100%;
+			
+			header a {
+				padding:0.25rem;
+			}
+			
+			.decoration {
+				display:none;
+			}
+			
+			.sideBoxContent {
+				padding:0.25rem;
+				
+				ul, ol {
+					margin:0;
+					list-style-type:none;
+				}
+			}
+			
+			i {
+				display:none;
+			}
+			
+		}
+		
+		
+		@media screen and (min-width:40rem) {
+			.sideBoxContent {
+				display:none;
+			}
+		}
+	}
+}
+
 .typeStatus {
 	background:@orangish;
 	color:@bodyText;

@@ -1,5 +1,10 @@
+{{ if .IsPage }}
 <div class="small-12 medium-3 columns blogbar">
-<div>
+	<div>
+{{ else }}
+<div class="blogbar blogListBar">
+	<div class="clearfix">
+{{ end }}
 	<aside>
 		<header class="sideBoxHeader"><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;Archives <i class="fa fa-chevron-right" aria-hidden="true"></i></a></header>
 		<div class="sideBoxContent">
@@ -13,7 +18,7 @@
 	</aside>
 	
 	<aside>
-		<header class="sideBoxHeader"><a href="#"><i class="fa fa-archive" aria-hidden="true"></i>&nbsp;Post Types <i class="fa fa-chevron-right" aria-hidden="true"></i></a></header>
+		<header class="sideBoxHeader"><a href="#"><i class="fa fa-archive" aria-hidden="true"></i>&nbsp;<span class="decoration">Post </span>Types <i class="fa fa-chevron-right" aria-hidden="true"></i></a></header>
 		<div class="sideBoxContent">
 			<ul>
 				{{ range $k := .Site.Params.kinds }}
