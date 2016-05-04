@@ -178,8 +178,8 @@ footer {
 }
 .backToTop {
   position: fixed;
-  right: 2.25rem;
-  bottom: 3rem;
+  right: 2rem;
+  bottom: 0.75rem;
   font-size: 3rem;
   opacity: 0.75;
   display: none;
@@ -190,7 +190,7 @@ footer {
 .backToTop a:hover,
 .backToTop a:focus,
 .backToTop a:active {
-  color: #c3f600;
+  color: #ea9629;
 }
 section header {
   background: #4b5e87;

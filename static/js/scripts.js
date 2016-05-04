@@ -1,9 +1,8 @@
 $(document).foundation();
 
 $(window).scroll(function() {
-	var mastheadHeight = $('.masthead').height();
 
-	if ($(window).scrollTop() + $(window).height() > $(document).height() - mastheadHeight) {
+	if ($(window).scrollTop() + $(window).height() > $(window).height()) {
 		$('.backToTop').fadeIn('medium');
 	}
 	else {
