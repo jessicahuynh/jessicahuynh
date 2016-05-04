@@ -15,6 +15,7 @@
 
 .sideBoxContent {
 	display:none;
+	padding:0.5rem;
 	@media screen and (min-width:40rem) {
 		display:block;
 	}
@@ -35,8 +36,9 @@ section header {
 	}
 }
 
-.toc {
+.sidebar aside {
 	width:100%;
+	.sideBox;
 	header {
 		.sideBox;
 		font-variant:small-caps;
@@ -52,15 +54,13 @@ section header {
 	}
 	nav {
 		.sideBox;
-		padding:0.5rem;
-		ul {
+		ul, ol {
 			list-style-type:none;
 		}
 	}
 }
 
 .postTitle {
-	text-align:center;
 	a {
 		color:@primaryDarker;
 	}

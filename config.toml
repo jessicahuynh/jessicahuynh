@@ -7,6 +7,9 @@ pluralizeListTitles = false
 [params]
 	subtitle = "/hwɪn/"
 	
+[taxonomies]
+	project = "projects"
+	
 [[menu.main]]
 	name = "about"
 	identifier = "about"

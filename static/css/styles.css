@@ -218,6 +218,7 @@ footer {
 }
 .sideBoxContent {
   display: none;
+  padding: 0.5rem;
 }
 @media screen and (min-width: 40rem) {
   .sideBoxContent {
@@ -242,38 +243,40 @@ section header h5,
 section header h6 {
   margin-bottom: 0;
 }
-.toc {
+.sidebar aside {
   width: 100%;
+  background: #273145;
+  color: #f7f5e7;
 }
-.toc header {
+.sidebar aside a {
+  color: #ea9629;
+}
+.sidebar aside header {
   background: #273145;
   color: #f7f5e7;
   font-variant: small-caps;
   font-size: 1.1rem;
 }
-.toc header a {
+.sidebar aside header a {
   color: #ea9629;
 }
-.toc header a {
+.sidebar aside header a {
   padding: 0.5rem;
   color: #273145;
   text-decoration: none;
   background: #ea9629;
   display: block;
 }
-.toc nav {
+.sidebar aside nav {
   background: #273145;
   color: #f7f5e7;
-  padding: 0.5rem;
 }
-.toc nav a {
+.sidebar aside nav a {
   color: #ea9629;
 }
-.toc nav ul {
+.sidebar aside nav ul,
+.sidebar aside nav ol {
   list-style-type: none;
-}
-.postTitle {
-  text-align: center;
 }
 .postTitle a {
   color: #4b5e87;

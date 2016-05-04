@@ -2,7 +2,7 @@
 
 <div class="row">
 	<header>
-		<h1 class="postTitle"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+		<h1 class="postTitle text-center"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
 	</header>
 </div>
 
@@ -13,6 +13,34 @@
 				<header class="sideBoxHeader"><a href="#">In this post <i class="fa fa-chevron-down" aria-hidden="true"></i></a></header>
 				<div class="sideBoxContent">{{ .TableOfContents }}</div>
 			</aside>
+			
+			{{ $p := .Site.Taxonomies.projects }}
+			{{ $t := .Title }}
+			{{ range .Params.projects }}
+				{{$c := . | urlize}} <!--slug for current project being iterated through-->
+				<aside class="alsoInProject">
+					<header class="sideBoxHeader"><a href="#">Posts about {{ . }} <i class="fa fa-chevron-down" aria-hidden="true"></i></a></header>
+					<div class="sideBoxContent">
+						<ol>
+							<!-- go through every project again and list the ones with the same project as the current page-->
+							{{ range $key, $tax := $p }}
+								{{ if eq $key $c }}
+									{{ range $tax.Pages }}
+										<li>
+											{{if (eq $t .Title)}}
+												{{ .Title }}
+											{{else}}
+											<a href="{{ .Permalink }}">{{ .Title }}</a>
+											{{end}}
+										</li> 
+									{{ end }}
+								{{end}}
+							{{ end }}
+						</ol>
+						<span><a href="/portfolio/{{$c}}">All&hellip;</a></span>
+					</div>
+				</aside>
+			{{ end }}
 		</div>
 	</div>
 	
