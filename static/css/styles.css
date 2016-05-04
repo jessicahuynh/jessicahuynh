@@ -211,6 +211,11 @@ footer {
 .sideBox a {
   color: #ea9629;
 }
+@media screen and (max-width: 39.9375em) {
+  .sticky {
+    width: 100%;
+  }
+}
 .sideBoxContent {
   display: none;
 }
@@ -245,7 +250,6 @@ section header h6 {
   color: #f7f5e7;
   font-variant: small-caps;
   font-size: 1.1rem;
-  width: 100%;
 }
 .toc header a {
   color: #ea9629;
@@ -256,7 +260,6 @@ section header h6 {
   text-decoration: none;
   background: #ea9629;
   display: block;
-  width: 100%;
 }
 .toc nav {
   background: #273145;
