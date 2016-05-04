@@ -3,13 +3,25 @@ html {
   color: #220e10;
   font-family: "Source Sans Pro", "Fira Sans", "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
-footer a {
+a:link,
+a:visited {
+  color: #bc360a;
+}
+a:hover,
+a:focus,
+a:active {
+  color: #ea9629;
+  text-decoration: underline;
+}
+footer a:link,
+footer a:visited {
   color: #c3f600;
 }
 footer a:hover,
 footer a:focus,
 footer a:active {
   color: #5e7700;
+  text-decoration: none;
 }
 header h1,
 header h2,
@@ -74,14 +86,20 @@ header.masthead nav {
   height: auto;
 }
 header.masthead nav .top-bar,
+header.masthead nav .top-bar ul,
 header.masthead nav .top-bar ul li {
-  background: #f7f5e7;
+  background-color: #f7f5e7;
   padding: 0;
   height: auto;
+}
+header.masthead nav .top-bar-left {
+  float: none;
+  background: #f7f5e7;
 }
 header.masthead nav .top-bar ul li a {
   padding: 1rem 1.5rem;
   text-transform: uppercase;
+  text-decoration: none;
 }
 header.masthead nav .top-bar ul li a:link,
 header.masthead nav .top-bar ul li a:visited {
@@ -90,6 +108,10 @@ header.masthead nav .top-bar ul li a:visited {
 header.masthead nav .top-bar ul li a:hover,
 header.masthead nav .top-bar ul li a:focus,
 header.masthead nav .top-bar ul li a:active {
+  background: #273145;
+  color: #f7f5e7;
+}
+header.masthead nav .top-bar ul li.active a {
   background: #273145;
   color: #f7f5e7;
 }
@@ -174,4 +196,16 @@ section header {
   background: #4b5e87;
   color: #f7f5e7;
   font-variant: small-caps;
+}
+form .button {
+  background: #4b5e87;
+  color: #f7f5e7;
+}
+form .button:focus,
+form .button:hover,
+form .button:active {
+  background: #8092b8;
+}
+.required i {
+  color: red;
 }

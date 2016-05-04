@@ -3,12 +3,26 @@ body, html {
 	font-family:"Source Sans Pro","Fira Sans","Trebuchet MS",Arial, Helvetica, sans-serif;
 }
 
+a {
+	&:link, &:visited {
+		color:@tertiaryColor;
+	}
+	
+	&:hover, &:focus, &:active {
+		color:@orangish;
+		text-decoration:underline;
+	}
+}
+
 footer {
 	a {
-		color:@secondaryColor;
+		&:link, &:visited {
+			color:@secondaryColor;
+		}
 
 		&:hover, &:focus, &:active {
 			color:@secondaryDarker;
+			text-decoration:none;
 		}
 	}
 }

@@ -1,0 +1,24 @@
+{{ partial "header.html" . }}
+
+<article>
+	<section>
+		<header>
+		<div class="row">
+			<div class="small-12 columns">
+				<h2>{{ .Title }}</h2>
+			</div>
+		</div>
+		</header>
+		
+		<div class="row">
+			<div class="small-12 medium-4 columns">
+				<img src="/img/me.png" alt="picture of Jessica Huynh">
+			</div>
+			<div class="small-12 medium-8 columns">
+				{{ .Content }}
+			</div> 
+		</div>
+	</section>
+</article>
+
+{{ partial "footer.html" . }}

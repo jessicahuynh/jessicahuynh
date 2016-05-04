@@ -25,15 +25,21 @@ header.masthead {
 		background:@cream;
 		height:auto;
 		
-		.top-bar, .top-bar ul li {
-			background:@cream;
+		.top-bar, .top-bar ul, .top-bar ul li {
+			background-color:@cream;
 			padding:0;
 			height:auto;
+		}
+		
+		.top-bar-left {
+			float:none;
+			background:@cream;
 		}
 		
 		.top-bar ul li a {
 			padding:1rem 1.5rem;
 			text-transform:uppercase;
+			text-decoration:none;
 			
 			&:link, &:visited {
 				color:@primaryDarkest;
@@ -43,6 +49,11 @@ header.masthead {
 				background:@primaryDarkest;
 				color:@cream;
 			}
+		}
+		
+		.top-bar ul li.active a {
+			background:@primaryDarkest;
+			color:@cream;
 		}
 	}
 }

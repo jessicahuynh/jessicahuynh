@@ -1,0 +1,64 @@
+{{ partial "header.html" . }}
+
+<article>
+	<section>
+		<header>
+		<div class="row">
+			<div class="small-12 columns">
+				<h2>{{ .Title }}</h2>
+			</div>
+		</div>
+		</header>
+		
+		<div class="row">
+			<div class="small-12 medium-4 columns">
+				<aside>
+					{{ .Content }}
+				</aside>
+			</div>
+			<div class="small-12 medium-8 columns">
+				<form>
+					<div class="row">
+						<div class="medium-6 columns">
+							<label class="required">Name
+								<input type="text" placeholder="john smith" required>
+							</label>
+						</div>
+						<div class="medium-6 columns">
+							<label class="required">Email
+								<input type="email" placeholder="abc@xyz.com" required>
+							</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="small-12 columns">
+							<label class="required">Subject
+								<input type="text" placeholder="request" required>
+							</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="small-12 columns">
+							<label class="required">Message
+								<textarea rows="5" required></textarea>
+							</label>
+						</div>
+					</div>
+					<div class="row">
+						<fieldset class="small-12 columns">
+							<button class="button" type="submit" value="Submit">Submit</button>
+						</fieldset>
+					</div>
+				</form>
+			</div> 
+		</div>
+	</section>
+</article>
+
+<script type='text/javascript'>
+$('label.required').each(function() {
+	$(this).append("&nbsp;<i class="fa fa-asterisk" aria-hidden="true"></i>");
+});
+</script>
+
+{{ partial "footer.html" . }}
