@@ -1,15 +1,7 @@
 <section class="postSummary">
 	<h1 class="postTitle"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
 	<div>
-		<span class="secondary label"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{ .Date.Format "Mon, Jan 2, 2006" }}</span>
-		{{ range .Params.categories }}
-			<a href="{{ "/categories/" | absURL }}{{ . | urlize }}"><span class="label"><i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;{{ . }}</span></a>
-		{{ end }}
-		<div>
-			{{ range .Params.tags }}
-				<a href="{{ "/tags/" | absURL }}{{ . | urlize }}"><span class="label"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;{{ . }}</span></a>
-			{{ end }}
-		</div>
+		{{ partial "postmetadata.html" . }}
 	</div>
 	<p>
 		{{ .Summary }}

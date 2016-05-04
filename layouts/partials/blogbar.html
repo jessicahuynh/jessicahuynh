@@ -16,7 +16,7 @@
 		<div class="sideBoxContent">
 			<ul>
 				{{ range $name := .Site.Params.categories  }}
-					<li><a href="/categories/{{ $name | urlize }}">{{ $name }}</a></li>
+					<li><a href="/category/{{ $name | urlize }}">{{ $name }}</a></li>
 				{{ end }}
 			</ul>
 		</div>
@@ -27,7 +27,7 @@
 		<div class="sideBoxContent">
 			<ul>
 				{{ range $name, $t := .Site.Taxonomies.tags  }}
-					<li><a href="/tags/{{ $name | urlize }}">{{ $name }}</a></li>
+					<li><a href="/tag/{{ $name | urlize }}">{{ $name }}</a></li>
 				{{ end }}
 			</ul>
 		</div>
