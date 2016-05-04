@@ -1,5 +1,5 @@
 +++
-categories = ["web development"]
+categories = ["Web development"]
 date = "2015-08-04T12:00:00-04:00"
 kind = "post"
 tags = ["jbs"]

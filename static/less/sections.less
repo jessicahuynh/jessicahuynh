@@ -36,7 +36,7 @@ section header {
 	}
 }
 
-.sidebar aside {
+.prettySidebarBoxes {
 	width:100%;
 	.sideBox;
 	header {
@@ -60,7 +60,34 @@ section header {
 	}
 }
 
+.sidebar aside {
+	.prettySidebarBoxes;
+}
+
+.blogbar aside {
+	.prettySidebarBoxes;
+	
+	ul {
+		list-style-type:none;
+	}
+	
+	background:@cream;
+	color:@bodyText;
+	a {
+		color:@tertiaryColor;
+	}
+	header a {
+		background:@tertiaryColor;
+		color:@cream;
+	}
+}
+
+.tagCloud ul li {
+	display:inline;
+}
+
 .postTitle {
+	margin-top:0.45rem;
 	a {
 		color:@primaryDarker;
 	}

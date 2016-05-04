@@ -37,7 +37,7 @@
 								{{end}}
 							{{ end }}
 						</ol>
-						<span><a href="/portfolio/{{$c}}">All&hellip;</a></span>
+						<span class="text-right"><a href="/portfolio/{{$c}}">All&hellip;</a></span>
 					</div>
 				</aside>
 			{{ end }}
@@ -48,8 +48,8 @@
 		{{ .Content}}
 	</article>
 	
-	<div class="medium-3 columns">
-		<aside>blah</aside>
+	<div class="medium-3 columns blogbar">
+		{{ partial "blogbar.html" . }}
 	</div>
 </div>
 
