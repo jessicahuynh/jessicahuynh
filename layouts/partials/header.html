@@ -37,9 +37,18 @@
                     <li><a href="{{.URL}}">{{.Name}}</a></li>
                   {{ end }}
                 {{else}}
-                  {{ $currentPage := . }}
-                  {{ range .Site.Menus.main }}
-                    <li{{if or (eq $currentPage.Title .Identifier) (eq $currentPage.Type .Identifier) }} class="active"{{end}}><a href="{{.URL}}">{{.Name}}</a></li>
+                  <!--list pages-->
+                  {{ if .IsNode }}
+                    {{ $currentNode := . }}
+                    {{ range .Site.Menus.main }}
+                      <li{{if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }} class="active"{{end}}><a href="{{.URL}}">{{ .Name }}</a></li>
+                    {{ end }}
+                  <!--single content pages-->
+                  {{ else }}
+                    {{ $currentPage := . }}
+                    {{ range .Site.Menus.main }}
+                      <li{{if or (eq $currentPage.Type .Identifier) (eq $currentPage.Title .Identifier) }} class="active"{{end}}><a href="{{.URL}}">{{.Name}}</a></li>
+                    {{ end }}
                   {{ end }}
                 {{ end }}
               </ul>

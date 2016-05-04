@@ -2,6 +2,8 @@ baseurl = "/"
 languageCode = "en-us"
 title = "Jessica Huynh"
 
+pluralizeListTitles = false
+
 [params]
 	subtitle = "/hwɪn/"
 	

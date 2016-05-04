@@ -1,0 +1,44 @@
+{{ partial "header.html" . }}
+
+{{ range .Data.Pages }}
+	<section>
+		<div class="row">
+			<div class="small-12 medium-8 columns">
+				<h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+				<div>
+					<span class="label"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{ .Date.Format "Mon, Jan 2, 2006" }}</span>
+					<span class="label"><i class="fa fa-tags" aria-hidden="true"></i>&nbsp;{{ range first 1 .Params.tags }}
+						<a href="{{ "/tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>
+						{{ end }}
+						{{ $paramLen := len .Params.tags }}
+    					{{ if gt $paramLen 1 }}
+							{{ range after 1 .Params.tags }}
+							, <a href="{{ "/tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>
+							{{ end }}
+						{{ end }}
+					</span>
+					<span class="label"><i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;{{ range first 1 .Params.categories }}
+						<a href="{{ "/categories/" | absURL }}{{ . | urlize }}">{{ . }}</a>
+						{{ end }}
+						{{ $paramLen := len .Params.categories }}
+    					{{ if gt $paramLen 1 }}
+							{{ range after 1 .Params.categories }}
+							, <a href="{{ "/categories/" | absURL }}{{ . | urlize }}">{{ . }}</a>
+							{{ end }}
+						{{ end }}
+					</span>
+				</div>
+				<p>
+					{{ .Summary }}
+					{{ if .Truncated }}
+						<span class="read-more-link">
+							<a href="{{ .RelPermalink }}">Read More&hellip;</a>
+						</span> 
+					{{ end }}
+				</p>
+			</div>
+		</div>
+	</section>
+{{ end }}
+
+{{ partial "footer.html" . }}
