@@ -369,6 +369,12 @@ section header h6 {
 .postTitle a {
   color: #4b5e87;
 }
+.prevnextpost a {
+  text-decoration: none;
+}
+.prevnextpost a i {
+  vertical-align: middle;
+}
 form .button {
   background: #4b5e87;
   color: #f7f5e7;

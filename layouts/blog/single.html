@@ -48,6 +48,19 @@
 	
 	<article class="medium-6 columns" id="article">		
 		{{ .Content}}
+		
+		<div class="row prevnextpost">
+			<div class="small-6 columns">
+				{{ if .PrevInSection }}
+					<p><a href="{{.PrevInSection.Permalink}}"><i class="fa fa-chevron-left" aria-hidden="true"></i>&nbsp;{{ .PrevInSection.Title }}</a></p>
+				{{ end }}
+			</div>
+			<div class="small-6 columns">
+				{{ if .NextInSection }}
+					<p class="text-right"><a href="{{.NextInSection.Permalink}}">{{.NextInSection.Title}}&nbsp;<i class="fa fa-chevron-right" aria-hidden="true"></i></a></a>
+				{{ end }}
+			</div>
+		</div>
 	</article>
 	
 	<div class="medium-3 columns blogbar">

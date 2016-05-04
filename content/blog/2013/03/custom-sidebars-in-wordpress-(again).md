@@ -22,7 +22,7 @@ Deep in the WordPress theme files (that would be http://yourblogurl/wp-contents/
 			'after_title' => '</h3>',
 		) );
 	}
-	
+
 (‘nevermind’ is the name of my custom theme, because holy hell, I’m unoriginal; the default would be twentytwelve or twentyeleven)
 
 There may be just the one, or there may be multiple bits of code like this, depending on your theme. This is actually (almost) the original snippet from the new Twenty Twelve theme. The function themename_widgets_init() initializes the little widgets you can place in your sidebar. Each register_sidebar() call does exactly what you would think it would, it registers the sidebar in question.
@@ -67,7 +67,7 @@ This is best served with an example. Suppose you want to have a custom sidebar f
 		'before_title'  => '<h3 class="about-sidebar">',
 		'after_title'   => '</h3>' 
 	); ?>
-	
+
 The bits that say `<li>` and `<h3>` will vary depending on your theme. In the Twenty Twelve theme, they’re `<aside>` and `<h3>` respectively. Change each instance to what it is for the other sidebars in your theme; this will help keep a consistent look for your sidebars. For the sidebar’s ID, make sure it is something along the lines of ‘sidebar-whateverthesidebarisabout’. This is important for later. Make sure to put this before the closing } for the themename_widgets_init() function.
 
 Upload your new/modified functions.php file to your webhost (you can use something like Filezilla to do so). If you go now to Appearance then Widgets, you’ll see your new sidebar to the right, grouped right below with the others. You can add widgets to it, although nothing will show up yet on any of your pages. To change that, we need to create a new template file.
@@ -101,7 +101,7 @@ Make sure to look at your own and substitute accordingly. Luckily, the code here
 			<?php dynamic_sidebar( 'sidebar-about' ); ?>
 		</div><!-- #secondary -->
 	<?php endif; ?>
-	
+
 What this code will do is display your widgets if there are any, and display nothing if there are none for whatever reason. Upload this file too to your theme directory.
 
 # Include
@@ -133,7 +133,7 @@ This next bit is verbatim from page.php. It’s what allows the content you type
 				<?php get_template_part( 'content', 'page' ); ?>
 				<?php comments_template( '', true ); ?>
 	<?php endwhile; // end of the loop. ?>		
-	
+
 The first line takes the content from content-page.php, and the second is the comments template.
 
 To finish it up, add 
@@ -143,5 +143,5 @@ To finish it up, add
 
 	<?php get_sidebar('about'); ?>
 	<?php get_footer(); ?>
-	
+
 The part in parentheses (‘about’) will change depending on the ID of your sidebar, back in the functions.php file. Now you can upload page-about.php to your webhost. If you’ve done it correctly, when you go to create a new page, you should see your new template in the template options.

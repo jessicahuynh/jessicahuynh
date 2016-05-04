@@ -45,7 +45,7 @@ A better way soon came up. I came across an [implementation of point-in-polygon 
 		
 		return included;
 	},
-	
+
 The relevant bit is the third for-loop.
 
 ## Grabbing the distance
