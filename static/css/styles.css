@@ -506,6 +506,21 @@ section header h6 {
 .typeStatus a:active {
   color: #b22217;
 }
+.postLi {
+  font-style: normal;
+}
+.postLi a {
+  display: block;
+  padding: 0.5rem;
+  width: 100%;
+  text-decoration: none;
+}
+.postLi a:hover,
+.postLi a:focus,
+.postLi a:active {
+  background: #b22217;
+  color: #f7f5e7;
+}
 .portfolio {
   background: #4b5e87;
   color: #f7f5e7;

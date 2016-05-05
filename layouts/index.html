@@ -24,6 +24,30 @@
 			</div>
 		</div>
 	</header>
+	
+	{{ range $index, $element := first 5 (where .Site.Pages "Section" "blog") }}
+		{{ if eq $element.Params.kind "post" }}
+		<div>
+		{{ else }}
+			{{ if eq $element.Params.kind "status" }}
+		<div class="typeStatus">
+			{{ end }}
+		{{ end }}
+		
+			<div class="row">
+				<div class="small-12 medium-9 medium-centered columns">
+	
+		{{ if eq $index 0 }}   
+			{{ .Render "summary" }}
+		{{ else }} 
+			{{ .Render "li" }}
+		{{ end }}
+				
+				</div>
+			</div>
+		
+		</div>
+	{{ end }}
 </section>
 
 {{ partial "footer.html" . }}
