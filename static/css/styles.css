@@ -455,6 +455,11 @@ section header h6 {
   .blogListBar aside header a {
     padding: 0.25rem;
   }
+  .blogListBar aside header a:hover,
+  .blogListBar aside header a:focus,
+  .blogListBar aside header a:active {
+    background: #722d19;
+  }
   .blogListBar aside .decoration {
     display: none;
   }
@@ -473,6 +478,9 @@ section header h6 {
 @media screen and (min-width: 40rem) {
   .blogListBar aside .sideBoxContent {
     display: none;
+  }
+  .blogListBar aside header a:hover {
+    background: #722d19;
   }
 }
 .typeStatus {
