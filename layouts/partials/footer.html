@@ -6,21 +6,23 @@
       <div class="row">
         
         <aside class="small-12 medium-4 columns">
-          <p>Made with HTML5, CSS3, <a href="https://code.visualstudio.com/">Visual Studio Code</a>, <a href="http://foundation.zurb.com/">Foundation</a>, <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>, and <a href="http://gohugo.io/">Hugo</a>. Hosted by <a href="https://www.aerobatic.com/">Aerobatic</a>.</p>
+          <p>Made with HTML5, CSS3, <a href="https://code.visualstudio.com/">Visual Studio Code</a>, <a href="http://foundation.zurb.com/">Foundation&nbsp;6</a>, <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>, and <a href="http://gohugo.io/">Hugo</a>. Hosted by <a href="https://www.aerobatic.com/">Aerobatic</a>.</p>
         </aside>
         
-        <div class="small-12 medium-4 columns">
-          Featured posts
-          <ul><li>D</li>
+        <aside class="small-12 medium-4 columns featuredposts">
+          <header>Recent posts</header>
+          <ul>
+            {{ range first 5 (where .Site.Pages "Section" "blog") }}
+              <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+            {{ end }}
            </ul>
-        </div>
+        </aside>
         
-        <aside class="small-12 medium-4 columns menu-centered">
-          <ul class="menu no-bullet">
-            <li><a href="#"><i class="fa fa-twitter fa-2x"></i></a></li>
-            <li><a href="#"><i class="fa fa-linkedin fa-2x"></i></a></li>
-            <li><a href="#"><i class="fa fa-github fa-2x"></i></a></li>
-            <li><a href="#"><i class="fa fa-rss fa-2x"></i></a></li>
+        <aside class="small-12 medium-4 columns socialmedia text-center">
+            <a href="http://twitter.com/jessicahhuynh" class="twitter"><i class="fa fa-twitter fa-3x"></i></a>
+            <a href="http://www.linkedin.com/in/jessicahhuynh" class="linkedin"><i class="fa fa-linkedin-square fa-3x"></i></a>
+            <a href="http://github.com/jessicahuynh" class="github"><i class="fa fa-github fa-3x"></i></a>
+            <a href="{{ .RSSlink }}" class="rss"><i class="fa fa-rss fa-3x"></i></a>
           </ul>
         </aside>
         

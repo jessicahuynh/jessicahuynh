@@ -26,8 +26,8 @@ footer a:visited {
 footer a:hover,
 footer a:focus,
 footer a:active {
-  color: #5e7700;
-  text-decoration: none;
+  color: #c3f600;
+  text-decoration: underline;
 }
 header nav a,
 .copyright,
@@ -53,12 +53,23 @@ body {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto -16em;
+  margin: 0 auto -16rem;
+}
+@media screen and (min-width: 40rem) {
+  .wrapper {
+    margin: 0 auto -12rem;
+  }
 }
 footer,
 .push {
-  height: 16em;
+  height: 16rem;
   clear: both;
+}
+@media screen and (min-width: 40rem) {
+  footer,
+  .push {
+    height: 12rem;
+  }
 }
 .mainContent {
   background-color: #eeeeee;
@@ -176,7 +187,7 @@ footer {
   background: #273145;
   font-size: 0.8rem;
   color: #f7f5e7;
-  padding-top: 1em;
+  padding-top: 2em;
 }
 .copyright {
   position: absolute;
@@ -203,6 +214,33 @@ footer {
 .backToTop a:focus,
 .backToTop a:active {
   color: #ea9629;
+}
+/* social media colors */
+.socialmedia a {
+  padding: 2rem 0.5rem;
+}
+a.twitter:hover,
+a.twitter:focus,
+a.twitter:active {
+  color: #55acee;
+}
+a.linkedin:hover,
+a.linkedin:focus,
+a.linkedin:active {
+  color: #007bb6;
+}
+a.github:hover,
+a.github:focus,
+a.github:active {
+  color: #eeeeee;
+}
+a.rss:hover,
+a.rss:focus,
+a.rss:active {
+  color: #ea9629;
+}
+.featuredposts header {
+  font-size: 1.2rem;
 }
 .sideBox {
   background: #273145;
