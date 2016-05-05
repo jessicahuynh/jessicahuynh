@@ -4,11 +4,19 @@
 }
 
 .portfolioCard {
-	padding:1rem;
-	background:@cream;
-	color:@primaryDarker;
 	margin-top:1rem;
 	margin-bottom:1rem;
+	padding:0rem;
+	div {
+		background:@cream;
+		color:@primaryDarker;
+		padding:1rem;
+		height:100%;
+	}
+	
+	@media screen and (min-width:40rem) {
+		padding:1rem;
+	}
 }
 
 .portfolioPage {

@@ -473,11 +473,20 @@ section header h6 {
   color: #f7f5e7;
 }
 .portfolioCard {
-  padding: 1rem;
-  background: #f7f5e7;
-  color: #4b5e87;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  padding: 0rem;
+}
+.portfolioCard div {
+  background: #f7f5e7;
+  color: #4b5e87;
+  padding: 1rem;
+  height: 100%;
+}
+@media screen and (min-width: 40rem) {
+  .portfolioCard {
+    padding: 1rem;
+  }
 }
 .portfolioPage {
   background: #273145;
