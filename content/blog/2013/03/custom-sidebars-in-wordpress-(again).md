@@ -5,6 +5,7 @@ kind = "post"
 tags = ["sidebars","widgets","PHP"]
 categories = ["WordPress"]
 slug = "sidebars-again"
+aliases = ["/2013/03/sidebars-again/"]
 +++
 
 I figure it would be a good idea to repost my previous entry on custom sidebars in WordPress, partly for fun, partly to remind myself. This should work for any WordPress website on custom hosting (which means not WordPress.com blogs, unfortunately, unless there’s some magical way of getting at the code the Internet has yet to discover). I will be assuming you’re working off one of the WordPress default templates or can modify as needed on your own.

@@ -468,6 +468,15 @@ section header h6 {
 .typeStatus a:active {
   color: #b22217;
 }
+.portfolio {
+  background: #4b5e87;
+  color: #f7f5e7;
+}
+.portfolioCard {
+  padding: 1rem;
+  background: #f7f5e7;
+  color: #4b5e87;
+}
 form .button {
   background: #4b5e87;
   color: #f7f5e7;
