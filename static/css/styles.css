@@ -53,11 +53,11 @@ body {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto -10em;
+  margin: 0 auto -16em;
 }
 footer,
 .push {
-  height: 10em;
+  height: 16em;
   clear: both;
 }
 .mainContent {
@@ -476,6 +476,28 @@ section header h6 {
   padding: 1rem;
   background: #f7f5e7;
   color: #4b5e87;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.portfolioPage {
+  background: #273145;
+  color: #f7f5e7;
+}
+.portfolioPage header {
+  background: #4b5e87;
+}
+.portfolioPage .portfolioCard {
+  color: #273145;
+}
+.listPostsAbout header {
+  background: #ea9629;
+  color: #273145;
+}
+.listPostsAbout ol {
+  margin-top: 1rem;
+}
+.listPostsAbout ol a {
+  color: #ea9629;
 }
 form .button {
   background: #4b5e87;

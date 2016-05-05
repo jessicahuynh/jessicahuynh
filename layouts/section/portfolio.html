@@ -14,21 +14,17 @@
 			<p class="small-12 columns">Some things I've done.</p>
 		</div>
 		
-		<div class="row">
+		<div class="row small-up-1 medium-up-2 large-up-3" data-equalizer data-equalize-by-row="true">
 			{{ range .Data.Pages }}
-				<section class="small-12 medium-6 columns portfolioCard">
+				<section data-equalizer-watch class="column portfolioCard">
 					<h3><a href="{{ .Permalink}}">{{ .Title }}</a></h3>
 					<p>{{ .Summary }}</p>
-					
-					{{ if .Params.ongoing}}
-						<span class="label secondaryDarker">ongoing</span>
-					{{ else }}
-						<span class="label reddish">concluded</span>
-					{{ end }}
+					<aside>
+						{{ partial "portfoliolabels.html" . }}
+					</aside>
 				</section>
 			{{ end }}
 		</div>
-		
 		<div class="row">&nbsp;</div>
 	</div>
 	

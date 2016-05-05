@@ -1,0 +1,18 @@
+{{ if .Params.ongoing}}
+	<span class="label secondaryDarker">ongoing</span>
+{{ else }}
+	<span class="label reddish">concluded</span>
+{{ end }}
+
+{{ $.Scratch.Set "hasPostsAbout" "false" }}
+{{ $p := .Params.project }}
+{{ range .Site.Pages }}
+	{{if in .Params.projects $p }}
+		{{ $.Scratch.Set "hasPostsAbout" "true" }}
+	{{ end }}
+{{ end }}
+
+{{ $h := $.Scratch.Get "hasPostsAbout" }}
+{{ if eq $h "true" }}
+	<span class="orangish label">has explanatory posts</span>
+{{ end }}

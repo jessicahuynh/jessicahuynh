@@ -1,5 +1,67 @@
 {{ partial "header.html" . }}
 
-{{ .Content }}
+<div class="portfolioPage">
+	<section>
+		<header>
+			<div class="row">
+				<h1 class="small-12 columns">{{ .Title }}</h1>
+			</div>
+		</header>
+		
+		<section>
+			<div class="row portfolioCard">
+				<div class="small-12 columns">
+					{{ partial "portfoliolabels.html" . }}
+				</div>
+			</div>
+		</section>
+		
+		<article>
+			<div class="row portfolioCard">
+				<div class="small-12 columns">
+					{{ .Content }}
+				</div>
+			</div>
+		</article>
+		
+		{{ $.Scratch.Set "hasPostsAbout" "false" }}
+		{{ $p := .Params.project }}
+		{{ range .Site.Pages }}
+			{{if in .Params.projects $p }}
+				{{ $.Scratch.Set "hasPostsAbout" "true" }}
+			{{ end }}
+		{{ end }}
+
+		{{ $h := $.Scratch.Get "hasPostsAbout" }}
+		{{ if eq $h "true" }}
+			<section class="listPostsAbout">
+				<header>
+					<div class="row">
+						<h2 class="small-12 columns">Posts about {{ .Title }}</h2>
+					</div>
+				</header>
+				
+				<div class="row">
+					<div class="small-12 columns">
+						<ol>
+							{{ $p := .Params.project }}
+							{{ range .Site.Pages }}
+								{{ if in .Params.projects $p }}
+									<li>
+										<span class="label reddish"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{ .Date.Format "Mon, Jan 2, 2006" }}</span>
+										<a href="{{ .Permalink }}">{{ .Title }}</a>: 
+										{{ .Description }}
+									</li>
+								{{ end }}
+							{{ end }}
+						</ol>
+					</div>
+				</div>
+			</section>
+		{{ end }}
+		
+		
+	</section>&nbsp;
+</div>
 
 {{ partial "footer.html" . }}
