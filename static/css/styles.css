@@ -10,7 +10,7 @@ a:visited {
 a:hover,
 a:focus,
 a:active {
-  color: #ea9629;
+  color: #b22217;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -21,12 +21,12 @@ a .label:active {
 }
 footer a:link,
 footer a:visited {
-  color: #c3f600;
+  color: #ea9629;
 }
 footer a:hover,
 footer a:focus,
 footer a:active {
-  color: #c3f600;
+  color: #ea9629;
   text-decoration: underline;
 }
 header nav a,
