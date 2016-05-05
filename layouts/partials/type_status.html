@@ -1,6 +1,8 @@
 <div class="typeStatus">
 	<div class="row">
 		<div class="medium-9 columns">
+			<header class="postTitle"><h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1></header>
+			
 			<div class="statusContent">{{ .Content }}</div>
 			
 			<div>{{ partial "postmetadata.html" . }}</div>

@@ -187,7 +187,6 @@ section header {
 	font-style:italic;
 	
 	.statusContent {
-		padding-top:4rem;
 		font-size:1.2rem;
 	}
 	
@@ -196,8 +195,10 @@ section header {
 		font-style:normal;
 	}
 	
-	.postTitle a {
-		color:@offWhite;
+	.postTitle {
+		a:link, a:visited, a:hover, a:focus, a:active {
+			color:@bodyText;
+		}
 	}
 	
 	.prevnextpost {

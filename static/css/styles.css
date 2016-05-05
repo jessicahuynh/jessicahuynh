@@ -41,6 +41,11 @@ h5,
 h6 {
   font-family: "Fira Sans", "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
 * {
   margin: 0;
 }
@@ -489,15 +494,18 @@ section header h6 {
   font-style: italic;
 }
 .typeStatus .statusContent {
-  padding-top: 4rem;
   font-size: 1.2rem;
 }
 .typeStatus .label {
   color: #f7f5e7;
   font-style: normal;
 }
-.typeStatus .postTitle a {
-  color: #eeeeee;
+.typeStatus .postTitle a:link,
+.typeStatus .postTitle a:visited,
+.typeStatus .postTitle a:hover,
+.typeStatus .postTitle a:focus,
+.typeStatus .postTitle a:active {
+  color: #220e10;
 }
 .typeStatus .prevnextpost {
   font-style: normal;
@@ -579,5 +587,8 @@ form .button:active {
   background: #8092b8;
 }
 .required i {
-  color: red;
+  color: #b22217;
+}
+.hidden {
+  display: none;
 }
