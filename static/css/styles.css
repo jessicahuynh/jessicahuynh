@@ -204,6 +204,9 @@ footer {
 .copyright span {
   display: block;
 }
+.copyright a {
+  color: #273145;
+}
 .backToTop {
   position: fixed;
   right: 2rem;
