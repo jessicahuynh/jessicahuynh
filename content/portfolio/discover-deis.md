@@ -5,4 +5,4 @@ title = "Discover Deis"
 ongoing = true
 +++
 
-Discover Deis is a navigation app for Brandeis University, made during the summer 2015 JBS on Voice, Mobile, and Web App Development by myself, Tianci Zhong, and Ziyu Qiu. You can view the results of the summer program at deisdiscover.meteor.com and more about the JBS here, including a link to our final presentation. If you like, you can also take a gander at our GitHub repository. 
+Discover Deis is a navigation and location finding app for Brandeis University that was started during the summer 2015 JBS on [Voice, Mobile, and Web App Development](http://sites.google.com/a/brandeis.edu/jbs-2015-cosi) by myself, Tianci Zhong, and Ziyu Qiu. It was continued with me, Ziyu, Limin Wang, Dewar Tan, and Jane Kwon during a Fall 2015 independent study with the five-member group continuing to work on it since then.
