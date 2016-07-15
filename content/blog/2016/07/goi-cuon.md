@@ -2,7 +2,7 @@
 categories = ["Recipes"]
 date = "2016-07-14T22:22:26-04:00"
 kind = "post"
-tags = ["vietnamese", "summer 2016","jbs"]
+tags = ["vietnamese","summer 2016","jbs"]
 title = "Gỏi cuốn and peanut sauce recipe"
 
 +++
