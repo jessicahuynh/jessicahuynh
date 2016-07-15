@@ -6,7 +6,7 @@ pluralizeListTitles = false
 
 [params]
 	subtitle = "/hwɪn/"
-	categories = ["jessicahuynh.info","Web development","WordPress"]
+	categories = ["jessicahuynh.info","Web development","WordPress","Recipes"]
 	kinds = ["post","status"]
 	
 [taxonomies]
