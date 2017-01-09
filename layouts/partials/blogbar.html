@@ -22,7 +22,7 @@
 			<div class="sideBoxContent">
 				<ul>
 					{{ range $k := .Site.Params.sorts }}
-						<li><a href="/blog/{{ $k | urlize }}">{{ $k }}</a></li>
+						<li><a href="/blog/type/{{ $k | urlize }}">{{ $k }}</a></li>
 					{{ end }}
 				</ul>
 			</div>
