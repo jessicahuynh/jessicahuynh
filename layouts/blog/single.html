@@ -1,9 +1,9 @@
 {{ partial "header.html" . }}
 
-{{ if eq .Params.kind "post" }}
+{{ if eq .Params.sort "post" }}
 	{{ partial "type_post.html" . }}
 {{ else }}
-	{{ if eq .Params.kind "status" }}
+	{{ if eq .Params.sort "status" }}
 		{{ partial "type_status.html" . }}
 	{{ end }}
 {{ end }}

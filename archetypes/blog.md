@@ -1,6 +1,7 @@
 +++
 tags = ["x", "y"]
 categories = ["x", "y"]
-kind = "post"
+sort = "post"
+kind = "page"
 +++
 

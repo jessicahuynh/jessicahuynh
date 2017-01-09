@@ -11,7 +11,7 @@
 	
 	<div class="row">
 		<div class="small-12 medium-9 medium-centered columns">
-			<p>Student of computational linguistics at <a href="http://brandeis.edu/">Brandeis University</a>, research assistant in the Language Based Spatial Reasoning lab (part of the Communicating with Computers project)</p>
+			{{ .Content }}
 		</div>
 	</div>
 </section>
@@ -26,10 +26,10 @@
 	</header>
 	
 	{{ range $index, $element := first 5 (where .Site.Pages "Section" "blog") }}
-		{{ if eq $element.Params.kind "post" }}
+		{{ if eq $element.Params.sort "post" }}
 		<div>
 		{{ else }}
-			{{ if eq $element.Params.kind "status" }}
+			{{ if eq $element.Params.sort "status" }}
 		<div class="typeStatus">
 			{{ end }}
 		{{ end }}

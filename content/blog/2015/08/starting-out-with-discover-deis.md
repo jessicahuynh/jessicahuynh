@@ -1,7 +1,8 @@
 +++
 categories = ["Web development"]
 date = "2015-08-04T12:00:00-04:00"
-kind = "post"
+sort = "post"
+kind = "page"
 tags = ["jbs"]
 projects = ["Discover Deis"]
 title = "Starting out with Discover Deis"
