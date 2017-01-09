@@ -25,28 +25,30 @@
 		</div>
 	</header>
 	
-	{{ range $index, $element := first 5 (where .Site.Pages "Section" "blog") }}
-		{{ if eq $element.Params.sort "post" }}
-		<div>
-		{{ else }}
-			{{ if eq $element.Params.sort "status" }}
-		<div class="typeStatus">
+	{{ range $index, $element := first 6 (where .Site.RegularPages "Section" "blog") }}
+		{{ if ne $index 0 }}
+			{{ if eq $element.Params.sort "post" }}
+			<div>
+			{{ else }}
+				{{ if eq $element.Params.sort "status" }}
+			<div class="typeStatus">
+				{{ end }}
 			{{ end }}
-		{{ end }}
+			
+				<div class="row">
+					<div class="small-12 medium-9 medium-centered columns">
 		
-			<div class="row">
-				<div class="small-12 medium-9 medium-centered columns">
-	
-		{{ if eq $index 0 }}   
-			{{ .Render "summary" }}
-		{{ else }} 
-			{{ .Render "li" }}
-		{{ end }}
-				
+			{{ if eq $index 1 }}   
+				{{ .Render "summary" }}
+			{{ else }} 
+				{{ .Render "li" }}
+			{{ end }}
+					
+					</div>
 				</div>
+			
 			</div>
-		
-		</div>
+		{{ end }}
 	{{ end }}
 </section>
 
