@@ -3,23 +3,23 @@
 {{ partial "blogbar.html" . }}
 
 {{ range .Data.Pages }}
-	{{ if ne .Title "Blog" }}
-		{{ if eq .Params.sort "post" }}
-			<div id="blogList">
-		{{ else }}
-			{{ if eq .Params.sort "status" }}
-				<div class="typeStatus" id="blogList">
-			{{ end }}
-		{{ end }}
-		
-			<div class="row">
-				<div class="small-12 medium-9 medium-centered columns">
-					{{ .Render "summary" }}
-				</div>
-			</div>
 
-		</div>
+	{{ if eq .Params.sort "post" }}
+		<div id="blogList">
+	{{ else }}
+		{{ if eq .Params.sort "status" }}
+			<div class="typeStatus" id="blogList">
+		{{ end }}
 	{{ end }}
+	
+		<div class="row">
+			<div class="small-12 medium-9 medium-centered columns">
+				{{ .Render "summary" }}
+			</div>
+		</div>
+
+	</div>
+
 {{ end }}
 
 
