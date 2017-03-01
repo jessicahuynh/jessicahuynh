@@ -6,4 +6,4 @@ kind = "home"
 url = "/"
 +++
 
-Master's candidate in computational linguistics at [Brandeis University](http://www.brandeis.edu), currently interning as NLP research assistant at [Partners HealthCare](http://www.partners.org/); undergrad in computer science & linguistics; interests include medical NLP, segmentation, machine translation, dialog management, ASR, underresourced languages, cooking, and far too much knowledge about public transportation in the US
+Master's candidate in computational linguistics at [Brandeis University](http://www.brandeis.edu), currently interning as NLP research assistant at [Partners HealthCare](http://www.partners.org/); undergrad in computer science & linguistics; interests include medical NLP, segmentation, machine translation, dialog management, underresourced languages, cooking, and US public transportation policy
