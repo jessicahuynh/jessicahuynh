@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Widgets on Jessica Huynh</title>
+    <link>/tags/widgets/index.xml</link>
+    <description>Recent content in Widgets on Jessica Huynh</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="/tags/widgets/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Custom Sidebars in WordPress (again)</title>
+      <link>/blog/2013/03/sidebars-again/</link>
+      <pubDate>Mon, 25 Mar 2013 00:00:00 -0400</pubDate>
+      
+      <guid>/blog/2013/03/sidebars-again/</guid>
+      <description>
+
+&lt;p&gt;I figure it would be a good idea to repost my previous entry on custom sidebars in WordPress, partly for fun, partly to remind myself. This should work for any WordPress website on custom hosting (which means not WordPress.com blogs, unfortunately, unless there’s some magical way of getting at the code the Internet has yet to discover). I will be assuming you’re working off one of the WordPress default templates or can modify as needed on your own.&lt;/p&gt;
+
+&lt;h1 id=&#34;registering&#34;&gt;Registering&lt;/h1&gt;
+
+&lt;p&gt;Deep in the WordPress theme files (that would be &lt;a href=&#34;http://yourblogurl/wp-contents/themes/themefolder&#34;&gt;http://yourblogurl/wp-contents/themes/themefolder&lt;/a&gt;), there is a file called functions.php. Open it with Notepad or something similar (or you can use the built-in editor, Appearance then Editor) and search for&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function nevermind_widgets_init() {
+    register_sidebar( array(
+        &#39;name&#39; =&amp;gt; __( &#39;Main Sidebar&#39;, &#39;nevermind&#39; ),
+        &#39;id&#39; =&amp;gt; &#39;sidebar-1&#39;,
+        &#39;description&#39; =&amp;gt; __( &#39;Appears on posts and pages except the optional Front Page template, which has its own widgets&#39;, &#39;nevermind&#39; ),
+        &#39;before_widget&#39; =&amp;gt; &#39;&amp;lt;aside id=&amp;quot;%1$s&amp;quot; class=&amp;quot;widget %2$s&amp;quot;&amp;gt;&#39;,
+        &#39;after_widget&#39; =&amp;gt; &#39;&amp;lt;/aside&amp;gt;&#39;,
+        &#39;before_title&#39; =&amp;gt; &#39;&amp;lt;h3 class=&amp;quot;widget-title&amp;quot;&amp;gt;&#39;,
+        &#39;after_title&#39; =&amp;gt; &#39;&amp;lt;/h3&amp;gt;&#39;,
+    ) );
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;(‘nevermind’ is the name of my custom theme, because holy hell, I’m unoriginal; the default would be twentytwelve or twentyeleven)&lt;/p&gt;
+
+&lt;p&gt;There may be just the one, or there may be multiple bits of code like this, depending on your theme. This is actually (almost) the original snippet from the new Twenty Twelve theme. The function themename_widgets_init() initializes the little widgets you can place in your sidebar. Each register_sidebar() call does exactly what you would think it would, it registers the sidebar in question.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-if-i-don-t-have-a-functions-php-file&#34;&gt;What if I don’t have a functions.php file?&lt;/h2&gt;
+
+&lt;p&gt;Check again and be sure, but if you don’t, just create a file called functions.php and stick &amp;lt;?php at the beginning of it, without whitespace, and follow along.&lt;/p&gt;
+
+&lt;h2 id=&#34;breaking-register-sidebar-down&#34;&gt;Breaking register_sidebar() down&lt;/h2&gt;
+
+&lt;p&gt;A good resource, if you’re familiar with coding at all, is the WordPress codex, where there are pages of information about each function you could possibly want to know. To save you a click though, here’s what the codex says:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php register_sidebar( array(
+    &#39;name&#39;          =&amp;gt; __( &#39;Sidebar name&#39;, &#39;theme_text_domain&#39; ),
+    &#39;id&#39;            =&amp;gt; &#39;unique-sidebar-id&#39;,
+    &#39;description&#39;   =&amp;gt; &#39;&#39;,
+        &#39;class&#39;         =&amp;gt; &#39;&#39;,
+    &#39;before_widget&#39; =&amp;gt; &#39;&amp;lt;li id=&amp;quot;%1$s&amp;quot; class=&amp;quot;widget %2$s&amp;quot;&amp;gt;&#39;,
+    &#39;after_widget&#39;  =&amp;gt; &#39;&amp;lt;/li&amp;gt;&#39;,
+    &#39;before_title&#39;  =&amp;gt; &#39;&amp;lt;h2 class=&amp;quot;widgettitle&amp;quot;&amp;gt;&#39;,
+    &#39;after_title&#39;   =&amp;gt; &#39;&amp;lt;/h2&amp;gt;&#39; 
+); ?&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;parameters&#34;&gt;Parameters&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;name – Sidebar name (default is localized ‘Sidebar’ and numeric ID).&lt;/li&gt;
+&lt;li&gt;id – Sidebar id – Must be all in lowercase, with no spaces (default is a numeric auto-incremented ID).
+description – Text description of what/where the sidebar is. Shown on widget management screen. (Since 2.9) (default: empty)&lt;/li&gt;
+&lt;li&gt;class – CSS class name to assign to the widget HTML (default: empty).&lt;/li&gt;
+&lt;li&gt;before_widget – HTML to place before every widget(default: &lt;code&gt;&amp;lt;li id=&amp;quot;%1$s&amp;quot; class=&amp;quot;widget %2$s&amp;quot;&amp;gt;&lt;/code&gt;) Note: uses sprintf for variable substitution&lt;/li&gt;
+&lt;li&gt;after_widget – HTML to place after every widget (default: &lt;code&gt;&amp;lt;/li&amp;gt;\n&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;before_title – HTML to place before every title (default: &lt;code&gt;&amp;lt;h2 class=&amp;quot;widgettitle&amp;quot;&amp;gt;&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;after_title – HTML to place after every title (default: &lt;code&gt;&amp;lt;/h2&amp;gt;\n&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This is best served with an example. Suppose you want to have a custom sidebar for your ‘about’ page that details contact information. If it were me, I’d add the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php register_sidebar( array(
+    &#39;name&#39;          =&amp;gt; __( &#39;About Sidebar&#39;, &#39;whateveryourthemeis&#39; ),
+    &#39;id&#39;            =&amp;gt; &#39;sidebar-about&#39;,
+    &#39;description&#39;   =&amp;gt; __( &#39;Appears on the About page&#39;),
+    &#39;before_widget&#39; =&amp;gt; &#39;&amp;lt;li id=&amp;quot;%1$s&amp;quot; class=&amp;quot;widget %2$s&amp;quot;&amp;gt;&#39;,
+    &#39;after_widget&#39;  =&amp;gt; &#39;&amp;lt;/li&amp;gt;&#39;,
+    &#39;before_title&#39;  =&amp;gt; &#39;&amp;lt;h3 class=&amp;quot;about-sidebar&amp;quot;&amp;gt;&#39;,
+    &#39;after_title&#39;   =&amp;gt; &#39;&amp;lt;/h3&amp;gt;&#39; 
+); ?&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The bits that say &lt;code&gt;&amp;lt;li&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;h3&amp;gt;&lt;/code&gt; will vary depending on your theme. In the Twenty Twelve theme, they’re &lt;code&gt;&amp;lt;aside&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;h3&amp;gt;&lt;/code&gt; respectively. Change each instance to what it is for the other sidebars in your theme; this will help keep a consistent look for your sidebars. For the sidebar’s ID, make sure it is something along the lines of ‘sidebar-whateverthesidebarisabout’. This is important for later. Make sure to put this before the closing } for the themename_widgets_init() function.&lt;/p&gt;
+
+&lt;p&gt;Upload your new/modified functions.php file to your webhost (you can use something like Filezilla to do so). If you go now to Appearance then Widgets, you’ll see your new sidebar to the right, grouped right below with the others. You can add widgets to it, although nothing will show up yet on any of your pages. To change that, we need to create a new template file.&lt;/p&gt;
+
+&lt;h1 id=&#34;creating-the-template-file&#34;&gt;Creating the template file&lt;/h1&gt;
+
+&lt;p&gt;In your theme folder, there should also be a sidebar.php file.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+/**
+* The sidebar containing the main widget area.
+*
+* If no active widgets in sidebar, let&#39;s hide it completely.
+*
+* @package depends on your theme
+* @subpackage ditto
+* @since same
+*/
+?&amp;gt;
+
+    &amp;lt;?php if ( is_active_sidebar( &#39;sidebar-1&#39; ) ) : ?&amp;gt;
+        &amp;lt;div id=&amp;quot;secondary&amp;quot; class=&amp;quot;widget-area&amp;quot; role=&amp;quot;complementary&amp;quot;&amp;gt;
+            &amp;lt;?php dynamic_sidebar( &#39;sidebar-1&#39; ); ?&amp;gt;
+        &amp;lt;/div&amp;gt;&amp;lt;!-- #secondary --&amp;gt;
+    &amp;lt;?php endif; ?&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Make sure to look at your own and substitute accordingly. Luckily, the code here is very easily to modify. In the above code, you would change the instances of ‘1’ to ‘about’ for our example, so it would look like:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php if ( is_active_sidebar( &#39;sidebar-about&#39; ) ) : ?&amp;gt;
+    &amp;lt;div id=&amp;quot;secondary&amp;quot; class=&amp;quot;widget-area&amp;quot; role=&amp;quot;complementary&amp;quot;&amp;gt;
+        &amp;lt;?php dynamic_sidebar( &#39;sidebar-about&#39; ); ?&amp;gt;
+    &amp;lt;/div&amp;gt;&amp;lt;!-- #secondary --&amp;gt;
+&amp;lt;?php endif; ?&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;What this code will do is display your widgets if there are any, and display nothing if there are none for whatever reason. Upload this file too to your theme directory.&lt;/p&gt;
+
+&lt;h1 id=&#34;include&#34;&gt;Include&lt;/h1&gt;
+
+&lt;p&gt;Now the fun part, building a template for you to use your sidebar on. Much of this is self-explanatory.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+/**
+* Template Name: About
+*
+* Description: Template for the About page
+*
+* @package whatever
+* @subpackage your
+* @since theme_says
+**/
+
+
+get_header(); ?&amp;gt;
+
+    &amp;lt;section id=&amp;quot;primary&amp;quot; class=&amp;quot;site-content right-content&amp;quot;&amp;gt;
+        &amp;lt;div id=&amp;quot;content&amp;quot; role=&amp;quot;main&amp;quot;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will be the first bit of your template, you can name it whatever you like (page-whatever.php usually). The &lt;strong&gt;Template Name&lt;/strong&gt; will be whatever you select in the drop-down menu for your Page.&lt;/p&gt;
+
+&lt;p&gt;This next bit is verbatim from page.php. It’s what allows the content you type when editing the post to show up in your page. You can read up on get_template_part() if you wish.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php while ( have_posts() ) : the_post(); ?&amp;gt;
+            &amp;lt;?php get_template_part( &#39;content&#39;, &#39;page&#39; ); ?&amp;gt;
+            &amp;lt;?php comments_template( &#39;&#39;, true ); ?&amp;gt;
+&amp;lt;?php endwhile; // end of the loop. ?&amp;gt;      
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The first line takes the content from content-page.php, and the second is the comments template.&lt;/p&gt;
+
+&lt;p&gt;To finish it up, add&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;            &amp;lt;/div&amp;gt;&amp;lt;!-- #content --&amp;gt;
+    &amp;lt;/section&amp;gt;&amp;lt;!-- #primary --&amp;gt;
+
+&amp;lt;?php get_sidebar(&#39;about&#39;); ?&amp;gt;
+&amp;lt;?php get_footer(); ?&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The part in parentheses (‘about’) will change depending on the ID of your sidebar, back in the functions.php file. Now you can upload page-about.php to your webhost. If you’ve done it correctly, when you go to create a new page, you should see your new template in the template options.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

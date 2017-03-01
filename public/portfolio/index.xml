@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Portfolio on Jessica Huynh</title>
+    <link>/portfolio/index.xml</link>
+    <description>Recent content in Portfolio on Jessica Huynh</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 09 Jan 2017 15:59:57 -0400</lastBuildDate>
+    <atom:link href="/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Discover Deis</title>
+      <link>/portfolio/discover-deis/</link>
+      <pubDate>Wed, 04 May 2016 22:07:20 -0400</pubDate>
+      
+      <guid>/portfolio/discover-deis/</guid>
+      <description>&lt;p&gt;Discover Deis is a navigation and location finding app for Brandeis University that was started during the summer 2015 JBS on &lt;a href=&#34;http://sites.google.com/a/brandeis.edu/jbs-2015-cosi&#34;&gt;Voice, Mobile, and Web App Development&lt;/a&gt; by myself, Tianci Zhong, and Ziyu Qiu. It was continued with me, Ziyu, Limin Wang, Dewar Tan, and Jane Kwon during a Fall 2015 independent study with the five-member group continuing to work on it since then.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Arabic grammar review</title>
+      <link>/portfolio/arabic-grammar-review/</link>
+      <pubDate>Wed, 04 May 2016 19:29:15 -0400</pubDate>
+      
+      <guid>/portfolio/arabic-grammar-review/</guid>
+      <description>&lt;p&gt;I’ve been playing around with &lt;a href=&#34;http://sway.com/&#34;&gt;Sway&lt;/a&gt;, the newest entry in the Office line-up, to make a series of brief grammar reviews for Modern Standard Arabic. You can find them collected &lt;a href=&#34;https://docs.com/jessica-huynh/3116/arabic-grammar&#34;&gt;at this link&lt;/a&gt; or individually below. I’ll add more slowly as time goes on.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://sway.com/osQrQGHUPWw5GfuM&#34;&gt;Sentence types and cases&lt;/a&gt; (8/7/2015)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sway.com/iv9UlRRx_ld0-G3x&#34;&gt;Conditional sentences&lt;/a&gt; (8/11/2015)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sway.com/Zctq8lA2QE9vL0l4&#34;&gt;Participles&lt;/a&gt; (8/16/2015)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sway.com/2BekXlw0iTUcs5H_&#34;&gt;الحال&lt;/a&gt; (8/25/2015)&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
