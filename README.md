@@ -4,4 +4,4 @@ Personal website built with the [hugo](gohugo.io) static site generator. Continu
 
 LESS compiled into CSS markup with a Visual Studio code task (inside `.vscode/`).
 
-On a local machine, clone repo, download hugo, and run `hugo server` command. To generate website into the `public/` directory, run `hugo'.
+On a local machine, clone repo, download hugo, and run `hugo server` command. To generate website into the `public/` directory, run `hugo`.
