@@ -12,13 +12,13 @@ description = "About the planning process for Discover Deis and the early stages
 
 For the past nine weeks, I’ve been a member of the [Voice, Mobile, and Web Application Development Justice Brandeis Semester](https://sites.google.com/a/brandeis.edu/jbs-2015-cosi/), a program that helped us learn exactly what it seems like we should. Now that it’s over and done with, I’d like to look back on exactly how we got our app to where it is and some steps in the future we can take, because it’d be nice to make this a much more official app and fill out the empty spots in our already extensive database.
 
-# Brandeis Voice Tour
+## Brandeis Voice Tour
 
 The program was nine weeks long, with the first five weeks devoted to classes (and working on our group project on Wednesdays) and the last four devoted to solely working on our project. The first two Wednesdays were devoted to team building with all the members of the JBS, followed by team formation and getting out the minimum viable product (MVP).
 
 When the group was originally formed, we were going to do hands-free navigation of public transportation. After some discussion, we switched to a voice tour app for Brandeis, partly because there was a higher chance of people getting to use it, and partly because hands-free navigation of public transit has already been done by larger groups than us.
 
-## Data collection and point-in-polygon testing
+### Data collection and point-in-polygon testing
 
 At this stage, we knew that there were about 150 or so buildings on campus. The question of how to detect what buildings the user was in or near came up, and the original thought was to start off with JSON objects (with one location per object), with a field that was an array of coordinates. In this array, we’d have four coordinates, and if your current location was less than this point but greater than this point, you’d be inside.
 
@@ -50,17 +50,17 @@ A better way soon came up. I came across an [implementation of point-in-polygon 
 
 The relevant bit is the third for-loop.
 
-## Grabbing the distance
+### Grabbing the distance
 
 So that’s all well and good, but if you’re not in a location, it’d be nice to know how close you are to the closest location. To that end, we used a distance algorithm for coordinates (it’s not very interesting so I won’t show it; it’s in the GitHub if you’re really curious) that returns the distance between two points. In the interest of time and convenience, I wrote it so that the point of the location that is passed to the distance function is just the first element in that array of coordinates.
 
-## Routing
+### Routing
 
 We initially tried it out on a set of about six locations on campus and the distance finding and point-in-polygon worked pretty well and this was the MVP we submitted after the first week as a group.
 
 The next step was to route between locations and our first intuition (because I already had a bad feeling about having to get intersections’ coordinate data) was to write paths between each location that we had that was connected. Tianci found an implementation of single source, shortest path in JavaScript and we had routing working between our six locations.
 
-# Switching to a navigation app
+## Switching to a navigation app
 
 Throughout this process, part of the JBS was that we list features we would like in our app and do sprints and stories (as part of agile development, although I can’t say that many of the groups adhered very strictly to it) revolving around it. One issue we kept running into was feature bloat, wanting to add things like events nearby and classes at a location, along with a lot of arguing over what exactly would be on the home page. I was a big fan of a map and buttons and Ziyu thought that achievements and a profile would be good, to keep people coming back.
 

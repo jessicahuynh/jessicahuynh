@@ -11,9 +11,9 @@ Gỏi cuốn are Vietnamese spring rolls; they're easy to make, especially for g
 
 I'm not giving any particular amounts because I never measure things.<!--more-->
 
-# Vietnamese spring rolls (Gỏi cuốn)
+## Vietnamese spring rolls (Gỏi cuốn)
 
-## Ingredients
+### Ingredients
 - Bánh tráng (rice paper wrappers)
 - Miến (mung bean and potato noodles); in the US they're often in a tell-tale pink mesh wrap. If you can't find them, regular rice noodles will do
 - Sliced cucumbers
@@ -30,7 +30,7 @@ You can also add, depending on dietary requirements and restrictions:
 
 If you're fancy and have money (neither apply for me), the most traditional things to add are pork slices called chả and/or poached beef. Egg is also a popular option, although I've never tried it myself.
 
-## Instructions
+### Instructions
 Make sure everything is cut and sliced properly and fill a large bowl with water.
 
 1. Wet the wrapper in the bowl of water by dipping one part in, then turning it in a circle all the way around
@@ -42,10 +42,10 @@ Make sure everything is cut and sliced properly and fill a large bowl with water
 7. From the bottom, now that the sides are folded over to contain the filling, continue rolling until everything is rolled up
 8. Repeat for as many spring rolls as you want
 
-# Peanut sauce
+## Peanut sauce
 I know the ingredients look fishy but I swear this tastes just as good as anything you'll find in a restaurant or bakery.
 
-## Ingredients
+### Ingredients
 - Peanut butter (chunky or not doesn't matter)
 - Tương đen (Hoison sauce)
 - Garlic
@@ -54,7 +54,7 @@ I know the ingredients look fishy but I swear this tastes just as good as anythi
 
 I do two tablespoons of hoison sauce and peanut butter for every cup of water. You can add sugar and mashed up peanuts too, if that's your preference.
 
-## Instructions
+### Instructions
 1. Put in the peanut butter and hoison sauce
 2. Add water and stir until the peanut butter clumps are no longer visible
 3. Add as much garlic and chili sauce as you feel appropriate
