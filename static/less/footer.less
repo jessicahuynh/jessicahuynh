@@ -6,17 +6,14 @@ footer {
 }
 
 .copyright {
-	position:absolute;
-	width:100%;
 	font-size:0.75rem;
 	color:@primaryDarkest;
 	padding-top:.1rem;
+	background-color:@cream; 
+	margin:0;
+	display:block;
 	
-	span {
-		display:block;
-	}
-	
-	a {
+	a, a:link, a:visited, a:hover, a:focus, a:active {
 		color:@primaryDarkest;
 	}
 }
@@ -41,13 +38,18 @@ footer {
 /* social media colors */
 .socialmedia {
 	a {
-		padding:2rem 0.5rem;
+		padding:3rem 0.5rem;
 	}
 }
 
 a.twitter {
 	&:hover, &:focus, &:active {
 		color:@twitter;
+	}
+}
+a.instagram {
+	&:hover, &:focus, &:active {
+		color:@instagram;
 	}
 }
 a.linkedin {
@@ -62,7 +64,7 @@ a.github {
 }
 a.rss {
 	&:hover, &:focus, &:active {
-		color:@orangish;
+		color:@secondaryColor;
 	}
 }
 

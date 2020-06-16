@@ -54,27 +54,9 @@ body {
   height: 100%;
   background: #f7f5e7;
 }
-.wrapper {
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  margin: 0 auto -16rem;
-}
-@media screen and (min-width: 40rem) {
-  .wrapper {
-    margin: 0 auto -12rem;
-  }
-}
 footer,
 .push {
-  height: 16rem;
   clear: both;
-}
-@media screen and (min-width: 40rem) {
-  footer,
-  .push {
-    height: 12rem;
-  }
 }
 .mainContent {
   background-color: #eeeeee;
@@ -195,16 +177,19 @@ footer {
   padding-top: 2em;
 }
 .copyright {
-  position: absolute;
-  width: 100%;
   font-size: 0.75rem;
   color: #273145;
   padding-top: .1rem;
-}
-.copyright span {
+  background-color: #f7f5e7;
+  margin: 0;
   display: block;
 }
-.copyright a {
+.copyright a,
+.copyright a:link,
+.copyright a:visited,
+.copyright a:hover,
+.copyright a:focus,
+.copyright a:active {
   color: #273145;
 }
 .backToTop {
@@ -225,12 +210,17 @@ footer {
 }
 /* social media colors */
 .socialmedia a {
-  padding: 2rem 0.5rem;
+  padding: 3rem 0.5rem;
 }
 a.twitter:hover,
 a.twitter:focus,
 a.twitter:active {
   color: #55acee;
+}
+a.instagram:hover,
+a.instagram:focus,
+a.instagram:active {
+  color: #dd2a7b;
 }
 a.linkedin:hover,
 a.linkedin:focus,
@@ -245,7 +235,7 @@ a.github:active {
 a.rss:hover,
 a.rss:focus,
 a.rss:active {
-  color: #ea9629;
+  color: #c3f600;
 }
 .featuredposts header {
   font-size: 1.2rem;
