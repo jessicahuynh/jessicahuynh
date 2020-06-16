@@ -1,6 +1,6 @@
 # jessicahuynh.info
 
-Personal website built with the [hugo](gohugo.io) static site generator. Continuously deployed every time I push with Netlify. Currently using hugo 0.19.
+Personal website built with the [hugo](gohugo.io) static site generator. Continuously deployed every time I push with Netlify. Currently using hugo 0.72.0.
 
 LESS compiled into CSS markup with a Visual Studio code task (inside `.vscode/`).
 
