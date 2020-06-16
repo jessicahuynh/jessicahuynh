@@ -20,14 +20,17 @@
 			</div>
 			<div class="small-12 medium-8 columns">
 				<form data-abide novalidate id="contact-form">
-					<div data-abide-error class="alert callout" style="display: none;">
+					<div data-abide-error class="alert callout" style="display: none;" id="errorSubmission">
 						<p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> There are some errors in your form submission!</p>
 					</div>
 					
 					<div class="row">
 						<div class="medium-6 columns">
 							<label class="required">Name
-								<input type="text" placeholder="john smith" required id="name" name="name">
+								<input type="text" placeholder="jane doe" required id="name" name="name">
+								<span class="form-error">
+									Name is required.
+								</span>
 							</label>
 						</div>
 						<div class="medium-6 columns">
@@ -43,6 +46,9 @@
 						<div class="small-12 columns">
 							<label class="required">Subject
 								<input type="text" placeholder="request" required id="subject" name="subject">
+								<span class="form-error">
+									Please put in a subject so I know what you're contacting me about.
+								</span>
 							</label>
 						</div>
 					</div>
@@ -50,6 +56,9 @@
 						<div class="small-12 columns">
 							<label class="required">Message
 								<textarea rows="5" required id="message" name="message"></textarea>
+								<span class="form-error">
+									Please type a message!
+								</span>
 							</label>
 						</div>
 					</div>
@@ -60,7 +69,7 @@
 						</fieldset>
 					</div>
 					
-					<div data-abide-error class="success callout" style="display: none;" id="successfulSubmission">
+					<div class="success callout" style="display: none;" id="successfulSubmission">
 						<p><i class="fa fa-heart" aria-hidden="true"></i> Successful submission!</p>
 					</div>
 				</form>
