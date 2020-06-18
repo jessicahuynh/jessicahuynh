@@ -1,11 +1,10 @@
 +++
 kind = "page"
-sort = "status"
+variety = "status"
 categories = ["jessicahuynh.info"]
 tags = ["hugo"]
 date = "2017-03-21T11:32:11-04:00"
 title = "Continuous Deployment"
-
 +++
 
 tl;dr: switched continuous deployment hosting providers due to laziness and stinginess<!--more-->

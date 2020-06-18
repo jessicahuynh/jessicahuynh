@@ -1,9 +1,9 @@
 +++
-categories = ["Recipes"]
+categories = ["Lifestyle"]
 date = "2016-07-14T22:22:26-04:00"
-sort = "post"
+variety = "recipe"
 kind = "page"
-tags = ["vietnamese","summer 2016","jbs"]
+tags = ["vietnamese","jbs"]
 title = "Gỏi cuốn and peanut sauce recipe"
 +++
 

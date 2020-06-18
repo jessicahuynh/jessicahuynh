@@ -4,11 +4,15 @@
 
 {{ range .Data.Pages }}
 
-	{{ if eq .Params.sort "post" }}
+	{{ if eq .Params.variety "post" }}
 		<div id="blogList">
 	{{ else }}
-		{{ if eq .Params.sort "status" }}
+		{{ if eq .Params.variety "status" }}
 			<div class="typeStatus" id="blogList">
+		{{ else }}
+			{{ if eq .Params.variety "recipe" }}
+				<div id="blogList" class="typeRecipe">
+			{{ end }}
 		{{ end }}
 	{{ end }}
 	

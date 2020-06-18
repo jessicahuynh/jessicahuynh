@@ -1,0 +1,26 @@
+{{ partial "header.html" . }}
+
+{{ partial "blogbar.html" . }}
+
+<section>
+	<header>
+		<div class="row">
+			<div class="small-12 columns">
+				<h2>{{ .Site.Taxonomies }} :: {{ .Title }}</h2>
+			</div>
+		</div>
+	</header>
+
+    <div class="row">
+        <ul>
+            {{ range .Data.Pages }}
+                <li>
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                </li>
+            {{ end }}
+        </ul>
+    </div>
+	
+</section>
+
+{{ partial "footer.html" . }}

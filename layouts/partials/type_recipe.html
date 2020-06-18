@@ -1,0 +1,26 @@
+<div class="row">
+	<header class="small-12 columns">
+		<h1 class="postTitle text-center"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+		<p class="text-center">{{ partial "postmetadata.html" . }}</p>
+	</header> 
+</div>
+
+<div class="row">
+	<div class="medium-3 columns sidebar" data-sticky-container>
+		<div class="sticky" data-sticky data-anchor="article" data-btm-anchor="mainContent:bottom">
+
+			<aside class="toc">
+				<header class="sideBoxHeader"><a href="#">In this recipe <i class="fa fa-chevron-right" aria-hidden="true"></i></a></header>
+				<div class="sideBoxContent">{{ .TableOfContents }}</div>
+			</aside>
+			
+		</div>
+	</div>
+	
+	<article class="medium-6 columns" id="article">		
+		{{ .Content }}
+		{{ partial "nextprev.html" . }}
+	</article>
+	
+	{{ partial "blogbar.html" . }}
+</div>

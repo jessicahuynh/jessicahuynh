@@ -1,13 +1,13 @@
-<span class="label"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{if eq .Params.sort "status"}}Status&nbsp;on&nbsp;{{end}}{{ .Date.Format "Mon, Jan 2, 2006" }}</span>
+<span class="label"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{if eq .Params.variety "status"}}Status&nbsp;on&nbsp;{{end}}{{ .Date.Format "Mon, Jan 2, 2006" }}</span>
 
 <span class="secondaryDarker label"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{if eq .ReadingTime 1}}1&nbsp;minute{{else}}{{ .ReadingTime }}&nbsp;minutes{{end}}</span>
 
-<a href="/blog/type/{{.Params.sort}}"><span class="orangish label"><i class="fa fa-archive" aria-hidden="true"></i>&nbsp;{{ .Params.sort }}</span></a>
+<a href="/varieties/{{.Params.variety}}"><span class="orangish label"><i class="fa fa-archive" aria-hidden="true"></i>&nbsp;{{ .Params.variety }}</span></a>
 
 {{ range .Params.categories }}
-	<a href="{{ "/blog/category/" | absURL }}{{ . | urlize }}"><span class="reddish label"><i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;{{ . }}</span></a>
+	<a href="{{ "/categories/" | absURL }}{{ . | urlize }}"><span class="reddish label"><i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;{{ . }}</span></a>
 {{ end }}
 
 {{ range .Params.tags }}
-	<a href="{{ "/blog/tag/" | absURL }}{{ . | urlize }}"><span class="transparent label"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;{{ . }}</span></a>
+	<a href="{{ "/tags/" | absURL }}{{ . | urlize }}"><span class="transparent label"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;{{ . }}</span></a>
 {{ end }}

@@ -2,18 +2,16 @@ baseurl = "/"
 languageCode = "en-us"
 title = "Jessica Huynh"
 
-pluralizeListTitles = false
-
 [params]
 	subtitle = "/hwɪn/"
-	categories = ["jessicahuynh.info","Web development","WordPress","Recipes"]
-	sorts = ["post","status"]
+	categories = ["jessicahuynh.info","Lifestyle","Web development"]
+	varieties = ["post","status","recipe"]
 	
 [taxonomies]
 	project = "projects"
 	tag = "tags"
 	category = "categories"
-	sort = "sorts" 
+	variety = "varieties" 
 	
 [[menu.main]]
 	name = "about"

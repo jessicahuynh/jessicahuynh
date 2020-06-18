@@ -1,7 +1,7 @@
 +++
 categories = ["jessicahuynh.info"]
 date = "2016-05-04T16:43:24-04:00"
-sort = "status"
+variety = "status"
 kind = "page"
 tags = ["hugo"]
 title = "Migrating to Hugo"

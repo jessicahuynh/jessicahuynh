@@ -1,10 +1,10 @@
 +++
 date = "2013-03-25T00:00:00-04:00"
 title = "Custom Sidebars in WordPress (again)"
-sort = "post"
+variety = "post"
 kind = "page"
-tags = ["sidebars","widgets","PHP"]
-categories = ["WordPress"]
+tags = ["WordPress"]
+categories = ["Web development"]
 slug = "sidebars-again"
 aliases = ["/2013/03/sidebars-again/"]
 +++

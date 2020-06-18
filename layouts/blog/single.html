@@ -1,10 +1,14 @@
 {{ partial "header.html" . }}
 
-{{ if eq .Params.sort "post" }}
+{{ if eq .Params.variety "post" }}
 	{{ partial "type_post.html" . }}
 {{ else }}
-	{{ if eq .Params.sort "status" }}
+	{{ if eq .Params.variety "status" }}
 		{{ partial "type_status.html" . }}
+	{{ else }}
+		{{ if eq .Params.variety "recipe" }}
+			{{ partial "type_recipe.html" . }}
+		{{ end }} 
 	{{ end }}
 {{ end }}
 

@@ -22,10 +22,8 @@
         <aside class="small-12 medium-4 columns featuredposts">
           <header>Recent posts</header>
           <ul>
-            {{ range first 6 (where .Site.Pages "Section" "blog") }}
-              {{ if ne .Title "Blog" }}
+            {{ range first 6 (where .Site.RegularPages "Section" "blog") }}
                 <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-              {{ end }}
             {{ end }}
            </ul>
         </aside>
