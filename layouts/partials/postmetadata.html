@@ -2,7 +2,9 @@
 
 <span class="secondaryDarker label"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{if eq .ReadingTime 1}}1&nbsp;minute{{else}}{{ .ReadingTime }}&nbsp;minutes{{end}}</span>
 
-<a href="/varieties/{{ .Params.variety }}"><span class="orangish label"><i class="fa fa-archive" aria-hidden="true"></i>&nbsp;{{ .Params.variety }}</span></a>
+{{ range .Params.varieties }}
+	<a href="{{ "/varieties/" | absURL }}{{ . | urlize }}"><span class="orangish label"><i class="fa fa-archive" aria-hidden="true"></i>&nbsp;{{ . }}</span></a>
+{{ end }}
 
 {{ range .Params.categories }}
 	<a href="{{ "/categories/" | absURL }}{{ . | urlize }}"><span class="reddish label"><i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;{{ . }}</span></a>

@@ -32,20 +32,7 @@
 			<header class="sideBoxHeader"><a href="#"><i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;Categories <i class="fa fa-chevron-right" aria-hidden="true"></i></a></header>
 			<div class="sideBoxContent">
 				<ul>
-					{{ $r := .Site.Taxonomies.categories }}
-					{{ $p := .Site.RegularPages }}
-					{{ range .Site.Params.categories }}
-						{{ $posts := where $p "Type" "blog" }}
-						{{ $n := . | urlize }}
-						<!-- (re)set the counter to 0 -->
-						{{ $.Scratch.Set "catCounter" 0 }}
-						<!-- increment counter if post contains the current tag-->
-						{{ range $posts }}
-							{{ if in $r $n }}
-								{{ $.Scratch.Add "catCounter" 1 }}
-							{{ end }}
-						{{ end }}
-						
+					{{ range .Site.Params.categories }}		
 						<li><a href="/categories/{{ . | urlize }}">{{ . }}</a></li>
 					{{ end }}
 				</ul>

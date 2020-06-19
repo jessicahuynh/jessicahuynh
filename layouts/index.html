@@ -27,10 +27,10 @@
 	
 	{{ range $index, $element := first 6 (where .Site.RegularPages "Section" "blog") }}
 
-			{{ if or (eq $element.Params.variety "post") (eq $element.Params.variety "recipe") }}
+			{{ if or (in $element.Params.varieties "post") (in $element.Params.varieties "recipe") }}
 			<div>
 			{{ else }}
-				{{ if eq $element.Params.variety "status" }}
+				{{ if in $element.Params.varieties "status" }}
 			<div class="typeStatus">
 				{{ end }}
 			{{ end }}

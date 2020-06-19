@@ -1,13 +1,15 @@
 {{ partial "header.html" . }}
 
-{{ if eq .Params.variety "post" }}
-	{{ partial "type_post.html" . }}
+{{ if in .Params.varieties "post" }}
+	{{ partial "variety_post.html" . }}
 {{ else }}
-	{{ if eq .Params.variety "status" }}
-		{{ partial "type_status.html" . }}
+	{{ if in .Params.varieties "status" }}
+		{{ partial "variety_status.html" . }}
 	{{ else }}
-		{{ if eq .Params.variety "recipe" }}
-			{{ partial "type_recipe.html" . }}
+		{{ if in .Params.varieties "recipe" }}
+			{{ partial "variety_recipe.html" . }}
+		{{ else }}
+			{{ .Content }}
 		{{ end }} 
 	{{ end }}
 {{ end }}
