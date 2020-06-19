@@ -1,5 +1,5 @@
 ---
-categories: ["jessicahuynh.info"]
+categories: ["Web development"]
 date: "2016-05-04T16:43:24-04:00"
 types: ["status"]
 kind: page

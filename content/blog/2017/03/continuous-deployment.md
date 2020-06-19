@@ -1,7 +1,7 @@
 ---
 kind: page
 types: ["status"]
-categories: ["jessicahuynh.info"]
+categories: ["Web development"]
 tags: ["hugo"]
 date: "2017-03-21T11:32:11-04:00"
 title: Continuous Deployment
