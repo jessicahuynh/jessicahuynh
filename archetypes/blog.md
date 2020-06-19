@@ -1,8 +1,8 @@
 ---
 date: "{{ .Date }}"
 tags: ["x", "y"]
-category: z
-variety: post
+categories: ["z"]
+varieties: ["post"]
 kind: page
 title: placeholder
 description: placeholder

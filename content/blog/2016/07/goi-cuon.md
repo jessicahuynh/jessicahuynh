@@ -1,10 +1,11 @@
 ---
-category: Lifestyle
+categories: ["Lifestyle"]
 date: "2016-07-14T22:22:26-04:00"
-variety: recipe
+varieties: ["recipe"]
 kind: page
 tags: ["vietnamese","jbs"]
 title: Gỏi cuốn and peanut sauce recipe
+description: Quick and easy gỏi cuốn (Vietnamese spring roll) recipe
 ---
 
 Gỏi cuốn are Vietnamese spring rolls; they're easy to make, especially for group things. This is an appropriate-for-cheap-college students version of a recipe I learned from my mom.

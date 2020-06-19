@@ -1,10 +1,11 @@
 ---
 kind: page
-variety: status
-category: jessicahuynh.info
+varieties: ["status"]
+categories: ["jessicahuynh.info"]
 tags: ["hugo"]
 date: "2017-03-21T11:32:11-04:00"
 title: Continuous Deployment
+description: Moving to a new build pipeline using Hugo pushed to a GitHub repo, then deployed via Netlify
 ---
 
 tl;dr: switched continuous deployment hosting providers due to laziness and stinginess<!--more-->

@@ -1,6 +1,6 @@
 ---
 date: "{{ .Date }}"
-project: x
+projects: ["x"]
 title: placeholder
 description: placeholder
 ongoing: true

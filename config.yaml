@@ -11,14 +11,14 @@ taxonomies:
   project: projects
   tag: tags
   category: categories
-  variety: varieties"
+  variety: varieties
   
 menu:
   main:
     - name: about
       identifier: about
       url: /about
-      weight: -10
+      weight: -90
     - name: portfolio
       identifier: portfolio
       url: /portfolio

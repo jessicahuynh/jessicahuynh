@@ -1,0 +1,9 @@
+<section data-equalizer-watch class="column portfolioCard">
+    <div>
+        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        <p>{{ .Summary }}</p>
+        <aside>
+            {{ partial "portfoliolabels.html" . }}
+        </aside>
+    </div>
+</section>

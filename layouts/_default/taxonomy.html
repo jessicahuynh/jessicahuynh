@@ -6,20 +6,26 @@
 	<header>
 		<div class="row">
 			<div class="small-12 columns">
-				<h2>{{ .Site.Taxonomies }} :: {{ .Title }}</h2>
+				<h2>{{ .Data.Singular }} :: {{ .Title }}</h2>
 			</div>
 		</div>
 	</header>
 
     <div class="row">
-        <ul>
-            {{ range .Data.Pages }}
-                <li>
-                    <a href="{{ .Permalink }}">{{ .Title }}</a>
-                </li>
-            {{ end }}
-        </ul>
+        <div class="small-12 columns">
+            <p>See all <a href="/{{ .Data.Plural }}">{{ .Data.Plural }}</a>.</p>
+            <ul>
+                {{ range .Data.Pages }}
+                    <li>
+                        <a href="/blog/{{ .Date.Format "2006" }}"><span class="label reddish"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{ .Date.Format "Mon, Jan 2, 2006" }}</span></a>
+                        <a href="{{ .Permalink }}">{{ .Title }}</a>: 
+                        {{ .Description }}
+                    </li>
+                {{ end }}
+            </ul>
+        </div>
     </div>
+
 	
 </section>
 

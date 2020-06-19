@@ -6,7 +6,7 @@
 	<header>
 		<div class="row">
 			<div class="small-12 columns">
-				<h2>Blog :: {{ .Title }}</h2>
+				<h2>Post {{ lower .Title }}</h2>
 			</div>
 		</div>
 	</header>
@@ -14,7 +14,7 @@
     <div class="row">
         <ul>
             {{ range .Data.Terms.Alphabetical }}
-                    <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> {{ .Count }}</li>
+                <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> ({{ .Count }})</li>
             {{ end }}
         </ul>
     </div>

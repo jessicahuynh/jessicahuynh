@@ -1,10 +1,10 @@
 ---
-category: Web development
+categories: ["Web development"]
 date: "2015-08-04T12:00:00-04:00"
-variety: post
+varieties: ["post"]
 kind: page
 tags: ["jbs"]
-project: Discover Deis
+projects: ["Discover Deis"]
 title: Starting out with Discover Deis
 aliases: ["/2015/08/starting-out-discover-deis/"]
 description: About the planning process for Discover Deis and the early stages of the JBS

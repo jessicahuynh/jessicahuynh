@@ -22,7 +22,7 @@
 			<div class="sideBoxContent">
 				<ul>
 					{{ range $k := .Site.Params.varieties }}
-						<li><a href="/blog/varieties/{{ $k | urlize }}">{{ $k }}</a></li>
+						<li><a href="/varieties/{{ $k | urlize }}">{{ $k }}</a></li>
 					{{ end }}
 				</ul>
 			</div>
@@ -46,7 +46,7 @@
 							{{ end }}
 						{{ end }}
 						
-						<li><a href="/blog/categories/{{ . | urlize }}">{{ . }}</a></li>
+						<li><a href="/categories/{{ . | urlize }}">{{ . }}</a></li>
 					{{ end }}
 				</ul>
 			</div>
@@ -57,7 +57,7 @@
 			<div class="sideBoxContent">
 				<ul>
 					{{ range $name, $t := .Site.Taxonomies.tags  }}
-						<li><a href="/blog/tags/{{ $name | urlize }}">{{ $name }}</a></li>
+						<li><a href="/tags/{{ $name | urlize }}">{{ $name }}</a></li>
 					{{ end }}
 				</ul>
 			</div>
