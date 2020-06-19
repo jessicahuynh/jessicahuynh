@@ -1,5 +1,5 @@
 ---
-date: 2016-05-04T19:29:15-04:00
+date: "2016-05-04T19:29:15-04:00"
 title: Arabic grammar review
 project: "Arabic Grammar"
 ongoing: true
@@ -10,4 +10,4 @@ I’ve been playing around with [Sway](http://sway.com/), the newest entry in th
 - [Sentence types and cases](https://sway.com/osQrQGHUPWw5GfuM) (8/7/2015)
 - [Conditional sentences](https://sway.com/iv9UlRRx_ld0-G3x) (8/11/2015)
 - [Participles](https://sway.com/Zctq8lA2QE9vL0l4) (8/16/2015)
-- [الحال](https://sway.com/2BekXlw0iTUcs5H_) (8/25/2015)
+- <span dir="rtl">[الحال](https://sway.com/2BekXlw0iTUcs5H_)</span> (8/25/2015)
