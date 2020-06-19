@@ -1,0 +1,33 @@
+baseurl: /
+languageCode: en-us
+title: Jessica Huynh
+
+params:
+  subtitle: "/hwɪn/"
+  categories: ["jessicahuynh.info","Lifestyle","Web development"]
+  varieties: ["post","status","recipe"]
+  
+taxonomies:
+  project: projects
+  tag: tags
+  category: categories
+  variety: varieties"
+  
+menu:
+  main:
+    - name: about
+      identifier: about
+      url: /about
+      weight: -10
+    - name: portfolio
+      identifier: portfolio
+      url: /portfolio
+      weight: -80
+    - name: blog
+      identifier: blog
+      url: /blog
+      weight: -70
+    - name: contact
+      identifier: contact
+      url: /contact
+      weight: -60

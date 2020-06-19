@@ -1,7 +1,10 @@
-+++
-tags = ["x", "y"]
-categories = ["x", "y"]
-variety = "post"
-kind = "page"
-+++
+---
+date: "{{ .Date }}"
+tags: ["x", "y"]
+category: z
+variety: post
+kind: page
+title: placeholder
+description: placeholder
+---
 

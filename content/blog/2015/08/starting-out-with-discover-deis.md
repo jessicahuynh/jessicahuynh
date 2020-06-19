@@ -1,14 +1,14 @@
-+++
-categories = ["Web development"]
-date = "2015-08-04T12:00:00-04:00"
-variety = "post"
-kind = "page"
-tags = ["jbs"]
-projects = ["Discover Deis"]
-title = "Starting out with Discover Deis"
-aliases = ["/2015/08/starting-out-discover-deis/"]
-description = "About the planning process for Discover Deis and the early stages of the JBS"
-+++
+---
+category: Web development
+date: "2015-08-04T12:00:00-04:00"
+variety: post
+kind: page
+tags: ["jbs"]
+project: Discover Deis
+title: Starting out with Discover Deis
+aliases: ["/2015/08/starting-out-discover-deis/"]
+description: About the planning process for Discover Deis and the early stages of the JBS
+---
 
 For the past nine weeks, I’ve been a member of the [Voice, Mobile, and Web Application Development Justice Brandeis Semester](https://sites.google.com/a/brandeis.edu/jbs-2015-cosi/), a program that helped us learn exactly what it seems like we should. Now that it’s over and done with, I’d like to look back on exactly how we got our app to where it is and some steps in the future we can take, because it’d be nice to make this a much more official app and fill out the empty spots in our already extensive database.
 

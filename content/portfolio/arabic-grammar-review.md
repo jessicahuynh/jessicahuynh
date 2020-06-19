@@ -1,9 +1,9 @@
-+++
-date = "2016-05-04T19:29:15-04:00"
-title = "Arabic grammar review"
-project = ["Arabic Grammar"]
-ongoing = true
-+++
+---
+date: 2016-05-04T19:29:15-04:00
+title: Arabic grammar review
+project: "Arabic Grammar"
+ongoing: true
+---
 
 I’ve been playing around with [Sway](http://sway.com/), the newest entry in the Office line-up, to make a series of brief grammar reviews for Modern Standard Arabic. You can find them collected [at this link](https://docs.com/jessica-huynh/3116/arabic-grammar) or individually below. I’ll add more slowly as time goes on.<!--more-->
 

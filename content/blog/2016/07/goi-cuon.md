@@ -1,11 +1,11 @@
-+++
-categories = ["Lifestyle"]
-date = "2016-07-14T22:22:26-04:00"
-variety = "recipe"
-kind = "page"
-tags = ["vietnamese","jbs"]
-title = "Gỏi cuốn and peanut sauce recipe"
-+++
+---
+category: Lifestyle
+date: "2016-07-14T22:22:26-04:00"
+variety: recipe
+kind: page
+tags: ["vietnamese","jbs"]
+title: Gỏi cuốn and peanut sauce recipe
+---
 
 Gỏi cuốn are Vietnamese spring rolls; they're easy to make, especially for group things. This is an appropriate-for-cheap-college students version of a recipe I learned from my mom.
 
