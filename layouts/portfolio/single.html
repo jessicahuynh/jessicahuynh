@@ -65,15 +65,16 @@
 
 </div>
 
+{{ range .Resources.Match "*.md" }}
 <section>
 	<header>
 		<div class="row">
-			<h2 class="small-12 columns">Resources</h2>
+			<h2 class="small-12 columns">{{ .Title }}</h2>
 		</div>
 	</header>
 	
-	<div class="row">Coming
-	</div>
+	<div class="row">{{ .Content }}</div>
 </section>
+{{ end }}
 
 {{ partial "footer.html" . }}
