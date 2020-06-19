@@ -1,5 +1,4 @@
 ---
-date: "{{ .Date }}"
 projects: ["x"]
 title: placeholder
 description: placeholder

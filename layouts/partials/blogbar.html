@@ -11,7 +11,9 @@
 				<ul>
 					{{ range $value := .Site.RegularPages.GroupByDate "2006" }}
 						{{ $url := (index $value.Pages 0).Date.Format "2006" | urlize }}
-						<li><a href="/blog/{{ $url }}">{{ .Key }}</a></li>
+						<li>
+							<a href="/archive/#{{ $url }}">{{ .Key }}</a>
+						</li>
 					{{ end }}
 				</ul>
 			</div>

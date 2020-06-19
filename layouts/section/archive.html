@@ -1,0 +1,45 @@
+{{ partial "header.html" . }}
+
+{{ partial "blogbar.html" . }}
+
+<section>
+    <header>
+		<div class="row">
+			<div class="small-12 columns">
+				<h2>{{ .Title }}</h2>
+			</div>
+		</div>
+	</header>
+
+    <div class="row">
+		<div class="small-12 columns">
+			{{ .Content }}
+		</div>
+	</div>
+
+    <div class="row">
+        <div class="small-12 columns">
+            {{ $prev := 3000}}
+            {{ range .Site.RegularPages }}
+                {{ if .Date }}
+                    {{ if gt $prev (.Date.Format "2006") }}
+                        {{ if ne $prev 3000 }}
+                            </table>
+                        {{ end }}
+                        <h2 id="{{ .Date.Format "2006" }}">{{ .Date.Format "2006" }}</h2>
+                        <table class="stack">
+                    {{ end }}
+                    <tr>
+                        <td width="25%">{{ .Date.Format "Jan 02" }}</td>
+                        <td><a href="{{ .Permalink }}">{{ .Title }}</a>{{ if .Params.ongoing }} (portfolio project page){{ end }}</td>
+                    </tr>
+                    {{ $prev = .Date.Format "2006" }}
+                {{ end }}
+            {{ end }}
+            </table>    
+        </div>
+    </div>
+</section>
+
+
+{{ partial "footer.html" . }}
