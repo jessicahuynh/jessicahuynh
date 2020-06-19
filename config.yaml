@@ -5,13 +5,13 @@ title: Jessica Huynh
 params:
   subtitle: "/hwɪn/"
   categories: ["jessicahuynh.info","Lifestyle","Web development"]
-  varieties: ["post","status","recipe"]
+  types: ["post","status","recipe"]
   
 taxonomies:
   project: projects
   tag: tags
   category: categories
-  variety: varieties
+  type: types
   
 menu:
   main:

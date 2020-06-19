@@ -1,7 +1,7 @@
 ---
 categories: ["Web development"]
 date: "2015-08-04T12:00:00-04:00"
-varieties: ["post"]
+types: ["post"]
 kind: page
 tags: ["jbs"]
 projects: ["Discover Deis"]

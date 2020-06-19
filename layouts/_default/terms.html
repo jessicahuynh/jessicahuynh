@@ -12,7 +12,7 @@
 	</header>
 	
     <div class="row">
-        <ul>{{.Site.Taxonomies.variety}}
+        <ul>{{.Site.Taxonomies.type}}
             {{ range .Data.Terms.Alphabetical }}
                 <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> ({{ .Count }})</li>
             {{ end }}

@@ -1,7 +1,7 @@
 ---
 categories: ["Lifestyle"]
 date: "2016-07-14T22:22:26-04:00"
-varieties: ["recipe"]
+types: ["recipe"]
 kind: page
 tags: ["vietnamese","jbs"]
 title: Gỏi cuốn and peanut sauce recipe

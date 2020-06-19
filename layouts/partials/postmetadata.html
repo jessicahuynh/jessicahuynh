@@ -1,9 +1,9 @@
-<a href="/archive/#{{ .Date.Format "2006" }}"><span class="label"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{if eq .Params.variety "status"}}Status&nbsp;on&nbsp;{{end}}{{ .Date.Format "Mon, Jan 2, 2006" }}</span></a>
+<a href="/archive/#{{ .Date.Format "2006" }}"><span class="label"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{if eq .Params.type "status"}}Status&nbsp;on&nbsp;{{end}}{{ .Date.Format "Mon, Jan 2, 2006" }}</span></a>
 
 <span class="secondaryDarker label"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{if eq .ReadingTime 1}}1&nbsp;minute{{else}}{{ .ReadingTime }}&nbsp;minutes{{end}}</span>
 
-{{ range .Params.varieties }}
-	<a href="{{ "/varieties/" | absURL }}{{ . | urlize }}"><span class="orangish label"><i class="fa fa-archive" aria-hidden="true"></i>&nbsp;{{ . }}</span></a>
+{{ range .Params.types }}
+	<a href="{{ "/types/" | absURL }}{{ . | urlize }}"><span class="orangish label"><i class="fa fa-archive" aria-hidden="true"></i>&nbsp;{{ . }}</span></a>
 {{ end }}
 
 {{ range .Params.categories }}

@@ -20,11 +20,11 @@
 		</aside>
 		
 		<aside>
-			<header class="sideBoxHeader"><a href="#"><i class="fa fa-archive" aria-hidden="true"></i>&nbsp;<span class="decoration">Post </span>Varieties <i class="fa fa-chevron-right" aria-hidden="true"></i></a></header>
+			<header class="sideBoxHeader"><a href="#"><i class="fa fa-archive" aria-hidden="true"></i>&nbsp;<span class="decoration">Post </span>types <i class="fa fa-chevron-right" aria-hidden="true"></i></a></header>
 			<div class="sideBoxContent">
 				<ul>
-					{{ range $k := .Site.Params.varieties }}
-						<li><a href="/varieties/{{ $k | urlize }}">{{ $k }}</a></li>
+					{{ range $k := .Site.Params.types }}
+						<li><a href="/types/{{ $k | urlize }}">{{ $k }}</a></li>
 					{{ end }}
 				</ul>
 			</div>

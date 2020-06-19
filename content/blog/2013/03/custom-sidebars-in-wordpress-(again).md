@@ -2,7 +2,7 @@
 date: "2013-03-25T00:00:00-04:00"
 title: Custom Sidebars in WordPress (again)
 description: Adding custom sidebars to a WordPress template
-varieties: ["post"]
+types: ["post"]
 kind: page
 tags: ["WordPress"]
 categories: ["Web development"]
