@@ -1,6 +1,8 @@
 baseurl: /
 languageCode: en-us
 title: Jessica Huynh
+pygmentsUseClasses: true
+pygmentsCodefences: true
 
 params:
   subtitle: "/hwɪn/"

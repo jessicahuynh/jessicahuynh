@@ -530,6 +530,14 @@ section header h6 {
   background: #b22217;
   color: #f7f5e7;
 }
+.chroma tbody {
+  border: 0;
+}
+.chroma code {
+  border: 0;
+  background: none;
+  padding: 0;
+}
 .portfolio {
   background: #4b5e87;
   color: #f7f5e7;

@@ -24,29 +24,31 @@ At this stage, we knew that there were about 150 or so buildings on campus. The 
 
 A better way soon came up. I came across an [implementation of point-in-polygon testing in C](http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html) and decided to convert it to JavaScript. The way this works is that a ray is cast from the point (in this case your current location) through the polygon (the building’s vertices). If this ray intersects an odd number of times, you’re inside the location. If not, you’re outside.
 
-	pointIncluded: function(vertices, current) {
-		included = false;
-		numVert = vertices.length;
+{{<highlight javascript "linenos=table">}}
+pointIncluded: function(vertices, current) {
+  included = false;
+  numVert = vertices.length;
 
-		// create arrays of the x and y coordinates of the polygon
-		var xArray = [];
-		for (var i = 0; i &lt; numVert; i++) {
-			xArray.push(vertices[i].x);
-		}		
-		var yArray = [];
-		for (var i = 0; i &lt; numVert; i++) {
-			yArray.push(vertices[i].y);
-		}
+  // create arrays of the x and y coordinates of the polygon
+  var xArray = [];
+  for (var i = 0; i < numVert; i++) {
+    xArray.push(vertices[i].x);
+  }		
+  var yArray = [];
+  for (var i = 0; i < numVert; i++) {
+    yArray.push(vertices[i].y);
+  }
 
-		for (var i = 0, j = numVert - 1; i &lt; numVert; j = i++) { if ((yArray[i] &gt;= current.y) != (yArray[j] &gt;= current.y) &amp;&amp;
-				(current.x &lt;= (xArray[j] - xArray[i]) * (current.y - yArray[i]) / (yArray[j] - yArray[i]) + xArray[i])) {
-				included = !included;
-
-			}
-		}
-		
-		return included;
-	},
+  for (var i = 0, j = numVert - 1; i < numVert; j = i++) { 
+    if ((yArray[i] >= current.y) != (yArray[j] >= current.y) &&
+        (current.x <= (xArray[j] - xArray[i]) * (current.y - yArray[i]) / (yArray[j] - yArray[i]) + xArray[i])) {
+      included = !included;
+    }
+  }
+	
+  return included;
+},
+{{</highlight>}}
 
 The relevant bit is the third for-loop.
 
