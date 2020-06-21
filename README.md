@@ -1,7 +1,13 @@
 # jessicahuynh.info
 
-Personal website built with the [hugo](gohugo.io) static site generator. Continuously deployed every time I push with Netlify. Currently using hugo 0.72.0.
+Personal website built with the [hugo](gohugo.io) static site generator. Continuously deployed every time I push with Netlify. The static assets are built before pushing. Currently using hugo 0.72.0.
 
-LESS compiled into CSS markup with a Visual Studio code task (inside `.vscode/`). `Ctrl+Shift+B` to execute. Requires an install of `lessc`.
+## To recreate locally
 
-On a local machine, clone repo, download hugo, and run `hugo server` command. To generate website into the `public/` directory, run `hugo`.
+1. Install `nvm` and then `node` (at least version 14.4.0)
+2. `npm install` in the root directory (same level as `package.json`)
+3. `hugo server` to see on localhost
+
+When modifying LESS files, `npm run build:css` to create all static assets.
+
+For quick local changes before building the entire thing, `npm run less` would be sufficient.

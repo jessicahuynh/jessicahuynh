@@ -1,0 +1,22 @@
+{
+    "name": "jessicahuynh",
+    "version": "1.0.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jessicahuynh/jessicahuynh"
+    },
+    "engines": {
+        "node": ">=14.4.0",
+        "npm": ">=6.14.5"
+    },
+    "scripts": {
+        "build:css": "npm run less && npm run autoprefixer",
+        "less": "lessc static/less/styles.less static/css/styles.css",
+        "autoprefixer": "postcss -u autoprefixer -r static/css/*"
+    },
+    "devDependencies": {
+        "autoprefixer": "^9.8.2",
+        "lessc": "^1.0.2",
+        "postcss-cli": "^7.1.1"
+    }
+}
