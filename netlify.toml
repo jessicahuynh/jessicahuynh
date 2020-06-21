@@ -8,6 +8,11 @@
     HUGO_ENABLEGITINFO = "true"
 
 [[redirects]]
+    from = "https://jessicahuynh.netlify.app/*"
+    to = "https://www.jessicahuynh.info/:splat"
+    status = "301!"
+
+[[redirects]]
     from = "/blog/:year/:month/"
     to = "/archive/#:year"
     status = 301
