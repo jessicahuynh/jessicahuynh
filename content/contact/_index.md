@@ -6,4 +6,4 @@ kind: section
 url: /contact
 ---
 
-You can also [email](mailto:jessicahhuynh@outlook.com) me.
+Feel free to also contact me via the social media links below!
