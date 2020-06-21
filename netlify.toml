@@ -10,7 +10,8 @@
 [[redirects]]
     from = "https://jessicahuynh.netlify.app/*"
     to = "https://www.jessicahuynh.info/:splat"
-    status = 301!
+    status = 301
+    force = true
 
 [[redirects]]
     from = "/blog/:year/:month/"
