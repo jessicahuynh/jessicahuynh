@@ -3,6 +3,12 @@ html {
   color: #220e10;
   font-family: "Source Sans Pro", "Fira Sans", "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
+code,
+pre,
+kbd,
+samp {
+  font-family: "Source Code Pro", "Courier New", monospace;
+}
 a:link,
 a:visited {
   color: #b22217;
