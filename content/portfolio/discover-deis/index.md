@@ -2,6 +2,7 @@
 date: "2016-05-04T22:07:20-04:00"
 project: "Discover Deis"
 title: Discover Deis
+description: Project page about Discover Deis, a Brandeis University navigation web application
 ongoing: true
 ---
 

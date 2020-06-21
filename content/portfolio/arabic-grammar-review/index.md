@@ -1,6 +1,7 @@
 ---
 date: "2016-05-04T19:29:15-04:00"
 title: Arabic grammar review
+description: Short lessons in the grammar of Modern Standard Arabic (fu57a)
 project: "Arabic Grammar"
 ongoing: true
 ---
