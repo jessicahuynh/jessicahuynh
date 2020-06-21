@@ -6,6 +6,6 @@ kind: home
 url: /
 ---
 
-Currently a Senior Clinical NLP Specialist at [Linguamatics](https://www.linguamatics.com), an IQVIA company; master's in computational linguistics, undergrad in computer science & linguistics, both from [Brandeis University](https://www.brandeis.edu). 
+Currently a Senior Clinical NLP Specialist at [Linguamatics](https://www.linguamatics.com), an IQVIA company; master's in computational linguistics, undergrad in computer science & linguistics, both from [Brandeis University](https://www.brandeis.edu).
 
-I post about (mis)adventures in web development, recipes, and other things that come to mind. 
+I post about (mis)adventures in web development, recipes, and other things that come to mind.
