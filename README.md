@@ -9,5 +9,3 @@ Personal website built with the [hugo](gohugo.io) static site generator. Continu
 3. `hugo server` to see on localhost
 
 When modifying LESS files, `npm run build:css` to create all static assets.
-
-For quick local changes before building the entire thing, `npm run less` would be sufficient.

@@ -10,12 +10,13 @@
         "npm": ">=6.14.5"
     },
     "scripts": {
-        "build:css": "npm run less && npm run autoprefixer",
+        "build:css": "npm run less && npm run postcss",
         "less": "lessc static/less/styles.less static/css/styles.css",
-        "autoprefixer": "postcss -u autoprefixer -r static/css/*"
+        "postcss": "postcss static/css/styles.css > static/css/styles.min.css"
     },
     "devDependencies": {
         "autoprefixer": "^9.8.2",
+        "cssnano": "^4.1.10",
         "lessc": "^1.0.2",
         "postcss-cli": "^7.1.1"
     }
