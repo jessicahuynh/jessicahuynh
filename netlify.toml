@@ -8,5 +8,11 @@
     HUGO_ENABLEGITINFO = "true"
 
 [[redirects]]
-    /archive/:year/:month/ /archive/#:year
-    /archive/:year /archive/#:year
+    from = "/archive/:year/:month/"
+    to = "/archive/#:year"
+    status = 301
+
+[[redirects]]
+    from = "/archive/:year"
+    to = "/archive/#:year"
+    status = 301
