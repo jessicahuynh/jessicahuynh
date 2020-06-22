@@ -85,19 +85,22 @@ header.masthead {
 	}
 }
 
+/* navigation */
+#nav-toggle {
+	display: none;
+}
+
 /* fix FOUC */
 .no-js .top-bar {
-  display: none;
+    display: none;
 }
 
 @media screen and (min-width: 40em) {
-  .no-js .top-bar {
-    display: block;
-  }
+    .no-js .top-bar, #nav-toggle {
+        display: block;
+    }
 
-  .no-js .title-bar {
-    display: none;
-  }
+    .no-js .title-bar, .title-bar {
+        display: none;
+    }
 }
-
-/* navigation */

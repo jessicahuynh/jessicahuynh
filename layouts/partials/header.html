@@ -8,7 +8,7 @@
     <meta name="description" content="{{ .Description }}" />
     <title>{{if not .IsHome}}{{ .Title }} :: {{end}}{{ .Site.Title }}</title>
   
-    <link rel="stylesheet" href="/css/styles.min.css" >
+    <link rel="stylesheet" href="/css/styles.min.css">
     
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="preload" as="style" onload="this.rel='stylesheet'" integrity="sha384-hQpvDQiCJaD2H465dQfA717v7lu5qHWtDbWNPvaTJ0ID5xnPUlVXnKzq7b8YUkbN" crossorigin="anonymous">
     
@@ -23,18 +23,18 @@
         <h1><a href="/">{{ .Site.Title }}</a> <small>{{ .Site.Params.subtitle }}</small></h1>
         
         <nav>
-          <div class="title-bar" data-responsive-toggle="navBar" data-hide-for="medium">
+          <div class="title-bar">
             <div class="title-bar-title"><a href="/">{{ .Site.Title }}</a></div>
-            <button type="button" data-toggle>
-              <i class="fa fa-bars" aria-hidden="true" title="skip to main navigation"></i>
-              <span class="sr-only">Skip to main navigation</span>
+            <button type="button" id="menu-toggler">
+              <i class="fa fa-bars" aria-hidden="true" title="main navigation"></i>
+              <span class="sr-only">Main navigation</span>
             </button>
           </div>  
 
           <div class="top-bar row" id="navBar">
             <div class="top-bar-left small-12">
-              <ul class="dropdown menu vertical medium-horizontal" data-dropdown-menu>
-                {{if .IsHome}}
+              <ul class="dropdown menu vertical medium-horizontal" id="nav-toggle">
+                {{ if .IsHome }}
                   {{ range .Site.Menus.main }}
                     <li><a href="{{.URL}}">{{.Name}}</a></li>
                   {{ end }}
