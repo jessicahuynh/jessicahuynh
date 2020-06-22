@@ -10,14 +10,16 @@
         "npm": ">=6.14.5"
     },
     "scripts": {
-        "build:css": "npm run less && npm run postcss",
-        "less": "lessc static/less/styles.less static/css/styles.css",
+        "build:css": "npm run less && npm run purgecss && npm run postcss",
+        "less": "lessc static/less/styles.less static/css/styles.combined.css",
+        "purgecss": "purgecss --config purgecss.config.js --output static/css/styles.css",
         "postcss": "postcss static/css/styles.css > static/css/styles.min.css"
     },
     "devDependencies": {
         "autoprefixer": "^9.8.2",
         "cssnano": "^4.1.10",
         "lessc": "^1.0.2",
-        "postcss-cli": "^7.1.1"
+        "postcss-cli": "^7.1.1",
+        "purgecss": "^2.3.0"
     }
 }
