@@ -1,6 +1,6 @@
 # jessicahuynh.info
 
-Personal website built with the [hugo](gohugo.io) static site generator. Continuously deployed every time I push with Netlify. The static assets are built before pushing. Currently using hugo 0.72.0.
+Personal website built with the [hugo](gohugo.io) static site generator. Continuously deployed every time I push with Netlify. The static assets are built before pushing. Currently using hugo 0.73.0.
 
 ## To recreate locally
 

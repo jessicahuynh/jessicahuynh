@@ -6,23 +6,18 @@
 	<header>
 		<div class="row">
 			<div class="small-12 columns">
-				<h2>{{ .Data.Singular }} :: {{ .Title }}</h2>
+				<h2>Post {{ lower .Title }}</h2>
 			</div>
 		</div>
 	</header>
-
-    <div class="row">
-        <div class="small-12 columns">
-            <p>See all <a href="/{{ .Data.Plural }}">{{ .Data.Plural }}</a>.</p>
-            <ul>
-                {{ range .Data.Pages }}
-                    {{ partial "postli.html" . }}
-                {{ end }}
-            </ul>
-        </div>
-    </div>
-
 	
+    <div class="row">
+        <ul>{{.Site.Taxonomies.type}}
+            {{ range .Data.Terms.Alphabetical }}
+                <li><a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a> ({{ .Count }})</li>
+            {{ end }}
+        </ul>
+    </div>
 </section>
 
 {{ partial "footer.html" . }}
