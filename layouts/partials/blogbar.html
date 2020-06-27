@@ -46,7 +46,7 @@
 			<div class="sideBoxContent">
 				<ul>
 					{{ range $name, $t := .Site.Taxonomies.tags  }}
-						<li><a href="/tags/{{ $name | urlize }}">{{ $name }}</a></li>
+						<li><a href="/tags/{{ $name | urlize }}">{{ $name }}</a>&#32;</li>
 					{{ end }}
 				</ul>
 			</div>
