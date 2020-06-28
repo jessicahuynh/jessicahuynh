@@ -136,6 +136,43 @@ The upside of this approach is that you can get appropriate capitalization and r
 
 For tags, I care less about how they're formatted, so ranging over `.Site.Taxonomies.tags` is sufficient and requires less maintenance. I don't plan to have many post types or categories, so manual upkeep is sufficient.
 
+#### Post metadata
+
+Every blog post, regardless of type, has a listing of metadata, including the date, how long the post takes to read, post type, category, and tags.
+
+Since the type, category, and any tags are specified in the YAML header, I can then easily range using `.Params` and create clickable links to the relevant taxonomy term page.
+
+```go {linenos=table}
+{{ range .Params.types }}
+  <a href="{{ "/types/" | absURL }}{{ . | urlize }}">
+    <span class="orangish label">
+      <i class="fa fa-archive" aria-hidden="true"></i>
+      &nbsp;{{ . }}
+    </span>
+  </a>
+{{ end }}
+
+{{ range .Params.categories }}
+  <a href="{{ "/categories/" | absURL }}{{ . | urlize }}">
+    <span class="reddish label">
+      <i class="fa fa-folder-open" aria-hidden="true"></i>
+      &nbsp;{{ . }}
+    </span>
+  </a>
+{{ end }}
+
+{{ range .Params.tags }}
+  <a href="{{ "/tags/" | absURL }}{{ . | urlize }}">
+    <span class="transparent label">
+      <i class="fa fa-tag" aria-hidden="true"></i>
+      &nbsp;{{ . }}
+    </span>
+  </a>
+{{ end }}
+```
+
+I plan to stop using Font Awesome's icons at some point and replace with SVGs but the concept will remain the same.
+
 #### Portfolio single pages
 
 Since I used the singular taxonomy term name in the content markdown page, I use that value when ranging over the pages in the `portfolio` content folder and then comparing. I use this for determining whether a particular project has associated content pages and list them if so. The actual determination of what is a project is already done by creating content pages under `portfolio`.
