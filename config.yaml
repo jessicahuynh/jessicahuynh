@@ -1,6 +1,11 @@
-baseurl: /
+baseurl: https://www.jessicahuynh.info
 languageCode: en-us
 title: Jessica Huynh
+copyright: "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 (CC BY-SA 4.0) International License."
+
+author:
+  name: "Jessica Huynh"
+
 pygmentsUseClasses: true
 pygmentsCodefences: true
 
