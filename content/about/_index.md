@@ -20,6 +20,6 @@ When it comes to free time, I love running, casual cycling, yoga, pilates, cooki
 
 ### The website
 
-Heading, navigation, and copyright font is [Fira Sans](http://mozilla.github.io/Fira/). Monospace font is [Source Code Pro](https://adobe-fonts.github.io/source-code-pro/). The default font is [Source Sans Pro](https://adobe-fonts.github.io/source-sans-pro/).
+In English and Vietnamese, heading, navigation, and copyright font is [Fira Sans](http://mozilla.github.io/Fira/). Monospace font is [Source Code Pro](https://adobe-fonts.github.io/source-code-pro/). The default font is [Source Sans Pro](https://adobe-fonts.github.io/source-sans-pro/). Arabic text is in [Mada](https://github.com/alif-type/mada) where possible.
 
 They are all licensed under the [SIL Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
