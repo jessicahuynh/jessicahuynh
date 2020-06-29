@@ -6,7 +6,12 @@
 	<div class="clearfix">
 {{ end }}
 		<aside>
-			<header class="sideBoxHeader"><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;Archives <i class="fa fa-chevron-right" aria-hidden="true"></i></a></header>
+			<header class="sideBoxHeader">
+				<a href="#">
+					{{ partial "svg/archives.html" }}
+					Archives <i class="fa fa-chevron-right" aria-hidden="true"></i>
+				</a>
+			</header>
 			<div class="sideBoxContent">
 				<ul>
 					{{ range $value := .Site.RegularPages.GroupByDate "2006" }}
@@ -20,7 +25,12 @@
 		</aside>
 		
 		<aside>
-			<header class="sideBoxHeader"><a href="#"><i class="fa fa-archive" aria-hidden="true"></i>&nbsp;<span class="decoration">Post </span>types <i class="fa fa-chevron-right" aria-hidden="true"></i></a></header>
+			<header class="sideBoxHeader">
+				<a href="#">
+					{{ partial "svg/post-types.html" }}
+					<span class="decoration">Post </span>types <i class="fa fa-chevron-right" aria-hidden="true"></i>
+				</a>
+			</header>
 			<div class="sideBoxContent">
 				<ul>
 					{{ range $k := .Site.Params.types }}
@@ -31,7 +41,12 @@
 		</aside>
 		
 		<aside>
-			<header class="sideBoxHeader"><a href="#"><i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;Categories <i class="fa fa-chevron-right" aria-hidden="true"></i></a></header>
+			<header class="sideBoxHeader">
+				<a href="#">
+					{{ partial "svg/post-categories.html" }}
+					Categories <i class="fa fa-chevron-right" aria-hidden="true"></i>
+				</a>
+			</header>
 			<div class="sideBoxContent">
 				<ul>
 					{{ range .Site.Params.categories }}		
@@ -42,7 +57,12 @@
 		</aside>
 		
 		<aside class="tagCloud">
-			<header class="sideBoxHeader"><a href="#"><i class="fa fa-tags" aria-hidden="true"></i>&nbsp;Tags <i class="fa fa-chevron-right" aria-hidden="true"></i></a></header>
+			<header class="sideBoxHeader">
+				<a href="#">
+					{{ partial "svg/post-tags.html" }}
+					Tags <i class="fa fa-chevron-right" aria-hidden="true"></i>
+				</a>
+			</header>
 			<div class="sideBoxContent">
 				<ul>
 					{{ range $name, $t := .Site.Taxonomies.tags  }}

@@ -1,15 +1,48 @@
-<a href="/archive/#{{ .Date.Format "2006" }}"><span class="label"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{if eq .Params.type "status"}}Status&nbsp;on&nbsp;{{end}}{{ .Date.Format "Mon, Jan 2, 2006" }}</span></a>
+<a href="/archive/#{{ .Date.Format "2006" }}">
+	<span class="label">
+		{{ partial "svg/archives.html" }}
+		{{if eq .Params.type "status"}}Status&nbsp;on&nbsp;{{end}}
+		{{ .Date.Format "Mon, Jan 2, 2006" }}
+	</span>
+</a>
 
-<span class="secondaryDarker label"><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{if eq .ReadingTime 1}}1&nbsp;minute{{else}}{{ .ReadingTime }}&nbsp;minutes{{end}}</span>
+<span class="secondaryDarker label">
+	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="vertical-align:-0.125em; -ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+		<g fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+			<circle cx="12" cy="12" r="10"/>
+			<path d="M12 6v6l4 2"/>
+		</g>
+	</svg>
+	{{if eq .ReadingTime 1}}
+		1&nbsp;minute
+	{{else}}
+		{{ .ReadingTime }}&nbsp;minutes
+	{{end}}
+</span>
 
 {{ range .Params.types }}
-	<a href="{{ "/types/" | absURL }}{{ . | urlize }}"><span class="orangish label"><i class="fa fa-archive" aria-hidden="true"></i>&nbsp;{{ . }}</span></a>
+	<a href="{{ "/types/" | absURL }}{{ . | urlize }}">
+		<span class="orangish label">
+			{{ partial "svg/post-types.html" }}
+			{{ . }}
+		</span>
+	</a>
 {{ end }}
 
 {{ range .Params.categories }}
-	<a href="{{ "/categories/" | absURL }}{{ . | urlize }}"><span class="reddish label"><i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;{{ . }}</span></a>
+	<a href="{{ "/categories/" | absURL }}{{ . | urlize }}">
+		<span class="reddish label">
+			{{ partial "svg/post-categories.html" }}
+			{{ . }}
+		</span>
+	</a>
 {{ end }}
 
 {{ range .Params.tags }}
-	<a href="{{ "/tags/" | absURL }}{{ . | urlize }}"><span class="transparent label"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;{{ . }}</span></a>
+	<a href="{{ "/tags/" | absURL }}{{ . | urlize }}">
+		<span class="transparent label">
+			{{ partial "svg/post-tags.html" }}
+			{{ . }}
+		</span>
+	</a>
 {{ end }}
