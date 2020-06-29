@@ -22,15 +22,15 @@ footer {
 	position:fixed;
 	right:2rem;
 	bottom:0.75rem;
-	font-size:3rem;
 	opacity:0.75;
 	display:none;
 	
 	a {
-		color:@secondaryDarker;
+		fill:@secondaryDarker;
+		font-size:3rem;
 
 		&:hover, &:focus, &:active {
-			color:@orangish;
+			fill:@orangish;
 		}
 	}
 }
@@ -38,33 +38,36 @@ footer {
 /* social media colors */
 .socialmedia {
 	a {
-		padding:3rem 0.5rem;
+		padding:0.1em;
+		font-size:3em;
+		stroke:@orangish;
+		display: inline-block;
 	}
 }
 
 a.twitter {
 	&:hover, &:focus, &:active {
-		color:@twitter;
+		stroke:@twitter;
 	}
 }
 a.instagram {
 	&:hover, &:focus, &:active {
-		color:@instagram;
+		stroke:@instagram;
 	}
 }
 a.linkedin {
 	&:hover, &:focus, &:active {
-		color:@linkedin;
+		stroke:@linkedin;
 	}
 }
 a.github {
 	&:hover, &:focus, &:active {
-		color:@offWhite;
+		stroke:@offWhite;
 	}
 }
 a.rss {
 	&:hover, &:focus, &:active {
-		color:@secondaryColor;
+		stroke:@secondaryColor;
 	}
 }
 
