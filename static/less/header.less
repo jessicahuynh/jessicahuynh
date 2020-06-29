@@ -69,17 +69,27 @@ header.masthead {
 	background:@primaryColor;
 	.siteTitle;
 	width:100%;
-	
+
 	.title-bar-title {
-		margin-right:0.5rem;
+		padding-bottom:0.5em;
+		font-size:1.2em;
+	}
+
+	#menu-toggler {
+		cursor:pointer;
 	}
 	
-	button {
+	.menu-bar-title {
+		margin-right:0.5rem;
+		text-transform:uppercase;
+	}
+	
+	.hamburger-button {
 		margin-left:0.25rem;
 		margin-right:0.5rem;
 		font-size:1.2rem;
 		margin-top:0.2rem;
-		color:@cream;
+		stroke:@cream;
 		position:absolute;
 		right:0;
 	}
@@ -88,6 +98,9 @@ header.masthead {
 /* navigation */
 #nav-toggle {
 	display: none;
+}
+#navBar {
+	position: relative;
 }
 
 /* fix FOUC */

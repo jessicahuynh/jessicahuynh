@@ -21,17 +21,33 @@
         <h1><a href="/">{{ .Site.Title }}</a> <small>{{ .Site.Params.subtitle }}</small></h1>
         
         <nav>
-          <div class="title-bar">
-            <div class="title-bar-title"><a href="/">{{ .Site.Title }}</a></div>
-            <button type="button" id="menu-toggler">
-              <i class="fa fa-bars" aria-hidden="true" title="main navigation"></i>
-              <span class="sr-only">Main navigation</span>
-            </button>
+          <div class="title-bar" aria-label="Main navigation">
+      
+            <div class="title-bar-title">
+              <a href="/">{{ .Site.Title }}</a>
+            </div>
+
+            <div id="menu-toggler">
+              <span class="menu-bar-title">
+                Menu
+              </span>
+        
+              <span class="hamburger-button">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24">
+                  <title>Navigation toggle</title>
+                  <g fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hamburger-path-group">
+                    <path d="M3 12h18"/>
+                    <path d="M3 6h18"/>
+                    <path d="M3 18h18"/>
+                  </g>
+                </svg>
+              </span>
+            </div>
           </div>  
 
           <div class="top-bar row" id="navBar">
             <div class="top-bar-left small-12">
-              <ul class="dropdown menu vertical medium-horizontal" id="nav-toggle">
+              <ul class="menu vertical medium-horizontal" id="nav-toggle">
                 {{ if .IsHome }}
                   {{ range .Site.Menus.main }}
                     <li><a href="{{.URL}}">{{.Name}}</a></li>
