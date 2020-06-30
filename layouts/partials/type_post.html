@@ -10,7 +10,12 @@
 		<div class="sticky" data-sticky data-anchor="article" data-btm-anchor="mainContent:bottom">
 
 			<aside class="toc">
-				<header class="sideBoxHeader"><a href="#">In this post <i class="fa fa-chevron-right" aria-hidden="true"></i></a></header>
+				<header class="sideBoxHeader">
+					<a href="#">
+						In this post
+						<span class="sideBoxChevron"></span>
+					</a>
+				</header>
 				<div class="sideBoxContent">{{ .TableOfContents }}</div>
 			</aside>
 			
@@ -19,7 +24,12 @@
 			{{ range .Params.projects }}
 				{{$c := . | urlize}} <!--slug for current project being iterated through-->
 				<aside class="alsoInProject">
-					<header class="sideBoxHeader"><a href="#">Posts about {{ . }} <i class="fa fa-chevron-right" aria-hidden="true"></i></a></header>
+					<header class="sideBoxHeader">
+						<a href="#">
+							Posts about {{ . }}
+							<span class="sideBoxChevron"></span>
+						</a>
+					</header>
 					<div class="sideBoxContent">
 						<ol>
 							<!-- go through every project again and list the ones with the same project as the current page-->
