@@ -47,6 +47,8 @@ section header {
 		a {
 			padding:0.5rem;
 			color:@primaryDarkest;
+			stroke:@primaryDarkest;
+			fill:@primaryDarkest;
 			text-decoration:none;
 			background:@orangish;
 			display:block;
@@ -80,11 +82,13 @@ section header {
 	a {
 		color:@tertiaryColor;
 		stroke:@tertiaryColor;
+		fill:@tertiaryColor;
 	}
 	header a {
 		background:@tertiaryColor;
 		color:@cream;
 		stroke:@cream;
+		fill:@cream;
 	}
 }
 
@@ -98,15 +102,20 @@ section header {
 	a {
 		color:@primaryDarker;
 		stroke:@primaryDarker;
+		fill:@primaryDarker;
 	}
 }
 
 .prevnextpost {
 	a {
 		text-decoration:none;
-		
-		i {
-			vertical-align:middle;
+		padding:0.5em;
+
+		&:hover, &:focus, &:active {
+			color:@cream;
+			fill:@cream;
+			stroke:@cream;
+			background:@tertiaryColor;
 		}
 	}
 }
@@ -189,9 +198,6 @@ section header {
 }
 
 .typeStatus {
-	background:@orangish;
-	color:@bodyText;
-	stroke:@bodyText;
 	font-style:italic;
 	
 	.statusContent {
@@ -199,16 +205,7 @@ section header {
 	}
 	
 	.label {
-		color:@cream;
-		stroke:@cream;
 		font-style:normal;
-	}
-	
-	.postTitle {
-		a:link, a:visited, a:hover, a:focus, a:active {
-			color:@bodyText;
-			stroke:@bodyText;
-		}
 	}
 	
 	.prevnextpost {
@@ -217,17 +214,6 @@ section header {
 	
 	.blogbar {
 		font-style:normal;
-	}
-	
-	.orangish {
-		background:@bodyText;
-		color:@orangish;
-		stroke:@orangish;
-	}
-	
-	a:hover, a:focus, a:active {
-		color:@tertiaryColor;
-		stroke:@tertiaryColor;
 	}
 }
 
@@ -244,6 +230,7 @@ section header {
 			background:@tertiaryColor;
 			color:@cream;
 			stroke:@cream;
+			fill:@cream;
 		}
 	}
 
