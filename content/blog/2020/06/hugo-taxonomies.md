@@ -62,7 +62,7 @@ Both the singular and plural are fine to be used when compiling the taxonomy and
 
 ### In templates and layouts
 
-My blog has breakdowns by type/category/tag at `https://www.jessicahuynh.info/<plural_taxonomy>`. There is also an alternative view of my portfolio at [https://www.jessicahuynh.info/projects](https://www.jessicahuynh.info/projects) that I don't link to outside of this post. All were automatically generated.
+My blog has breakdowns by type/category/tag at `jessicahuynh.info/<plural>`. There is also an alternative view of my portfolio at [https://www.jessicahuynh.info/projects](https://www.jessicahuynh.info/projects) that I don't link to outside of this post. All were automatically generated.
 
 I also reference taxonomies in the blog sidebar (bottom bar in mobile).
 
