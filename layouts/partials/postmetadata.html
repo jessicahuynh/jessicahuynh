@@ -1,7 +1,7 @@
 <a href="/archive/#{{ .Date.Format "2006" }}">
 	<span class="label">
 		{{ partial "svg/archives.html" }}
-		{{if eq .Params.type "status"}}Status&nbsp;on&nbsp;{{end}}
+		&nbsp;
 		{{ .Date.Format "Mon, Jan 2, 2006" }}
 	</span>
 </a>
@@ -13,7 +13,7 @@
 			<circle cx="12" cy="12" r="10"/>
 			<path d="M12 6v6l4 2"/>
 		</g>
-	</svg>
+	</svg>&nbsp;
 	{{if eq .ReadingTime 1}}
 		1&nbsp;minute
 	{{else}}
@@ -25,6 +25,7 @@
 	<a href="{{ "/types/" | absURL }}{{ . | urlize }}">
 		<span class="orangish label">
 			{{ partial "svg/post-types.html" }}
+			&nbsp;
 			{{ . }}
 		</span>
 	</a>
@@ -34,6 +35,7 @@
 	<a href="{{ "/categories/" | absURL }}{{ . | urlize }}">
 		<span class="reddish label">
 			{{ partial "svg/post-categories.html" }}
+			&nbsp;
 			{{ . }}
 		</span>
 	</a>
@@ -43,6 +45,7 @@
 	<a href="{{ "/tags/" | absURL }}{{ . | urlize }}">
 		<span class="transparent label">
 			{{ partial "svg/post-tags.html" }}
+			&nbsp;
 			{{ . }}
 		</span>
 	</a>

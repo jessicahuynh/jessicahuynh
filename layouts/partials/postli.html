@@ -1,5 +1,11 @@
 <li>
-    <a href="/archive/#{{ .Date.Format "2006" }}"><span class="label reddish"><i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{ .Date.Format "Mon, Jan 2, 2006" }}</span></a>                    
+    <a href="/archive/#{{ .Date.Format "2006" }}">
+        <span class="label reddish">
+            {{ partial "svg/archives.html" }}
+            &nbsp;
+            {{ .Date.Format "Mon, Jan 2, 2006" }}
+        </span>
+    </a>                    
     <a href="{{ .Permalink }}">{{ .Title }}</a>: 
     {{ .Description }}
 </li>
