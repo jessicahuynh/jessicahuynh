@@ -1,16 +1,5 @@
 $(document).foundation();
 
-$(window).scroll(function() {
-
-	if ($(window).scrollTop() + $(window).height() > $(window).height()) {
-		$('.backToTop').fadeIn('medium');
-	}
-	else {
-		$('.backToTop').fadeOut('medium');
-	}
-});
-
-
 
 let slideUp = (target, duration) => {
 	target.style.transitionProperty = 'height, margin, padding';
@@ -201,6 +190,17 @@ window.onload = function() {
 				sct.toggleContentOpen(chevron);
 			}
 		});
+	});
+
+	window.addEventListener('scroll', function() {
+		if (window.scrollY + window.innerHeight > window.innerHeight) {
+			document.querySelector('.backToTop').classList.remove('hide-backtotop');
+			document.querySelector('.backToTop').classList.add('show-backtotop');
+		}
+		else {
+			document.querySelector('.backToTop').classList.remove('show-backtotop');
+			document.querySelector('.backToTop').classList.add('hide-backtotop');
+		}
 	});
 
 	window.addEventListener('resize', function() {
