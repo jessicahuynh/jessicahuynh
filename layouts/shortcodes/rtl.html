@@ -1,0 +1,5 @@
+{{ if .IsNamedParams }}
+<span dir="rtl">{{ .Get "text" }}</span>
+{{ else }}
+<span dir="rtl">{{ .Get 0 }}</span>
+{{ end }}
