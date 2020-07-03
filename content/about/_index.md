@@ -25,3 +25,6 @@ In English and Vietnamese, heading, navigation, and copyright font is [Fira Sans
 They are all licensed under the [SIL Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
 
 Icons are a mixture of [Windows 10 Icons by Icons8](https://github.com/icons8/windows-10-icons) and [Feather Icons](https://github.com/feathericons/feather). Icons8 is double licensed under the ["Good Boy License"](https://icons8.com/good-boy-license) and [MIT](https://opensource.org/licenses/MIT). Feather Icons is also MIT.
+
+I started with [Foundation 6](http://foundation.zurb.com/) as a CSS framework.
+I do the site development using [Visual Studio Code](https://code.visualstudio.com/) with code hosted on GitHub and deployment via [Netlify](https://www.netlify.com/) for the static site generator [Hugo](https://gohugo.io/).
