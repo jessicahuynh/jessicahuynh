@@ -43,9 +43,9 @@
             </div>
           </div>  
 
-          <div class="top-bar row" id="navBar">
+          <div class="top-bar row">
             <div class="top-bar-left small-12">
-              <ul class="menu vertical medium-horizontal" id="nav-toggle">
+              <ul class="dropdown menu vertical medium-horizontal" id="nav-toggle">
                 {{ if .IsHome }}
                   {{ range .Site.Menus.main }}
                     <li><a href="{{.URL}}">{{.Name}}</a></li>

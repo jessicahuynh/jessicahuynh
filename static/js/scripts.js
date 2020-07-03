@@ -27,7 +27,7 @@ let slideUp = (target, duration) => {
 let slideDown = (target, duration) => {
 	target.style.removeProperty('display');
 	let display = window.getComputedStyle(target).display;
-	if (display === 'none') {
+	if (display == 'none') {
 		display = 'block';
 	}
 	target.style.display = display;
@@ -58,10 +58,10 @@ let slideDown = (target, duration) => {
 }
 
 let slideToggle = (target, duration = 500) => {
-	if (window.getComputedStyle(target).display === 'none') {
-		return slideDown(target, duration);
+	if (getComputedStyle(target).display == 'block') {
+		slideUp(target, duration);
 	} else {
-		return slideUp(target, duration);
+		slideDown(target, duration);
 	}
 }
 
@@ -160,14 +160,13 @@ class SidebarContentToggler {
 window.onload = function() {
 	let ht = new HamburgerToggler();
 	let sct = new SidebarContentToggler();
+	let mt = document.getElementById('menu-toggler');
 
 	sct.initAllSidebarContentDisplay();
 
-	document.getElementById('menu-toggler').addEventListener('click', function () {
+	mt.addEventListener('click', function() {
 		slideToggle(document.getElementById('nav-toggle'), 500);
-
-		// change between hamburger bars and close button for menu
-		ht.toggleHamburger();
+		ht.toggleHamburger();		
 	});
 
 
@@ -190,13 +189,14 @@ window.onload = function() {
 	});
 
 	window.addEventListener('scroll', function() {
+		let backToTop = document.querySelector('.backToTop');
 		if (window.scrollY + window.innerHeight > window.innerHeight) {
-			document.querySelector('.backToTop').classList.remove('hide-backtotop');
-			document.querySelector('.backToTop').classList.add('show-backtotop');
+			backToTop.classList.remove('hide-backtotop');
+			backToTop.classList.add('show-backtotop');
 		}
 		else {
-			document.querySelector('.backToTop').classList.remove('show-backtotop');
-			document.querySelector('.backToTop').classList.add('hide-backtotop');
+			backToTop.classList.remove('show-backtotop');
+			backToTop.classList.add('hide-backtotop');
 		}
 	});
 
