@@ -19,32 +19,37 @@
 				</aside>
 			</div>
 			<div class="small-12 medium-8 columns">
-				<form data-abide novalidate id="contact-form">
-					<div data-abide-error class="alert callout" style="display: none;" id="errorSubmission">
-						<p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> There are some errors in your form submission!</p>
+				<form id="contact-form" name="contact-form" netlify-honeypot="h" data-netlify="true">
+					<div class="alert callout" style="display: none;" id="errorSubmission">
+						<p>
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" style="vertical-align: -0.125em;-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32">
+								<path d="M16 3C8.832 3 3 8.832 3 16s5.832 13 13 13s13-5.832 13-13S23.168 3 16 3zm0 2c6.087 0 11 4.913 11 11s-4.913 11-11 11S5 22.087 5 16S9.913 5 16 5zm-3.78 5.78l-1.44 1.44L14.564 16l-3.782 3.78l1.44 1.44L16 17.437l3.78 3.78l1.44-1.437L17.437 16l3.78-3.78l-1.437-1.44L16 14.564l-3.78-3.782z" />
+							</svg>&nbsp;
+							There are some errors in your form submission!
+						</p>
 					</div>
 					
 					<div class="row">
 						<div class="medium-6 columns">
-							<label class="required">Name
+							<label class="required">Name&nbsp;{{ partial "svg/red-asterisk.html" }}
 								<input type="text" placeholder="jane doe" required id="name" name="name">
 								<span class="form-error">
-									Name is required.
+									I need to know what to call you!
 								</span>
 							</label>
 						</div>
 						<div class="medium-6 columns">
-							<label class="required">Email
+							<label class="required">Email&nbsp;{{ partial "svg/red-asterisk.html" }}
 								<input type="email" placeholder="abc@xyz.com" required id="email" name="email">
 								<span class="form-error">
-									A valid email address is required so that I can contact you.
+									I need to be able to contact you!
 								</span>
 							</label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="small-12 columns">
-							<label class="required">Subject
+							<label class="required">Subject&nbsp;{{ partial "svg/red-asterisk.html" }}
 								<input type="text" placeholder="request" required id="subject" name="subject">
 								<span class="form-error">
 									Please put in a subject so I know what you're contacting me about.
@@ -54,7 +59,7 @@
 					</div>
 					<div class="row">
 						<div class="small-12 columns">
-							<label class="required">Message
+							<label class="required">Message&nbsp;{{ partial "svg/red-asterisk.html" }}
 								<textarea rows="5" required id="message" name="message"></textarea>
 								<span class="form-error">
 									Please type a message!
@@ -70,7 +75,12 @@
 					</div>
 					
 					<div class="success callout" style="display: none;" id="successfulSubmission">
-						<p><i class="fa fa-heart" aria-hidden="true"></i> Successful submission!</p>
+						<p>
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="vertical-align: -0.125em;-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32">
+								<path d="M16 3C8.8 3 3 8.8 3 16s5.8 13 13 13s13-5.8 13-13c0-1.4-.188-2.794-.688-4.094L26.688 13.5c.2.8.313 1.6.313 2.5c0 6.1-4.9 11-11 11S5 22.1 5 16S9.9 5 16 5c3 0 5.694 1.194 7.594 3.094L25 6.688C22.7 4.388 19.5 3 16 3zm11.28 4.28L16 18.563l-4.28-4.28l-1.44 1.437l5 5l.72.686l.72-.687l12-12l-1.44-1.44z" />
+							</svg>&nbsp;
+							Successful submission!
+						</p>
 					</div>
 				</form>
 			</div> 

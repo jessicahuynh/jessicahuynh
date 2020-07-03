@@ -1,6 +1,3 @@
-$(document).foundation();
-
-
 let slideUp = (target, duration) => {
 	target.style.transitionProperty = 'height, margin, padding';
 	target.style.transitionDuration = duration + 'ms';

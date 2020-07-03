@@ -88,48 +88,64 @@
       </a>
     </div>
     
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/foundation/6.2.1/foundation.min.js"></script>
     <script type="text/javascript" src="/js/scripts.js?v=4"></script>
     
     {{ if .IsPage }}
     {{ if eq .Type "contact" }}
-    <script type="text/javascript">     
-      $('label.required').each(function() {
-        $(this).find('input').before('&nbsp;<i class=\"fa fa-asterisk\" aria-hidden=\"true\"></i>');
-        $(this).find('textarea').before('&nbsp;<i class=\"fa fa-asterisk\" aria-hidden=\"true\"></i>');
-      });
+    <script type="text/javascript">
+
+      let contactForm = document.getElementById('contact-form');
       
-      $('#contact-form').submit(function(e) {
+      contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
-        $('#successfulSubmission').css('display', 'none');
-        $('#errorSubmission').css('display', 'none');
+        let successfulSubmissionAlert = document.getElementById('successfulSubmission');
+        let errorSubmissionAlert = document.getElementById('errorSubmission');
 
-        let name = $("#name").val();
-        let email = $("#email").val();
-        let subject = $("#subject").val();
-        let message = $("#message").val();
+        successfulSubmissionAlert.style.display = 'none';
+        errorSubmissionAlert.style.display = 'none';
+
+        let name = document.getElementById("name");
+        let email = document.getElementById("email");
+        let subject = document.getElementById("subject");
+        let message = document.getElementById("message");
         
-        if ($('input.hidden').val() == '' && name != '' && email != "" && subject != '' && message != '') {
-          $.ajax({
-            type:"POST",
-            url:"https://zapier.com/hooks/catch/1292593/u13i29/?name="+name+"&email="+email+"&subject="+subject+"&message="+message,
-            success: function() {
-              $('#successfulSubmission').css('display', 'block');
+        if (document.querySelectorAll('input.hidden').value == '' && 
+            name.value != '' && email.value != '' && 
+            subject.value != '' && message.value != '') {
+          
+          var query_string = 'name=' + name.value + '&email=' + email.value + '&subject=' + subject.value + '&message=' + message.value;
+          
+          var request = new XMLHttpRequest();
+          request.open('POST', contactForm.action, true);
+          request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+
+          request.onload = function() {
+            if (this.status >= 200 && this.status < 400) {
+              // success
+              successfulSubmissionAlert.style.display = 'block';
               
-              $("#name").val('');
-              $("#email").val('');
-              $("#subject").val('');
-              $("#message").val('');
-            },
-            error: function() {
-              $('#errorSubmission').css('display','block');
+              name.value = '';
+              email.value = '';
+              subject.value = '';
+              message.value = '';
             }
-          });
+            else {
+              // an error message after reaching netlify
+              errorSubmissionAlert.style.display = 'block';
+            }
+          };
+
+          request.onerror = function() {
+            // connection error
+            errorSubmissionAlert.style.display = 'block';
+          };
+
+          request.send(query_string);
+   
         }
         else {
-          $('#errorSubmission').css('display', 'block');
+          errorSubmissionAlert.style.display = 'block';
         }
       });
     </script>
