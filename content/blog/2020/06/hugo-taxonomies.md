@@ -171,7 +171,7 @@ Since the type, category, and any tags are specified in the YAML header, I can t
 {{ end }}
 ```
 
-I plan to stop using Font Awesome's icons at some point and replace with SVGs but the concept will remain the same.
+I no longer use Font Awesome's icons, instead preferring SVGs, but those take up lots of space for a blog post and are immaterial to the main point, so in they stay.
 
 #### Portfolio single pages
 
@@ -192,3 +192,46 @@ To establish if a project has posts, I use the following bit of templating:
 `$.Scratch.Set` is used for setting template variables. If `hasPostsAbout` is `true`, I then create the section that lists posts. By default it is false.
 
 This does require ranging through `.Site.Pages` and checking all of them for their `project`. This would be inefficient in a traditional programming context, but with static site generation and Hugo specifically, this isn't an issue since only the generated HTML pages will be deployed.
+
+#### Linking posts about a project
+
+All blog posts related to a particular project have a box below the table of contents that says "Posts about (project name)", a listing of all linked posts, then a link to the portfolio single page.
+
+The algorithm for this would also be inefficient in a traditional programming context. I loop through all projects specified in the Markdown header for the blog post to allow for the possibility that a post could be linked to multiple projects. Within each sidebox, I go through all projects again, keeping track of the key (slug) and specific taxonomy term. From there, if the key matches the parent project, I go through every page within the taxonomy term. If the title of the current blog post is in that term, I populate the sidebox.
+
+```html {linenos=table}
+{{ $p := .Site.Taxonomies.projects }}
+{{ $t := .Title }}
+{{ range .Params.projects }}
+  {{$c := . | urlize}} <!--slug for current project being iterated through-->
+  <aside class="alsoInProject">
+    <header class="sideBoxHeader">
+      <a href="#">
+        Posts about {{ . }}&nbsp;
+        <span class="sideBoxChevron"></span>
+      </a>
+    </header>
+    <div class="sideBoxContent">
+      <ol>
+        <!-- go through every project again and list the ones with the same project as the current page-->
+        {{ range $key, $tax := $p }}
+          {{ if eq $key $c }}
+            {{ range $tax.Pages }}
+              <li>
+                {{if (eq $t .Title)}}
+                  {{ .Title }}
+                {{else}}
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+                {{end}}
+              </li> 
+            {{ end }}
+          {{end}}
+        {{ end }}
+      </ol>
+      <span class="text-right"><a href="/portfolio/{{$c}}">About the project</a></span>
+    </div>
+  </aside>
+{{ end }}
+```
+
+Again, very inefficient, big O is O(N³), please don't tell any of my former professors. There's also a bit of conditional logic in there for not making a link to show what page is currently being viewed, which isn't strictly necessary but a nice bit of usability.
