@@ -14,6 +14,12 @@
     force = true
 
 [[redirects]]
+    from = "https://jessicahuynh.netlify.com/*"
+    to = "https://www.jessicahuynh.info/:splat"
+    status = 301
+    force = true
+
+[[redirects]]
     from = "/blog/:year/:month/"
     to = "/archive/#:year"
     status = 301
@@ -21,4 +27,19 @@
 [[redirects]]
     from = "/blog/:year"
     to = "/archive/#:year"
+    status = 301
+
+[[redirects]]
+    from = "/varieties"
+    to = "/types"
+    status = 301
+
+[[redirects]]
+    from = "/blog/tags"
+    to = "/tags"
+    status = 301
+
+[[redirects]]
+    from = "/blog/categories"
+    to = "/categories"
     status = 301
