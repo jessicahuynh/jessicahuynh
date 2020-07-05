@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content="{{ hugo.Generator }}" />
     <meta name="description" content="{{ .Description }}" />
+    <meta name="msvalidate.01" content="3549544056DC2CB73DDB9ED4480BA626" />
     {{ range .AlternativeOutputFormats -}}
       {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
     {{ end -}}
