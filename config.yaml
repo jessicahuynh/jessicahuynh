@@ -17,8 +17,13 @@ params:
 taxonomies:
   project: projects
   tag: tags
-  category: categories
-  type: types
+  category: categor
+  
+markup:
+  tableOfContents:
+      endLevel: 4
+      ordered: false
+      startLevel: 2
   
 menu:
   main:
