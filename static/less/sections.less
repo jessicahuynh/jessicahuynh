@@ -105,6 +105,30 @@ section header {
 		fill:@primaryDarker;
 	}
 }
+.postBlurb {
+	font-style: italic;
+	font-size: 80%;
+}
+
+.postTitle, .postMetadata, .postBlurb {
+	text-align:center;
+}
+.text-beside-hero {
+	.postTitle, .postMetadata, .postBlurb {
+		@media screen and (min-width:40rem) {
+			text-align:left;
+		}
+	}
+}
+
+.hero-image {
+	width: 100%;
+	margin:0;
+
+	@media screen and (min-width:40rem) {
+		margin: 1em 0.5em;
+	}
+}
 
 .prevnextpost {
 	a {

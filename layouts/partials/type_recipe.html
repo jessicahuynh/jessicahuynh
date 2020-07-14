@@ -1,7 +1,19 @@
 <div class="row">
+	{{ if .Page.Params.hero }}
+	<div class="small-12 medium-4 columns">
+		<figure class="hero-image">
+			<img src="{{ .Page.Params.hero }}" alt="{{ .Page.Params.hero_alt }}" title="{{ .Page.Params.hero_alt }}" />
+		</figure>
+	</div>
+	<header class="small-12 medium-8 columns text-beside-hero">
+	{{ else }}
 	<header class="small-12 columns">
-		<h1 class="postTitle text-center"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-		<p class="text-center">{{ partial "postmetadata.html" . }}</p>
+	{{ end }}
+		<h1 class="postTitle"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+		<p class="postMetadata">{{ partial "postmetadata.html" . }}</p>
+		{{ if .Page.Params.hero_alt }}
+		<p class="postBlurb">In the image: {{ .Page.Params.hero_alt }}</p>
+		{{ end }}
 	</header> 
 </div>
 
