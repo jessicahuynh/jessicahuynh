@@ -1,1 +1,13 @@
-@import "../css/styles.min.css";
+@import 'partials/foundation';
+@import 'partials/syntax';
+@import 'partials/colors';
+@import 'partials/fonts';
+@import 'partials/layout';
+@import 'partials/typography';
+
+@import 'partials/sections';
+@import 'partials/header';
+@import 'partials/footer';
+
+@import 'partials/forms';
+@import 'partials/portfolio';

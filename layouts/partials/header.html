@@ -11,13 +11,29 @@
     {{ end -}}
     <title>{{if not .IsHome}}{{ .Title }} :: {{end}}{{ .Site.Title }}</title>
 
-    {{ $css := resources.Get "scss/styles.scss" | css.Sass | resources.Minify }}
-    <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+    {{ with resources.Get "scss/styles.scss" }}
+      {{ $opts := dict
+        "enableSourceMap" hugo.IsDevelopment
+        "outputStyle" (cond hugo.IsDevelopment "expanded" "compressed")
+        "targetPath" "css/styles.css"
+        "transpiler" "dartsass"
+        "vars" site.Params.styles
+      }}
+      {{ with . | css.Sass $opts }}
+        {{ if hugo.IsDevelopment }}
+          <link rel="stylesheet" href="{{ .RelPermalink }}">
+        {{ else }}
+          {{ with . | fingerprint }}
+            <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
   </head>
   <body lang="en">
     <div class="wrapper">
       <header class="masthead">
-        <h1><a href="/">{{ .Site.Title }}</a> <small>{{ .Site.Params.subtitle }}</small></h1>
+        <h1 class="siteTitle"><a href="/">{{ .Site.Title }}</a> <small>{{ .Site.Params.subtitle }}</small></h1>
         
         <nav>
           <div class="title-bar" aria-label="Main navigation">
