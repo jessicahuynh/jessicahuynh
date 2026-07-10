@@ -1,0 +1,80 @@
+footer {
+	background:$primaryDarkest;
+	font-size:0.8rem;
+	color:$cream;
+	padding-top:2em;
+}
+
+.copyright {
+	font-size:0.75rem;
+	color:$primaryDarkest;
+	padding-top:.1rem;
+	background-color:$cream; 
+	margin:0;
+	display:block;
+	
+	a, a:link, a:visited, a:hover, a:focus, a:active {
+		color:$primaryDarkest;
+	}
+}
+
+.backToTop {
+	position:fixed;
+	right:2rem;
+	bottom:0.75rem;
+	opacity:0.75;
+	display:none;
+	
+	a {
+		fill:$secondaryDarker;
+		font-size:3rem;
+
+		&:hover, &:focus, &:active {
+			fill:$orangish;
+		}
+	}
+}
+.backToTop.show-backtotop {transition:opacity 750ms; display:block;}
+.backToTop.hide-backtotop {transition:opacity 750ms; display:none;}
+
+/* social media colors */
+.socialmedia {
+	a {
+		padding:0.1em;
+		font-size:3em;
+		stroke:$orangish;
+		display: inline-block;
+	}
+}
+
+a.twitter {
+	&:hover, &:focus, &:active {
+		stroke:$twitter;
+	}
+}
+a.instagram {
+	&:hover, &:focus, &:active {
+		stroke:$instagram;
+	}
+}
+a.linkedin {
+	&:hover, &:focus, &:active {
+		stroke:$linkedin;
+	}
+}
+a.github {
+	&:hover, &:focus, &:active {
+		stroke:$offWhite;
+	}
+}
+a.rss {
+	&:hover, &:focus, &:active {
+		stroke:$secondaryColor;
+	}
+}
+
+.featuredposts {
+	header {
+		font-size:1.2rem;
+	}
+}
