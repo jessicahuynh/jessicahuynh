@@ -1,5 +1,5 @@
 baseurl: https://www.jessicahuynh.info
-languageCode: en-us
+locale: en-US
 title: Jessica Huynh
 copyright: "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 (CC BY-SA 4.0) International License."
 
@@ -11,13 +11,12 @@ pygmentsCodefences: true
 
 params:
   subtitle: "/hwɪn/"
-  categories: ["Lifestyle","Web development"]
-  types: ["post","status","recipe"]
   
 taxonomies:
   project: projects
   tag: tags
-  category: categor
+  category: categories
+  type: types
   
 markup:
   tableOfContents:

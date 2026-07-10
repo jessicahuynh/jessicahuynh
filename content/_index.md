@@ -2,7 +2,6 @@
 date: "2017-01-09T15:08:38-04:00"
 title: Jessica Huynh
 description: Jessica Huynh's home page
-kind: home
 url: /
 ---
 

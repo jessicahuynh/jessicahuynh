@@ -10,8 +10,9 @@
       {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
     {{ end -}}
     <title>{{if not .IsHome}}{{ .Title }} :: {{end}}{{ .Site.Title }}</title>
-  
-    <link rel="stylesheet" href="/css/styles.min.css?v=9">
+
+    {{ $css := resources.Get "scss/styles.scss" | css.Sass | resources.Minify }}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}">
   </head>
   <body lang="en">
     <div class="wrapper">

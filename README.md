@@ -1,11 +1,11 @@
 # jessicahuynh.info
 
-Personal website built with the [hugo](gohugo.io) static site generator. Continuously deployed every time I push with Netlify. The static assets are built before pushing. Currently using hugo 0.73.0.
+Personal website built with the [hugo](gohugo.io) static site generator. Continuously deployed every time I push with Netlify. The static assets are built before pushing.
 
 ## To recreate locally
 
-1. Install `nvm` and then `node` (at least version 14.4.0)
-2. `npm install` in the root directory (same level as `package.json`)
-3. `hugo server` to see on localhost
+1. Install Hugo 0.164.0 or newer
+2. Run `hugo server` from the project root to see the site locally
+3. Edit the Sass source in `assets/css/styles.min.scss` and Hugo will rebuild the stylesheet automatically
 
-When modifying LESS files, `npm run build:css` to create all static assets.
+The site now uses Hugo's built-in Sass support instead of the old LESS/Node-based build pipeline.

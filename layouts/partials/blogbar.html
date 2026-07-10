@@ -36,8 +36,8 @@
 			</header>
 			<div class="sideBoxContent">
 				<ul>
-					{{ range $k := .Site.Params.types }}
-						<li><a href="/types/{{ $k | urlize }}">{{ $k }}</a></li>
+					{{ range $name, $taxonomy := .Site.Taxonomies.types }}
+						<li><a href="/types/{{ $name | urlize }}">{{ $name }}</a></li>
 					{{ end }}
 				</ul>
 			</div>
@@ -53,8 +53,8 @@
 			</header>
 			<div class="sideBoxContent">
 				<ul>
-					{{ range .Site.Params.categories }}		
-						<li><a href="/categories/{{ . | urlize }}">{{ . }}</a></li>
+					{{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+						<li><a href="/categories/{{ $name | urlize }}">{{ $name }}</a></li>
 					{{ end }}
 				</ul>
 			</div>

@@ -2,7 +2,6 @@
 categories: ["Lifestyle"]
 date: "2016-07-14T22:22:26-04:00"
 types: ["recipe"]
-kind: page
 tags: ["vietnamese","jbs"]
 title: Gỏi cuốn and peanut sauce recipe
 description: Quick and easy gỏi cuốn (Vietnamese spring roll) recipe

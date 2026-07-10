@@ -2,7 +2,6 @@
 date: "2016-05-03T18:56:57-04:00"
 title: About
 description: About Jessica Huynh
-kind: section
 url: /about
 ---
 

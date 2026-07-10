@@ -1,5 +1,4 @@
 ---
-kind: page
 types: ["status"]
 categories: ["Web development"]
 tags: ["hugo"]
