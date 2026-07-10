@@ -47,6 +47,13 @@ footer {
 	}
 }
 
+a.bluesky {
+	fill:$orangish;
+	&:hover, &:focus, &:active {
+		stroke: $bluesky;
+		fill: $bluesky;
+	}
+}
 a.twitter {
 	&:hover, &:focus, &:active {
 		stroke:$twitter;
