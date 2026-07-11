@@ -80,6 +80,10 @@ header.masthead {
 	.title-bar-title {
 		padding-bottom:0.5em;
 		font-size:1.2em;
+		
+		a {
+			color: $bodyText;
+		}
 	}
 
 	#menu-toggler {

@@ -37,6 +37,22 @@ section header {
 	}
 }
 
+.aboutPortrait {
+	display:block;
+	margin:0 auto;
+	width:100%;
+	height:auto;
+
+	@media screen and (max-width:39.9375em) {
+		width:min(100%, 14rem);
+		height:14rem;
+		object-fit:cover;
+		object-position:center center;
+		border-radius:50%;
+		margin-top: 1rem;
+	}
+}
+
 .prettySidebarBoxes {
 	width: 100%;
 
