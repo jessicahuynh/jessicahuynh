@@ -1,29 +1,30 @@
 .sideBox {
-	background:@primaryDarkest;
-	color:@cream;
+	background:$primaryDarkest;
+	color:$cream;
 	
 	a {
-		color:@orangish;
+		color:$orangish;
 	}	
 }
 
 @media screen and (max-width:39.9375em) {
 	.sticky {
-		width:100%;
+		width: 100%;
 	}
 }
 
 .sideBoxContent {
 	display:none;
 	padding:0.5rem;
+	
 	@media screen and (min-width:40rem) {
 		display:block;
 	}
 }
 
 section header {
-	background:@primaryDarker;
-	color:@cream;
+	background:$primaryDarker;
+	color:$cream;
 	font-variant:small-caps;
 	padding:.25rem 0;
 	
@@ -36,59 +37,88 @@ section header {
 	}
 }
 
-.prettySidebarBoxes {
+.aboutPortrait {
+	display:block;
+	margin:0 auto;
 	width:100%;
-	.sideBox;
+	height:auto;
+
+	@media screen and (max-width:39.9375em) {
+		width:min(100%, 14rem);
+		height:14rem;
+		object-fit:cover;
+		object-position:center center;
+		border-radius:50%;
+		margin-top: 1rem;
+	}
+}
+
+.prettySidebarBoxes {
+	width: 100%;
+
 	header {
-		.sideBox;
-		font-variant:small-caps;
-		font-size:1.1rem;
+		background: $primaryDarkest;
+		color: $cream;
+		font-variant: small-caps;
+		font-size: 1.1rem;
 
 		a {
-			padding:0.5rem;
-			color:@primaryDarkest;
-			stroke:@primaryDarkest;
-			fill:@primaryDarkest;
-			text-decoration:none;
-			background:@orangish;
-			display:block;
+			padding: 0.5rem;
+			color: $primaryDarkest;
+			stroke: $primaryDarkest;
+			fill: $primaryDarkest;
+			text-decoration: none;
+			background: $orangish;
+			display: block;
 		}
 	}
+
 	nav {
-		.sideBox;
-		ul, ol {
-			list-style-type:none;
+		background: $primaryDarkest;
+		color: $cream;
+
+		ul,
+		ol {
+			list-style-type: none;
 		}
 	}
+
 	i.fa-chevron-right {
-		vertical-align:middle;
+		vertical-align: middle;
 	}
 }
 
 .sidebar aside {
-	.prettySidebarBoxes;
+	@extend .prettySidebarBoxes;
+	background:$primaryDarkest;
+
+	a {
+		color: $orangish;
+	}
 }
 
 .blogbar aside {
-	.prettySidebarBoxes;
-	
+	@extend .prettySidebarBoxes;
+
 	ul {
-		list-style-type:none;
+		list-style-type: none;
 	}
-	
-	background:@cream;
-	color:@bodyText;
-	stroke:@bodyText;
+
+	background: $cream;
+	color: $bodyText;
+	stroke: $bodyText;
+
 	a {
-		color:@tertiaryColor;
-		stroke:@tertiaryColor;
-		fill:@tertiaryColor;
+		color: $tertiaryColor;
+		stroke: $tertiaryColor;
+		fill: $tertiaryColor;
 	}
+
 	header a {
-		background:@tertiaryColor;
-		color:@cream;
-		stroke:@cream;
-		fill:@cream;
+		background: $tertiaryColor;
+		color: $cream;
+		stroke: $cream;
+		fill: $cream;
 	}
 }
 
@@ -100,9 +130,9 @@ section header {
 .postTitle {
 	margin-top: 0.45rem;
 	a {
-		color:@primaryDarker;
-		stroke:@primaryDarker;
-		fill:@primaryDarker;
+		color:$primaryDarker;
+		stroke:$primaryDarker;
+		fill:$primaryDarker;
 	}
 }
 .postBlurb {
@@ -137,47 +167,47 @@ section header {
 		display:inline-block;
 
 		&:hover, &:focus, &:active {
-			color:@cream;
-			fill:@cream;
-			stroke:@cream;
-			background:@tertiaryColor;
+			color:$cream;
+			fill:$cream;
+			stroke:$cream;
+			background:$tertiaryColor;
 		}
 	}
 }
 
 /* labels */
 .label {
-	background:@primaryDarkest;
-	color:@cream;
-	stroke:@cream;
+	background:$primaryDarkest;
+	color:$cream;
+	stroke:$cream;
 }
 
 .reddish {
-	background:@tertiaryColor;
+	background:$tertiaryColor;
 }
 .reddishColor {
-	color:@tertiaryColor;
-	fill:@tertiaryColor;
+	color:$tertiaryColor;
+	fill:$tertiaryColor;
 	background:transparent;
 }
 
 .orangish {
-	background:@orangish;
+	background:$orangish;
 }
 
 .secondaryDarker {
-	background:@secondaryDarker;
+	background:$secondaryDarker;
 }
 
 .transparent {
 	background:transparent;
-	color:@primaryDarkest;
-	stroke:@primaryDarkest;
+	color:$primaryDarkest;
+	stroke:$primaryDarkest;
 }
 
 /* post types */
 .blogListBar {
-	background:@cream;
+	background:$cream;
 	aside {
 		width:25%;
 		float:left;
@@ -189,7 +219,7 @@ section header {
 				padding:0.25rem;
 				
 				&:hover, &:focus, &:active {
-					background:@tertiaryDarker;
+					background:$tertiaryDarker;
 				}
 			}
 			
@@ -216,7 +246,7 @@ section header {
 			
 			header a {
 				&:hover {
-					background:@tertiaryDarker;
+					background:$tertiaryDarker;
 				}
 			}
 		}
@@ -253,10 +283,10 @@ section header {
 		text-decoration:none;
 		
 		&:hover, &:focus, &:active {
-			background:@tertiaryColor;
-			color:@cream;
-			stroke:@cream;
-			fill:@cream;
+			background:$tertiaryColor;
+			color:$cream;
+			stroke:$cream;
+			fill:$cream;
 		}
 	}
 

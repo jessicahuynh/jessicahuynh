@@ -2,3 +2,6 @@ public/*
 node_modules/*
 static/css/styles.css
 static/css/styles.combined.css
+assets/css/styles.min.css
+resources/_gen/*
+.hugo_build.lock

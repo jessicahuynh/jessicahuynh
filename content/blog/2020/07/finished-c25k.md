@@ -3,7 +3,6 @@ date: "2020-07-03T15:47:06-04:00"
 tags: ["running","covid-19"]
 categories: ["Lifestyle"]
 types: ["post"]
-kind: page
 title: Finished Couch-to-5k
 description: Overview of the Couch-to-5k program and my thoughts after finishing it
 ---

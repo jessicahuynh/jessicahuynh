@@ -1,6 +1,6 @@
 .portfolio {
-	background:@primaryDarker;
-	color:@cream;
+	background:$primaryDarker;
+	color:$cream;
 }
 
 .portfolioCard {
@@ -8,8 +8,8 @@
 	margin-bottom:1rem;
 	padding:0rem;
 	div {
-		background:@cream;
-		color:@primaryDarker;
+		background:$cream;
+		color:$primaryDarker;
 		padding:1rem;
 		height:100%;
 	}
@@ -20,29 +20,29 @@
 }
 
 .portfolioPage {
-	background:@primaryDarkest;
-	color:@cream;
+	background:$primaryDarkest;
+	color:$cream;
 	
 	header {
-		background:@primaryDarker;
+		background:$primaryDarker;
 	}
 	
 	.portfolioCard {
-		color:@primaryDarkest;
+		color:$primaryDarkest;
 	}
 }
 
 .listPostsAbout {
 	header {
-		background:@orangish;
-		color:@primaryDarkest;
+		background:$orangish;
+		color:$primaryDarkest;
 	}
 	
 	ol {
 		margin-top:1rem;
 		
 		a {
-			color:@orangish;
+			color:$orangish;
 		}
 	}
 }

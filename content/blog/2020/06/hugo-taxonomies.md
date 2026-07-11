@@ -3,7 +3,6 @@ date: "2020-06-24T22:06:47-04:00"
 tags: ["hugo", "covid-19"]
 categories: ["Web development"]
 types: ["post"]
-kind: page
 title: Taxonomies in Hugo
 description: An exploration of how Hugo's taxonomies work, how to create default pages for them, and uses beyond categories and tags
 ---

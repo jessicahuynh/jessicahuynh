@@ -1,5 +1,5 @@
 body, html {
-	color:@bodyText;
+	color:$bodyText;
 	font-family:"Mada","Source Sans Pro","Fira Sans","Trebuchet MS",Arial, Helvetica, sans-serif;
 }
 
@@ -10,13 +10,13 @@ code, pre, kbd, samp {
 a {
 	
 	&:link, &:visited {
-		color:@tertiaryColor;
-		fill:@tertiaryColor;
+		color:$tertiaryColor;
+		fill:$tertiaryColor;
 	}
 	
 	&:hover, &:focus, &:active {
-		color:@tertiaryColor;
-		fill:@tertiaryColor;
+		color:$tertiaryColor;
+		fill:$tertiaryColor;
 		text-decoration:underline;
 		cursor:pointer;
 	}
@@ -29,11 +29,11 @@ a {
 footer {
 	a {
 		&:link, &:visited {
-			color:@orangish;
+			color:$orangish;
 		}
 
 		&:hover, &:focus, &:active {
-			color:@orangish;
+			color:$orangish;
 			text-decoration:underline;
 		}
 	}

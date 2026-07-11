@@ -1,59 +1,67 @@
 .siteTitle {
-	a:link, a:visited, a:focus, a:hover {
-		color:@bodyText;
+	a:link,
+	a:visited,
+	a:focus,
+	a:hover {
+		color: $bodyText;
 	}
-	
-	a:hover, a:focus {
-		text-decoration:underline;
+
+	a:hover,
+	a:focus {
+		text-decoration: underline;
 	}
 }
 
 /* masthead */
 header.masthead {
-	background:@primaryColor;
-	
+	background: $primaryColor;
+
 	h1 {
-		display:none;
-		.siteTitle;
-		
+		display: none;
+
 		small {
-			color:@cream;
+			color: $cream;
 		}
 	}
 	
 	nav {
-		background:@cream;
-		height:auto;
-		
-		.top-bar, .top-bar ul, .top-bar ul li {
-			background-color:@cream;
-			padding:0;
-			height:auto;
+		background: $cream;
+		height: auto;
+
+		.top-bar,
+		.top-bar ul,
+		.top-bar ul li {
+			background-color: $cream;
+			padding: 0;
+			height: auto;
 		}
-		
+
 		.top-bar-left {
-			float:none;
-			background:@cream;
+			float: none;
+			background: $cream;
 		}
-		
+
 		.top-bar ul li a {
-			padding:1rem 1.5rem;
-			text-transform:uppercase;
-			text-decoration:none;
-			
-			&:link, &:visited {
-				color:@primaryDarkest;
+			padding: 1rem 1.5rem;
+			text-transform: uppercase;
+			text-decoration: none;
+
+			&:link,
+			&:visited {
+				color: $primaryDarkest;
 			}
-			
-			&:hover,&:focus,&:active {
-				background:@primaryDarkest;
-				color:@cream;
+
+			&:hover,
+			&:focus,
+			&:active {
+				background: $primaryDarkest;
+				color: $cream;
 			}
 		}
-		
+
 		.top-bar ul li.active a {
-			background:@primaryDarkest;
-			color:@cream;
+			background: $primaryDarkest;
+			color: $cream;
 		}
 	}
 }
@@ -66,13 +74,16 @@ header.masthead {
 }
 
 .title-bar {
-	background:@primaryColor;
-	.siteTitle;
-	width:100%;
+	background: $primaryColor;
+	width: 100%;
 
 	.title-bar-title {
 		padding-bottom:0.5em;
 		font-size:1.2em;
+		
+		a {
+			color: $bodyText;
+		}
 	}
 
 	#menu-toggler {
@@ -89,7 +100,7 @@ header.masthead {
 		margin-right:0.5rem;
 		font-size:1.2rem;
 		margin-top:0.2rem;
-		stroke:@cream;
+		stroke:$cream;
 		position:absolute;
 		right:0;
 	}
@@ -109,3 +120,4 @@ header.masthead {
         display: none;
     }
 }
+

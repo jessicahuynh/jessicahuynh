@@ -1,16 +1,16 @@
 form {
 	.button {
-		background:@primaryDarker;
-		color:@cream;
+		background:$primaryDarker;
+		color:$cream;
 	}
 	.button:focus, .button:hover, .button:active {
-		background:@primaryColor;
+		background:$primaryColor;
 	}
 }
 
 .required {
 	i {
-		color:@tertiaryColor;
+		color:$tertiaryColor;
 	}
 }
 

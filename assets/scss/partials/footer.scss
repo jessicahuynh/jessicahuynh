@@ -1,20 +1,20 @@
 footer {
-	background:@primaryDarkest;
+	background:$primaryDarkest;
 	font-size:0.8rem;
-	color:@cream;
+	color:$cream;
 	padding-top:2em;
 }
 
 .copyright {
 	font-size:0.75rem;
-	color:@primaryDarkest;
+	color:$primaryDarkest;
 	padding-top:.1rem;
-	background-color:@cream; 
+	background-color:$cream; 
 	margin:0;
 	display:block;
 	
 	a, a:link, a:visited, a:hover, a:focus, a:active {
-		color:@primaryDarkest;
+		color:$primaryDarkest;
 	}
 }
 
@@ -26,11 +26,11 @@ footer {
 	display:none;
 	
 	a {
-		fill:@secondaryDarker;
+		fill:$secondaryDarker;
 		font-size:3rem;
 
 		&:hover, &:focus, &:active {
-			fill:@orangish;
+			fill:$orangish;
 		}
 	}
 }
@@ -42,34 +42,41 @@ footer {
 	a {
 		padding:0.1em;
 		font-size:3em;
-		stroke:@orangish;
+		stroke:$orangish;
 		display: inline-block;
 	}
 }
 
+a.bluesky {
+	fill:$orangish;
+	&:hover, &:focus, &:active {
+		stroke: $bluesky;
+		fill: $bluesky;
+	}
+}
 a.twitter {
 	&:hover, &:focus, &:active {
-		stroke:@twitter;
+		stroke:$twitter;
 	}
 }
 a.instagram {
 	&:hover, &:focus, &:active {
-		stroke:@instagram;
+		stroke:$instagram;
 	}
 }
 a.linkedin {
 	&:hover, &:focus, &:active {
-		stroke:@linkedin;
+		stroke:$linkedin;
 	}
 }
 a.github {
 	&:hover, &:focus, &:active {
-		stroke:@offWhite;
+		stroke:$offWhite;
 	}
 }
 a.rss {
 	&:hover, &:focus, &:active {
-		stroke:@secondaryColor;
+		stroke:$secondaryColor;
 	}
 }
 

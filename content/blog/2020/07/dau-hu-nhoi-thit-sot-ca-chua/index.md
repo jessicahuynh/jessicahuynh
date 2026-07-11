@@ -3,7 +3,6 @@ date: "2020-07-13T18:29:38-04:00"
 tags: ["vietnamese", "covid-19"]
 categories: ["Lifestyle"]
 types: ["recipe"]
-kind: page
 title: Đậu hũ nhồi thịt sơt cà chua
 description: Đậu hũ nhồi thịt sơt cà chua (tofu stuffed with pork braised in tomato sauce) is a classic Vietnamese dish with lots of family variation. This is my own adaptation of my mom's recipe.
 hero: served-with-rice.JPG
