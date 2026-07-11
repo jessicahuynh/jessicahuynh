@@ -6,12 +6,14 @@
 
 [build]
     publish = "public"
-    command = "curl -sfLO "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz" && \
-               tar -C "${HOME}/.local" -xf "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz" && \
-               rm "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz" && \
-               export PATH="${HOME}/.local/dart-sass:${PATH}" && \
-               git config --global core.quotepath false && \
-               hugo build --gc --minify"
+    command = '''
+curl -sfLO "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz" && \
+tar -C "${HOME}/.local" -xf "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz" && \
+rm "dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz" && \
+export PATH="${HOME}/.local/dart-sass:${PATH}" && \
+git config --global core.quotepath false && \
+hugo build --gc --minify
+'''
 
 [context.production.environment]
     HUGO_VERSION = "0.164.0"
