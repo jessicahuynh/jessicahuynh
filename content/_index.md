@@ -5,6 +5,6 @@ description: Jessica Huynh's home page
 url: /
 ---
 
-Currently a Senior Clinical NLP Specialist at [Linguamatics](https://www.linguamatics.com), an IQVIA company; master's in computational linguistics, undergrad in computer science & linguistics, both from [Brandeis University](https://www.brandeis.edu).
+Currently a Senior NLP Research Engineer.
 
 I post about (mis)adventures in web development, recipes, and other things that come to mind.
