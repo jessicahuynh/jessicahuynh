@@ -42,3 +42,7 @@ menu:
       identifier: contact
       url: /contact
       weight: -60
+
+caches:
+  images:
+    dir: :cacheDir/images
