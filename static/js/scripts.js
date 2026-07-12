@@ -1,195 +1,223 @@
-let slideUp = (target, duration) => {
-	target.style.transitionProperty = 'height, margin, padding';
-	target.style.transitionDuration = duration + 'ms';
-	target.style.boxSizing = 'border-box';
-	target.style.height = target.offsetHeight + 'px';
+const DEFAULT_TOGGLE_DURATION = 320;
 
-	target.style.height = 0;
-	target.style.paddingTop = 0;
-	target.style.paddingBottom = 0;
-	target.style.marginTop = 0;
-	target.style.marginBottom = 0;
-	target.style.overflow = 'hidden';
+const prefersReducedMotion = () => {
+	return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+};
 
-	window.setTimeout( () => {
-		target.style.display = 'none';
-		target.style.removeProperty('height');
-		target.style.removeProperty('padding-top'); 
-		target.style.removeProperty('padding-bottom');
-		target.style.removeProperty('margin-top');
-		target.style.removeProperty('margin-bottom'); 
-		target.style.removeProperty('overflow');
-		target.style.removeProperty('transition-duration'); 
-		target.style.removeProperty('transition-property');
-	}, duration);
-}
+const getDuration = (duration = DEFAULT_TOGGLE_DURATION) => {
+	return prefersReducedMotion() ? 0 : duration;
+};
 
-let slideDown = (target, duration) => {
-	target.style.removeProperty('display');
-	let display = window.getComputedStyle(target).display;
-	if (display == 'none') {
-		display = 'block';
+const whenTransitionEnds = (target, duration, done) => {
+	let resolved = false;
+
+	const cleanup = () => {
+		target.removeEventListener('transitionend', onTransitionEnd);
+		if (!resolved) {
+			resolved = true;
+			done();
+		}
+	};
+
+	const onTransitionEnd = (event) => {
+		if (event.target === target && event.propertyName === 'height') {
+			cleanup();
+		}
+	};
+
+	target.addEventListener('transitionend', onTransitionEnd);
+	window.setTimeout(cleanup, duration + 40);
+};
+
+let slideUp = (target, duration = DEFAULT_TOGGLE_DURATION) => {
+	if (!target || target.dataset.isAnimating === 'true') {
+		return;
 	}
-	target.style.display = display;
 
-	let height = target.offsetHeight;
-	target.style.height = 0;
-	target.style.paddingTop = 0;
-	target.style.paddingBottom = 0; 
-	target.style.marginTop = 0; 
-	target.style.marginBottom = 0; 
-	target.style.overflow = 'hidden'; 
+	if (getComputedStyle(target).display === 'none') {
+		return;
+	}
 
-	target.style.boxSizing = 'border-box';
-	target.style.transitionProperty = "height, margin, padding";  
-	target.style.transitionDuration = duration + 'ms';
-	target.style.height = height + 'px';
-	target.style.removeProperty('padding-top'); 
-	target.style.removeProperty('padding-bottom'); 
-	target.style.removeProperty('margin-top'); 
-	target.style.removeProperty('margin-bottom');
+	const animationDuration = getDuration(duration);
+	target.dataset.isAnimating = 'true';
+	target.style.overflow = 'hidden';
+	target.style.height = target.scrollHeight + 'px';
+	target.offsetHeight;
+	target.style.transitionProperty = 'height';
+	target.style.transitionDuration = animationDuration + 'ms';
+	target.style.height = '0px';
 
-	window.setTimeout( () => {
+	whenTransitionEnds(target, animationDuration, () => {
+		target.style.display = 'none';
 		target.style.removeProperty('height');
 		target.style.removeProperty('overflow');
 		target.style.removeProperty('transition-duration');
 		target.style.removeProperty('transition-property');
-	}, duration);
-}
-
-let slideToggle = (target, duration = 500) => {
-	if (getComputedStyle(target).display == 'block') {
-		slideUp(target, duration);
-	} else {
-		slideDown(target, duration);
-	}
-}
-
-let removeAllChildren = (target) => {
-	if (target) {
-		while (target.firstChild) {
-			target.firstChild.remove();
-		}
-	}
-}
-
-class HamburgerToggler {
-	constructor() {
-		const hamburgerBarOne = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-		hamburgerBarOne.setAttributeNS(null, 'd', 'M3 6h18');
-		const hamburgerBarTwo = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-		hamburgerBarTwo.setAttributeNS(null, 'd', 'M3 12h18');
-		const hamburgerBarThree = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-		hamburgerBarThree.setAttributeNS(null, 'd', 'M3 18h18');
-
-		const hamburgerCloseOne = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-		hamburgerCloseOne.setAttributeNS(null, 'd', 'M18 6L6 18');
-		const hamburgerCloseTwo = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-		hamburgerCloseTwo.setAttributeNS(null, 'd', 'M6 6l12 12');
-
-		this.makeHamburgerBars = (hamburger) => {
-			if (hamburger) {
-				removeAllChildren(hamburger);
-				hamburger.appendChild(hamburgerBarOne);
-				hamburger.appendChild(hamburgerBarTwo);
-				hamburger.appendChild(hamburgerBarThree);
-			}
-		};
-
-		this.makeHamburgerClose = (hamburger) => {
-			if (hamburger) {
-				removeAllChildren(hamburger);
-				hamburger.appendChild(hamburgerCloseOne);
-				hamburger.appendChild(hamburgerCloseTwo);
-			}
-		};
-
-		this.toggleHamburger = function () {
-			let hamburgerButton = document.querySelector('.hamburger-path-group');
-			let hamburgerPaths = hamburgerButton.children;
-
-			if (hamburgerPaths.length == 3) {
-				this.makeHamburgerClose(hamburgerButton);
-			}
-			else {
-				this.makeHamburgerBars(hamburgerButton);
-			}
-		};
-	}
-}
-
-class SidebarContentToggler {
-	constructor() {
-		let createChevronUp = () => {
-			let chevronUp = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-			chevronUp.setAttributeNS(null, 'd', 'M16 6.594l-.72.687l-12.5 12.5l1.44 1.44L16 9.437l11.78 11.78l1.44-1.437l-12.5-12.5l-.72-.686z');
-			return chevronUp;
-		}
-		let createChevronDown = () => {
-			let chevronDown = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-			chevronDown.setAttributeNS(null, 'd', 'M4.22 10.78l-1.44 1.44l12.5 12.5l.72.686l.72-.687l12.5-12.5l-1.44-1.44L16 22.564L4.22 10.78z');
-			return chevronDown;
-		}
-
-		this.toggleContentClose = function (target) {
-			removeAllChildren(target);
-			target.appendChild(createChevronUp());
-		};
-		this.toggleContentOpen = function (target) {
-			removeAllChildren(target);
-			target.appendChild(createChevronDown());
-		};
-		this.initAllSidebarContentDisplay = function () {
-			let allSidebars = document.getElementsByClassName('sideBoxContent');
-			Array.from(allSidebars).forEach(function (element) {
-				var chevron = element.previousElementSibling.querySelector('.sideBoxChevron');
-
-				if (chevron) {
-					if (getComputedStyle(element).display == 'block') {
-						chevron.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" style="vertical-align: -0.2em;-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path d="M4.22 10.78l-1.44 1.44l12.5 12.5l.72.686l.72-.687l12.5-12.5l-1.44-1.44L16 22.564L4.22 10.78z" /></svg>';
-					}
-					else {
-						chevron.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" style="vertical-align: -0.2em;-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32"><path d="M16 6.594l-.72.687l-12.5 12.5l1.44 1.44L16 9.437l11.78 11.78l1.44-1.437l-12.5-12.5l-.72-.686z" /></svg>';
-					}
-				}
-			});
-		};
-	}
-}
-
-window.onload = function() {
-	let ht = new HamburgerToggler();
-	let sct = new SidebarContentToggler();
-	let mt = document.getElementById('menu-toggler');
-
-	sct.initAllSidebarContentDisplay();
-
-	mt.addEventListener('click', function() {
-		slideToggle(document.getElementById('nav-toggle'), 500);
-		ht.toggleHamburger();		
+		target.dataset.isAnimating = 'false';
 	});
+};
 
+let slideDown = (target, duration = DEFAULT_TOGGLE_DURATION) => {
+	if (!target || target.dataset.isAnimating === 'true') {
+		return;
+	}
 
-	let sideboxes = document.getElementsByClassName('sideBoxHeader');
-	Array.from(sideboxes).forEach(function(element) {
-		element.addEventListener('click', function(e) {
-			e.preventDefault();
-			var block = element.nextElementSibling;
-			var chevron = element.querySelector('.sideBoxChevron svg');
+	const animationDuration = getDuration(duration);
+	target.dataset.isAnimating = 'true';
+	target.style.removeProperty('display');
 
-			if (getComputedStyle(block).display == 'block') {
-				slideUp(block, 500);
-				sct.toggleContentClose(chevron);
+	let display = window.getComputedStyle(target).display;
+	if (display === 'none') {
+		display = 'block';
+	}
+	target.style.display = display;
+
+	const targetHeight = target.scrollHeight;
+	target.style.overflow = 'hidden';
+	target.style.height = '0px';
+	target.offsetHeight;
+	target.style.transitionProperty = 'height';
+	target.style.transitionDuration = animationDuration + 'ms';
+	target.style.height = targetHeight + 'px';
+
+	whenTransitionEnds(target, animationDuration, () => {
+		target.style.removeProperty('height');
+		target.style.removeProperty('overflow');
+		target.style.removeProperty('transition-duration');
+		target.style.removeProperty('transition-property');
+		target.dataset.isAnimating = 'false';
+	});
+};
+
+let slideToggle = (target, duration = DEFAULT_TOGGLE_DURATION) => {
+	if (!target || target.dataset.isAnimating === 'true') {
+		return;
+	}
+
+	if (getComputedStyle(target).display === 'none') {
+		slideDown(target, duration);
+		return;
+	}
+
+	slideUp(target, duration);
+};
+
+const setExpandedState = (control, isExpanded) => {
+	if (!control) {
+		return;
+	}
+
+	control.classList.toggle('is-open', isExpanded);
+	control.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+};
+
+const ensureChevronSvg = (chevronContainer) => {
+	if (!chevronContainer || chevronContainer.querySelector('svg')) {
+		return;
+	}
+
+	chevronContainer.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" viewBox="0 0 32 32"><path d="M4.22 10.78l-1.44 1.44l12.5 12.5l.72.686l.72-.687l12.5-12.5l-1.44-1.44L16 22.564L4.22 10.78z" /></svg>';
+};
+
+const syncSidebarControlState = (header, content) => {
+	if (!header || !content) {
+		return;
+	}
+
+	const isExpanded = getComputedStyle(content).display !== 'none';
+	const link = header.querySelector('a');
+
+	header.classList.toggle('is-open', isExpanded);
+	if (link) {
+		link.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+	}
+};
+
+const syncMenuStateByViewport = (menuToggler, navToggle) => {
+	if (!menuToggler || !navToggle) {
+		return;
+	}
+
+	const desktopView = window.matchMedia('(min-width: 40em)').matches;
+
+	if (desktopView) {
+		navToggle.style.removeProperty('display');
+		navToggle.style.removeProperty('height');
+		navToggle.style.removeProperty('overflow');
+		navToggle.style.removeProperty('transition-duration');
+		navToggle.style.removeProperty('transition-property');
+		navToggle.dataset.isAnimating = 'false';
+		setExpandedState(menuToggler, false);
+		return;
+	}
+
+	navToggle.style.display = 'none';
+	setExpandedState(menuToggler, false);
+};
+
+window.onload = function () {
+	const menuToggler = document.getElementById('menu-toggler');
+	const navToggle = document.getElementById('nav-toggle');
+
+	if (menuToggler && navToggle) {
+		menuToggler.setAttribute('role', 'button');
+		menuToggler.setAttribute('tabindex', '0');
+		menuToggler.setAttribute('aria-controls', 'nav-toggle');
+		setExpandedState(menuToggler, false);
+		syncMenuStateByViewport(menuToggler, navToggle);
+
+		menuToggler.addEventListener('click', function () {
+			const shouldOpen = getComputedStyle(navToggle).display === 'none';
+			slideToggle(navToggle, 500);
+			setExpandedState(menuToggler, shouldOpen);
+		});
+
+		menuToggler.addEventListener('keydown', function (event) {
+			if (event.key === 'Enter' || event.key === ' ') {
+				event.preventDefault();
+				menuToggler.click();
 			}
-			else {
-				slideDown(block, 500);
-				sct.toggleContentOpen(chevron);
+		});
+	}
+
+	const sideboxes = document.getElementsByClassName('sideBoxHeader');
+	Array.from(sideboxes).forEach(function (header) {
+		const content = header.nextElementSibling;
+		const link = header.querySelector('a');
+		const chevronContainer = header.querySelector('.sideBoxChevron');
+
+		ensureChevronSvg(chevronContainer);
+
+		if (link && content) {
+			if (!content.id) {
+				content.id = 'sidebox-content-' + Math.random().toString(36).slice(2, 9);
+			}
+
+			link.setAttribute('aria-controls', content.id);
+			syncSidebarControlState(header, content);
+		}
+
+		header.addEventListener('click', function (event) {
+			event.preventDefault();
+			if (!content) {
+				return;
+			}
+
+			const shouldOpen = getComputedStyle(content).display === 'none';
+			slideToggle(content, 400);
+			header.classList.toggle('is-open', shouldOpen);
+			if (link) {
+				link.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
 			}
 		});
 	});
 
-	window.addEventListener('scroll', function() {
-		let backToTop = document.querySelector('.backToTop');
+	window.addEventListener('scroll', function () {
+		const backToTop = document.querySelector('.backToTop');
+		if (!backToTop) {
+			return;
+		}
+
 		if (window.scrollY + window.innerHeight > window.innerHeight) {
 			backToTop.classList.remove('hide-backtotop');
 			backToTop.classList.add('show-backtotop');
@@ -200,21 +228,13 @@ window.onload = function() {
 		}
 	});
 
-	window.addEventListener('resize', function() {
-		// handle chevrons
-		sct.initAllSidebarContentDisplay();
-		
-		// handle hamburger
-		let fontSize = parseFloat(getComputedStyle(document.querySelector('html'))['font-size']);
-		let innerWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+	window.addEventListener('resize', function () {
+		if (menuToggler && navToggle) {
+			syncMenuStateByViewport(menuToggler, navToggle);
+		}
 
-		if (innerWidth / fontSize >= 40) {
-			slideDown(document.getElementById('nav-toggle'), 100);
-			ht.makeHamburgerClose();
-		}
-		else {
-			slideUp(document.getElementById('nav-toggle'), 100);
-			ht.makeHamburgerBars();
-		}
-	})
-}
+		Array.from(sideboxes).forEach(function (header) {
+			syncSidebarControlState(header, header.nextElementSibling);
+		});
+	});
+};

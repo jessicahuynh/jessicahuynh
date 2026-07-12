@@ -179,6 +179,36 @@ section header {
 	}
 }
 
+.sideBoxHeader {
+	a {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 0.5rem;
+	}
+
+	.sideBoxChevron {
+		display: inline-flex;
+		align-items: center;
+
+		svg {
+			width: 1em;
+			height: 1em;
+			transition: transform 220ms ease;
+		}
+	}
+
+	&.is-open .sideBoxChevron svg {
+		transform: rotate(180deg);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.sideBoxHeader .sideBoxChevron svg {
+		transition: none;
+	}
+}
+
 .content-with-sidebars {
 	max-width: 75rem;
 	margin: 0 auto;
@@ -204,6 +234,15 @@ section header {
 		grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
 		column-gap: 1.875rem;
 		row-gap: 1.5rem;
+	}
+}
+
+.content-sidebar {
+	@media screen and (min-width:40rem) {
+		position: sticky;
+		top: 1rem;
+		max-height: calc(100vh - 2rem);
+		overflow: auto;
 	}
 }
 
