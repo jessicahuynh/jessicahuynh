@@ -1,3 +1,5 @@
+@use 'colors' as *;
+
 .siteTitle {
 	a:link,
 	a:visited,
@@ -28,23 +30,37 @@ header.masthead {
 		background: $cream;
 		height: auto;
 
-		.top-bar,
-		.top-bar ul,
-		.top-bar ul li {
+		.site-nav__panel,
+		.site-nav__inner,
+		.site-nav__list,
+		.site-nav__list li {
 			background-color: $cream;
 			padding: 0;
 			height: auto;
 		}
 
-		.top-bar-left {
-			float: none;
+		.site-nav__inner {
+			background: $cream;
+			max-width: 75rem;
+			margin: 0 auto;
+		}
+
+		.site-nav__panel {
 			background: $cream;
 		}
 
-		.top-bar ul li a {
-			padding: 1rem 1.5rem;
+		.site-nav__list {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		.site-nav__list li a {
+			padding: 0.75rem 1.5rem;
+			margin: 0;
 			text-transform: uppercase;
 			text-decoration: none;
+			display: block;
 
 			&:link,
 			&:visited {
@@ -59,7 +75,7 @@ header.masthead {
 			}
 		}
 
-		.top-bar ul li.active a {
+		.site-nav__list li.active a {
 			background: $primaryDarkest;
 			color: $cream;
 		}
@@ -72,13 +88,16 @@ header.masthead {
 		padding:1em;
 	}
 }
-
-.title-bar {
+.site-nav__mobile-bar {
 	background: $primaryColor;
 	width: 100%;
+		padding: 0.5rem;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 
-	.title-bar-title {
-		padding-bottom:0.5em;
+	.site-nav__mobile-title {
 		font-size:1.2em;
 		
 		a {
@@ -88,21 +107,23 @@ header.masthead {
 
 	#menu-toggler {
 		cursor:pointer;
+		display: flex;
+		align-items: center;
+		margin-left: auto;
 	}
 	
 	.menu-bar-title {
 		margin-right:0.5rem;
 		text-transform:uppercase;
+		color: $cream;
 	}
 	
 	.hamburger-button {
 		margin-left:0.25rem;
-		margin-right:0.5rem;
 		font-size:1.2rem;
-		margin-top:0.2rem;
 		stroke:$cream;
-		position:absolute;
-		right:0;
+		display: inline-flex;
+		align-items: center;
 	}
 }
 
@@ -112,11 +133,24 @@ header.masthead {
 }
 
 @media screen and (min-width: 40em) {
-    .no-js .top-bar, #nav-toggle {
+	.site-nav__list {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.site-nav__list li {
+		flex: 0 0 auto;
+	}
+
+	#nav-toggle {
+		display: flex;
+	}
+
+    .no-js .site-nav__panel {
         display: block;
     }
 
-    .no-js .title-bar, .title-bar {
+    .no-js .site-nav__mobile-bar, .site-nav__mobile-bar {
         display: none;
     }
 }

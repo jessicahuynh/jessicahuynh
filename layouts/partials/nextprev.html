@@ -1,6 +1,6 @@
 <hr>
-<section class="row prevnextpost">
-	<div class="small-6 columns">
+<section class="prevnextpost">
+	<div class="prevnextpost__item">
 		{{ if .PrevInSection }}
 			{{ if ne .PrevInSection.Title "Blog" }}
 			<p>
@@ -15,7 +15,7 @@
 			{{ end }}
 		{{ end }}
 	</div>
-	<div class="small-6 columns">
+	<div class="prevnextpost__item prevnextpost__item--next">
 		{{ if .NextInSection }}
 			{{ if ne .NextInSection.Title "Blog" }}
 			<p class="text-right">

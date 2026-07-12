@@ -1,3 +1,5 @@
+@use 'colors' as *;
+
 .portfolio {
 	background:$primaryDarker;
 	color:$cream;
@@ -7,6 +9,8 @@
 	margin-top:1rem;
 	margin-bottom:1rem;
 	padding:0rem;
+	height:100%;
+
 	div {
 		background:$cream;
 		color:$primaryDarker;
@@ -16,6 +20,25 @@
 	
 	@media screen and (min-width:40rem) {
 		padding:1rem;
+	}
+}
+
+.portfolioGrid {
+	display:grid;
+	grid-template-columns:minmax(0, 1fr);
+	gap:1rem;
+	align-items:stretch;
+
+	@media screen and (min-width:40rem) {
+		grid-template-columns:repeat(2, minmax(0, 1fr));
+	}
+
+	@media screen and (min-width:64rem) {
+		grid-template-columns:repeat(3, minmax(0, 1fr));
+	}
+
+	&__item {
+		min-width:0;
 	}
 }
 
@@ -29,6 +52,14 @@
 	
 	.portfolioCard {
 		color:$primaryDarkest;
+	}
+}
+
+.portfolioPageCard {
+	padding: 0;
+
+	div {
+		width: auto;
 	}
 }
 

@@ -3,22 +3,22 @@
 <div class="portfolioPage">
 	<section>
 		<header>
-			<div class="row">
-				<h1 class="small-12 columns">{{ .Title }}</h1>
+			<div class="section-heading">
+				<h1>{{ .Title }}</h1>
 			</div>
 		</header>
 		
 		<section>
-			<div class="row portfolioCard">
-				<div class="small-12 columns">
+			<div class="section-body portfolioCard portfolioPageCard">
+				<div>
 					{{ partial "portfoliolabels.html" . }}
 				</div>
 			</div>
 		</section>
 		
 		<article>
-			<div class="row portfolioCard">
-				<div class="small-12 columns">
+			<div class="section-body portfolioCard portfolioPageCard">
+				<div>
 					{{ .Content }}
 				</div>
 			</div>
@@ -36,13 +36,12 @@
 		{{ if eq $h "true" }}
 			<section class="listPostsAbout">
 				<header>
-					<div class="row">
-						<h2 class="small-12 columns">Posts about {{ .Title }}</h2>
+					<div class="section-heading">
+						<h2>Posts about {{ .Title }}</h2>
 					</div>
 				</header>
 				
-				<div class="row">
-					<div class="small-12 columns">
+				<div class="section-body">
 						<ol>
 							{{ $p := .Params.project }}
 							{{ range .Site.Pages }}
@@ -51,7 +50,6 @@
 								{{ end }}
 							{{ end }}
 						</ol>
-					</div>
 				</div>
 			</section>
 		{{ end }}
@@ -62,14 +60,14 @@
 </div>
 
 {{ range .Resources.Match "*.md" }}
-<section>
+<section class="portfolioResource">
 	<header>
-		<div class="row">
-			<h2 class="small-12 columns">{{ .Title }}</h2>
+		<div class="section-heading">
+			<h2>{{ .Title }}</h2>
 		</div>
 	</header>
 	
-	<div class="row">{{ .Content }}</div>
+	<div class="section-body">{{ .Content }}</div>
 </section>
 {{ end }}
 

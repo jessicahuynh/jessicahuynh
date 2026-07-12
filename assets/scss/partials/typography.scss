@@ -1,3 +1,5 @@
+@use 'colors' as *;
+
 body, html {
 	color:$bodyText;
 	font-family:"Mada","Source Sans Pro","Fira Sans","Trebuchet MS",Arial, Helvetica, sans-serif;

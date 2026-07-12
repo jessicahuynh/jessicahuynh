@@ -1,13 +1,13 @@
-<div class="row">
+<div class="section-body content-header recipe-content-header{{ if .Page.Params.hero }} content-header--with-hero{{ end }}">
 	{{ if .Page.Params.hero }}
-	<div class="small-12 medium-4 columns">
+	<div class="content-header__media">
 		<figure class="hero-image">
 			<img src="{{ .Page.Params.hero }}" alt="{{ .Page.Params.hero_alt }}" title="{{ .Page.Params.hero_alt }}" />
 		</figure>
 	</div>
-	<header class="small-12 medium-8 columns text-beside-hero">
+	<header class="content-header__body text-beside-hero">
 	{{ else }}
-	<header class="small-12 columns">
+	<header>
 	{{ end }}
 		<h1 class="postTitle"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
 		<p class="postMetadata">{{ partial "postmetadata.html" . }}</p>
@@ -17,8 +17,8 @@
 	</header> 
 </div>
 
-<div class="row">
-	<div class="medium-3 columns sidebar">
+<div class="content-with-sidebars">
+	<div class="content-sidebar sidebar">
 		<div>
 
 			<aside class="toc">
@@ -34,7 +34,7 @@
 		</div>
 	</div>
 	
-	<article class="medium-6 columns" id="article">		
+	<article class="content-main" id="article">		
 		{{ .Content }}
 		{{ partial "nextprev.html" . }}
 	</article>

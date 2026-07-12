@@ -2,24 +2,20 @@
 
 <section class="portfolio">
 	<header>
-		<div class="row">
-			<div class="small-12 columns">
-				<h2>{{ .Title }}</h2>
-			</div>
+		<div class="section-heading">
+			<h2>{{ .Title }}</h2>
 		</div>
 	</header>
 	
 	<div>
-		<div class="row">
-			<div class="small-12 columns">{{ .Content }}</div>
-		</div>
+		<div class="section-body">{{ .Content }}</div>
 		
-		<div class="row small-up-1 medium-up-2 large-up-3" data-equalizer data-equalize-by-row="true">
+		<div class="section-body portfolioGrid">
 			{{ range .Data.Pages }}
 				{{ partial "postcard.html" . }}
 			{{ end }}
 		</div>
-		<div class="row">&nbsp;</div>
+		<div class="section-body">&nbsp;</div>
 	</div>
 	
 </section>

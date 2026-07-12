@@ -1,8 +1,30 @@
+@use 'colors' as *;
+
 footer {
 	background:$primaryDarkest;
 	font-size:0.8rem;
 	color:$cream;
 	padding-top:2em;
+}
+
+.site-footer__grid {
+	max-width: 75rem;
+	margin: 0 auto;
+	padding-left: 0.625rem;
+	padding-right: 0.625rem;
+	display: grid;
+	gap: 0.5rem;
+
+	@media screen and (min-width:40rem) {
+		padding-left: 0.9375rem;
+		padding-right: 0.9375rem;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 1.5rem;
+	}
+}
+
+.site-footer__column {
+	min-width: 0;
 }
 
 .copyright {

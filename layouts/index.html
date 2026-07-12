@@ -2,26 +2,20 @@
 
 <section>
 	<header>
-		<div class="row">
-			<div class="small-12 columns">
-				<h2>&hellip;</h2>
-			</div>
+		<div class="section-heading">
+			<h2>&hellip;</h2>
 		</div>
 	</header>
 	
-	<div class="row">
-		<div class="small-12 medium-9 medium-centered columns">
-			{{ .Content }}
-		</div>
+	<div class="section-body--narrow">
+		{{ .Content }}
 	</div>
 </section>
 
 <section>
 	<header>
-		<div class="row">
-			<div class="small-12 columns">
-				<h2>Recent posts</h2>
-			</div>
+		<div class="section-heading">
+			<h2>Recent posts</h2>
 		</div>
 	</header>
 	
@@ -35,8 +29,7 @@
 				{{ end }}
 			{{ end }}
 			
-				<div class="row">
-					<div class="small-12 medium-9 medium-centered columns">
+				<div class="section-body--narrow">
 		
 			{{ if eq $index 0 }}
 				{{ .Render "summary" }}
@@ -44,7 +37,6 @@
 				{{ .Render "li" }}
 			{{ end }}
 					
-					</div>
 				</div>
 			
 			</div>

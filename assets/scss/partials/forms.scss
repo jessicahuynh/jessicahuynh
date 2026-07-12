@@ -1,4 +1,27 @@
+@use 'colors' as *;
+
 form {
+	.form-row {
+		display: grid;
+		gap: 1rem;
+		margin-bottom: 1rem;
+
+		&__item {
+			min-width: 0;
+		}
+
+		&__item > label,
+		&__item > fieldset {
+			margin-bottom: 0;
+		}
+	}
+
+	.form-row--split {
+		@media screen and (min-width:40rem) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
 	.button {
 		background:$primaryDarker;
 		color:$cream;

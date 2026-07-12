@@ -3,18 +3,16 @@
 <article>
 	<section>
 		<header>
-			<div class="row">
-				<div class="small-12 columns">
-					<h2>{{ .Title }}</h2>
-				</div>
+			<div class="section-heading">
+				<h2>{{ .Title }}</h2>
 			</div>
 		</header>
 		
-		<div class="row">
-			<div class="small-12 medium-4 columns text-center">
+		<div class="section-body about-layout">
+			<div class="about-layout__portrait text-center">
 				<img class="aboutPortrait" src="/img/me.jpg" alt="picture of Jessica Huynh">
 			</div>
-			<div class="small-12 medium-8 columns">
+			<div class="about-layout__content">
 				{{ .Content }}
 			</div> 
 		</div>

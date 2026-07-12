@@ -1,9 +1,11 @@
+@use "sass:color";
+
 $primaryColor: rgb(128,146,184);
-$primaryDarker: darken($primaryColor, 20%);
-$primaryDarkest: darken($primaryColor, 40%);
+$primaryDarker: color.adjust($primaryColor, $lightness: -20%);
+$primaryDarkest: color.adjust($primaryColor, $lightness: -40%);
 
 $cream: #f7f5e7;
-$navBar: lighten($primaryColor,15%);
+$navBar: color.adjust($primaryColor, $lightness: 15%);
 
 $bodyText: #220e10;
 
@@ -11,12 +13,12 @@ $offWhite: #eeeeee;
 $orangish:#ea9629;
 
 $secondaryColor: #c3f600;
-$secondaryDarker: darken($secondaryColor,25%);
+$secondaryDarker: color.adjust($secondaryColor, $lightness: -25%);
 
 $tertiaryColor: #b22217;
 $tertiaryDarker: #722d19;
 
-$bluesky: #11b2b2;
+$bluesky: rgb(15, 115, 255);
 $twitter: #55acee;
 $linkedin: #007bb6;
 $instagram: #dd2a7b;

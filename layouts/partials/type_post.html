@@ -1,12 +1,12 @@
-<div class="row">
-	<header class="small-12 columns">
+<div class="section-body--narrow content-header">
+	<header>
 		<h1 class="postTitle text-center"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
 		<p class="text-center">{{ partial "postmetadata.html" . }}</p>
 	</header> 
 </div>
 
-<div class="row">
-	<div class="medium-3 columns sidebar">
+<div class="content-with-sidebars">
+	<div class="content-sidebar sidebar">
 		<div>
 
 			<aside class="toc">
@@ -54,7 +54,7 @@
 		</div>
 	</div>
 	
-	<article class="medium-6 columns" id="article">		
+	<article class="content-main" id="article">		
 		{{ .Content}}
 		{{ partial "nextprev.html" . }}
 	</article>

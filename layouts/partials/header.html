@@ -35,10 +35,10 @@
       <header class="masthead">
         <h1 class="siteTitle"><a href="/">{{ .Site.Title }}</a> <small>{{ .Site.Params.subtitle }}</small></h1>
         
-        <nav>
-          <div class="title-bar" aria-label="Main navigation">
+        <nav class="site-nav">
+          <div class="site-nav__mobile-bar" aria-label="Main navigation">
       
-            <div class="title-bar-title">
+            <div class="site-nav__mobile-title">
               <a href="/">{{ .Site.Title }}</a>
             </div>
 
@@ -58,11 +58,11 @@
                 </svg>
               </span>
             </div>
-          </div>  
+          </div>
 
-          <div class="top-bar row">
-            <div class="top-bar-left small-12">
-              <ul class="dropdown menu vertical medium-horizontal" id="nav-toggle">
+          <div class="site-nav__panel">
+            <div class="site-nav__inner">
+              <ul class="site-nav__list" id="nav-toggle">
                 {{ if .IsHome }}
                   {{ range .Site.Menus.main }}
                     <li><a href="{{.URL}}">{{.Name}}</a></li>

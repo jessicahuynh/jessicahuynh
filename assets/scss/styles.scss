@@ -1,13 +1,18 @@
-@import 'partials/foundation';
-@import 'partials/syntax';
-@import 'partials/colors';
-@import 'partials/fonts';
-@import 'partials/layout';
-@import 'partials/typography';
+// Vendor framework layer.
+@use 'partials/foundation';
 
-@import 'partials/sections';
-@import 'partials/header';
-@import 'partials/footer';
+// Site design tokens and shared structure.
+@use 'partials/syntax';
+@use 'partials/colors';
+@use 'partials/fonts';
+@use 'partials/layout';
+@use 'partials/typography';
 
-@import 'partials/forms';
-@import 'partials/portfolio';
+// Site sections and components.
+@use 'partials/sections';
+@use 'partials/header';
+@use 'partials/footer';
+
+// Site forms and page-specific styles.
+@use 'partials/forms';
+@use 'partials/portfolio';

@@ -1,3 +1,5 @@
+@use 'colors' as *;
+
 .sideBox {
 	background:$primaryDarkest;
 	color:$cream;
@@ -34,6 +36,86 @@ section header {
 	
 	h1,h2,h3,h4,h5,h6 {
 		margin-bottom:0;
+	}
+}
+
+.section-heading,
+.section-body,
+.section-body--narrow {
+	max-width: 75rem;
+	margin: 0 auto;
+	padding-left: 0.625rem;
+	padding-right: 0.625rem;
+	background: transparent;
+
+	@media screen and (min-width:40rem) {
+		padding-left: 0.9375rem;
+		padding-right: 0.9375rem;
+	}
+}
+
+.section-body--narrow {
+	@media screen and (min-width:40rem) {
+		max-width: 58.875rem;
+	}
+}
+
+.section-body > :last-child,
+.section-body--narrow > :last-child {
+	margin-bottom: 0;
+	padding-bottom: 1rem;
+}
+
+.about-layout,
+.contact-layout {
+	display: grid;
+	gap: 1.5rem;
+	align-items: start;
+
+	> * {
+		min-width: 0;
+	}
+
+	@media screen and (min-width:40rem) {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+	}
+}
+
+.about-layout__portrait,
+.contact-layout__sidebar {
+	@media screen and (min-width:40rem) {
+		align-self: start;
+	}
+}
+
+.content-header {
+	> header {
+		min-width: 0;
+	}
+
+	.postTitle {
+		margin-top: 0;
+	}
+}
+
+.recipe-content-header {
+	.postTitle {
+		margin-top: 0;
+	}
+}
+
+.content-header--with-hero {
+	display: grid;
+	gap: 1rem;
+	align-items: start;
+
+	> * {
+		min-width: 0;
+	}
+
+	@media screen and (min-width:40rem) {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+		margin-bottom: 1rem;
 	}
 }
 
@@ -97,6 +179,62 @@ section header {
 	}
 }
 
+.content-with-sidebars {
+	max-width: 75rem;
+	margin: 0 auto;
+	padding-left: 0.625rem;
+	padding-right: 0.625rem;
+	display: grid;
+	gap: 1rem;
+	align-items: start;
+
+	> * {
+		min-width: 0;
+	}
+
+	> .content-rail {
+		float: none;
+		width: auto;
+		padding: 0;
+	}
+
+	@media screen and (min-width:40rem) {
+		padding-left: 0.9375rem;
+		padding-right: 0.9375rem;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+		column-gap: 1.875rem;
+		row-gap: 1.5rem;
+	}
+}
+
+.content-with-rail {
+	max-width: 75rem;
+	margin: 0 auto;
+	padding-left: 0.625rem;
+	padding-right: 0.625rem;
+	display: grid;
+	gap: 1rem;
+	align-items: start;
+
+	> * {
+		min-width: 0;
+	}
+
+	> .content-rail {
+		float: none;
+		width: auto;
+		padding: 0;
+	}
+
+	@media screen and (min-width:40rem) {
+		padding-left: 0.9375rem;
+		padding-right: 0.9375rem;
+		grid-template-columns: minmax(0, 3fr) minmax(16rem, 1fr);
+		column-gap: 1.875rem;
+		row-gap: 1.5rem;
+	}
+}
+
 .blogbar aside {
 	@extend .prettySidebarBoxes;
 
@@ -154,13 +292,22 @@ section header {
 .hero-image {
 	width: 100%;
 	margin:0;
-
-	@media screen and (min-width:40rem) {
-		margin: 1em 0.5em;
-	}
 }
 
 .prevnextpost {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1rem;
+	align-items: start;
+
+	&__item {
+		min-width: 0;
+	}
+
+	&__item--next {
+		text-align: right;
+	}
+
 	a {
 		text-decoration:none;
 		padding:0.25em;
