@@ -11,7 +11,9 @@ I use personal data to get in contact with people if they've submitted my contac
 
 The Google Analytics cookies are only loaded after you explicitly accept the cookie banner. They help me understand basic site usage, such as which pages are visited most often and what other content visitors are interested in.
 
-If you reject analytics, the tracking script is not loaded; the functionality of the website will not be affected. If you initially opt-in then opt-out or reset, the cookies are deleted immediately.
+If you reject analytics, the tracking script is not loaded; the functionality of the website will not be affected. If you initially opt-in then opt-out or reset, the Google Analytics cookies are deleted immediately.
+
+The first-party cookie I set on my end to remember your analytics preference lasts one year.
 
 <!-- ## Preferences
 
