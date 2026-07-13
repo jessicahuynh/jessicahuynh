@@ -1,4 +1,5 @@
 @use 'colors' as *;
+@use 'forms' as forms;
 
 footer {
 	background:$primaryDarkest;
@@ -69,7 +70,7 @@ footer {
 	gap: 0.75rem 1rem;
 	justify-content: space-between;
 	border: 1px solid rgba($cream, 0.18);
-	border-radius: 0.75rem;
+	border-radius: $siteBorderRadius;
 	padding: 1rem;
 	background: rgba($primaryDarkest, 0.8);
 	backdrop-filter: blur(3px);
@@ -107,29 +108,11 @@ footer {
 }
 
 .cookie-banner__button {
-	appearance: none;
-	border: 1px solid $cream;
-	border-radius: 999px;
-	background: $cream;
-	color: $primaryDarkest;
-	padding: 0.6rem 1rem;
-	font: inherit;
-	font-weight: 700;
-	line-height: 1;
-	cursor: pointer;
-	transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
-
-	&:hover,
-	&:focus {
-		background: $orangish;
-		border-color: $orangish;
-		color: $primaryDarkest;
-	}
+	@include forms.action-button($cream, $primaryDarkest, $cream);
 }
 
 .cookie-banner__button--secondary {
-	background: transparent;
-	color: $cream;
+	@include forms.action-button-outline($cream);
 }
 
 body.has-cookie-banner {

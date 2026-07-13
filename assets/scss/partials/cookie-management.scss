@@ -1,4 +1,5 @@
 @use 'colors' as *;
+@use 'forms' as forms;
 
 .privacy-page__section {
 	background: $offWhite;
@@ -13,7 +14,7 @@
 	margin-top: 0.75rem;
 	padding: 1rem;
 	border: 1px solid rgba($primaryDarkest, 0.12);
-	border-radius: 0.75rem;
+	border-radius: $siteBorderRadius;
 	background: $cream;
 }
 
@@ -37,30 +38,12 @@
 }
 
 .cookie-management__button {
-	appearance: none;
-	border: 1px solid $primaryDarkest;
-	border-radius: 999px;
-	background: $primaryDarkest;
-	color: $cream;
-	padding: 0.6rem 1rem;
-	font: inherit;
-	font-weight: 700;
-	line-height: 1;
-	cursor: pointer;
-	transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
-
-	&:hover,
-	&:focus {
-		background: $orangish;
-		border-color: $orangish;
-		color: $primaryDarkest;
-	}
+	@include forms.action-button($primaryDarkest, $cream);
 }
 
 .cookie-management__button--secondary,
 .cookie-management__button--ghost {
-	background: transparent;
-	color: $primaryDarkest;
+	@include forms.action-button-outline($primaryDarkest);
 }
 
 .cookie-management__button--ghost {

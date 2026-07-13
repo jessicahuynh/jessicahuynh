@@ -1,5 +1,54 @@
 @use 'colors' as *;
 
+@mixin action-button(
+	$background,
+	$text-color,
+	$border-color: $background,
+	$hover-background-color: $orangish,
+	$hover-border-color: $hover-background-color,
+	$hover-text-color: $primaryDarkest,
+	$border-radius: $siteBorderRadius
+) {
+	appearance: none;
+	border: 1px solid $border-color;
+	border-radius: $border-radius;
+	background: $background;
+	color: $text-color;
+	padding: 0.6rem 1rem;
+	font: inherit;
+	font-weight: 700;
+	line-height: 1;
+	cursor: pointer;
+	transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+
+	&:hover,
+	&:focus,
+	&:active {
+		background: $hover-background-color;
+		border-color: $hover-border-color;
+		color: $hover-text-color;
+	}
+}
+
+@mixin action-button-outline(
+	$text-color,
+	$border-color: $text-color,
+	$hover-background-color: $orangish,
+	$hover-border-color: $hover-background-color,
+	$hover-text-color: $primaryDarkest,
+	$border-radius: $siteBorderRadius
+) {
+	@include action-button(
+		transparent,
+		$text-color,
+		$border-color,
+		$hover-background-color,
+		$hover-border-color,
+		$hover-text-color,
+		$border-radius
+	);
+}
+
 form {
 	.form-row {
 		display: grid;
@@ -23,11 +72,7 @@ form {
 	}
 
 	.button {
-		background:$primaryDarker;
-		color:$cream;
-	}
-	.button:focus, .button:hover, .button:active {
-		background:$primaryColor;
+		@include action-button($primaryColor, $cream, $border-color: $primaryColor, $hover-background-color: $primaryDarker, $hover-text-color:$cream);
 	}
 }
 
