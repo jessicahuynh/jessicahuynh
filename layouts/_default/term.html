@@ -10,14 +10,14 @@
 	</header>
 
     <div class="section-body">
-            <p>See all <a href="/{{ .Data.Plural }}">{{ .Data.Plural }}</a>.</p>
-            <ul>
-                {{ range .Data.Pages }}
-                    {{ partial "postli.html" . }}
-                {{ end }}
-            </ul>
+        <p>See all <a href="/{{ .Data.Plural }}">{{ .Data.Plural }}</a>.</p>
+        <ul>
+            {{ range .Data.Pages }}
+                {{ partial "postli.html" . }}
+            {{ end }}
+        </ul>
     </div>
-
+    <div class="section-body">&nbsp;</div>
 	
 </section>
 

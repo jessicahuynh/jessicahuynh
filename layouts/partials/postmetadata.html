@@ -1,4 +1,4 @@
-<a href="/archive/#{{ .Date.Format "2006" }}">
+<a href="/archive/#{{ .Date.Format "2006" }}" class="label-link">
 	<span class="label">
 		{{ partial "svg/archives.html" }}
 		&nbsp;
@@ -22,7 +22,7 @@
 </span>
 
 {{ range .Params.types }}
-	<a href="{{ "/types/" | absURL }}{{ . | urlize }}">
+	<a href="{{ "/types/" | absURL }}{{ . | urlize }}" class="label-link">
 		<span class="orangish label">
 			{{ partial "svg/post-types.html" }}
 			&nbsp;
@@ -32,7 +32,7 @@
 {{ end }}
 
 {{ range .Params.categories }}
-	<a href="{{ "/categories/" | absURL }}{{ . | urlize }}">
+	<a href="{{ "/categories/" | absURL }}{{ . | urlize }}" class="label-link">
 		<span class="reddish label">
 			{{ partial "svg/post-categories.html" }}
 			&nbsp;
@@ -42,7 +42,7 @@
 {{ end }}
 
 {{ range .Params.tags }}
-	<a href="{{ "/tags/" | absURL }}{{ . | urlize }}">
+	<a href="{{ "/tags/" | absURL }}{{ . | urlize }}" class="label-link">
 		<span class="transparent label">
 			{{ partial "svg/post-tags.html" }}
 			&nbsp;
