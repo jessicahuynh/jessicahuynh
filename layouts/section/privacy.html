@@ -1,0 +1,20 @@
+{{ partial "header.html" . }}
+
+<article class="privacy-page">
+	<section class="privacy-page__section">
+		<header>
+			<div class="section-heading">
+				<h2>{{ .Title }}</h2>
+			</div>
+		</header>
+
+		<div class="section-body section-body--narrow">
+			{{ .Content }}
+		</div>
+
+		{{ partial "cookie-management.html" . }}
+
+	</section>
+</article>
+
+{{ partial "footer.html" . }}

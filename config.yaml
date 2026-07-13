@@ -11,6 +11,8 @@ pygmentsCodefences: true
 
 params:
   subtitle: "/hwɪn/"
+  analytics:
+    googleAnalyticsId: UA-34043400-1
   
 taxonomies:
   project: projects

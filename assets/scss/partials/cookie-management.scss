@@ -1,0 +1,68 @@
+@use 'colors' as *;
+
+.privacy-page__section {
+	background: $offWhite;
+	padding-bottom: 1rem;
+
+	@media screen and (min-width:40rem) {
+		padding-bottom: 1.25rem;
+	}
+}
+
+.cookie-management {
+	margin-top: 0.75rem;
+	padding: 1rem;
+	border: 1px solid rgba($primaryDarkest, 0.12);
+	border-radius: 0.75rem;
+	background: $cream;
+}
+
+.cookie-management__heading {
+	font-size: 1.15rem;
+	margin-bottom: 0.25rem;
+	color: $primaryDarkest;
+}
+
+.cookie-management__status,
+.cookie-management__copy {
+	margin-bottom: 0.5rem;
+	color: $primaryDarkest;
+	line-height: 1.5;
+}
+
+.cookie-management__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.cookie-management__button {
+	appearance: none;
+	border: 1px solid $primaryDarkest;
+	border-radius: 999px;
+	background: $primaryDarkest;
+	color: $cream;
+	padding: 0.6rem 1rem;
+	font: inherit;
+	font-weight: 700;
+	line-height: 1;
+	cursor: pointer;
+	transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+
+	&:hover,
+	&:focus {
+		background: $orangish;
+		border-color: $orangish;
+		color: $primaryDarkest;
+	}
+}
+
+.cookie-management__button--secondary,
+.cookie-management__button--ghost {
+	background: transparent;
+	color: $primaryDarkest;
+}
+
+.cookie-management__button--ghost {
+	border-style: dashed;
+}

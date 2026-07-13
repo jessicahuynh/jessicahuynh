@@ -1,0 +1,183 @@
+{{ $analyticsID := site.Params.analytics.googleAnalyticsId | default "UA-34043400-1" }}
+
+<div id="cookie-banner" class="cookie-banner" hidden>
+  <div class="cookie-banner__inner" role="dialog" aria-labelledby="cookie-banner-title" aria-describedby="cookie-banner-copy">
+    <p id="cookie-banner-title" class="cookie-banner__title">Cookies</p>
+    <p id="cookie-banner-copy" class="cookie-banner__copy">
+      This site uses analytics cookies only if you accept. Read the <a href="/privacy/">Privacy Policy</a> for details.
+    </p>
+
+    <div class="cookie-banner__actions">
+      <button type="button" class="cookie-banner__button cookie-banner__button--secondary" data-cookie-choice="reject">Reject</button>
+      <button type="button" class="cookie-banner__button" data-cookie-choice="accept">Accept</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const banner = document.getElementById('cookie-banner');
+
+    if (!banner) {
+      return;
+    }
+
+    const consentCookieName = 'cookie_consent';
+    const analyticsID = {{ $analyticsID | jsonify }};
+    const consentLifetimeSeconds = 60 * 60 * 24 * 365;
+    const gaDisableFlag = 'ga-disable-' + analyticsID;
+    const bannerOffsetVar = '--cookie-banner-offset';
+    const rootElement = document.documentElement;
+    const bodyElement = document.body;
+
+    function createConsent(analyticsAllowed) {
+      return {
+        version: 1,
+        analytics: analyticsAllowed,
+        preferences: false,
+        updatedAt: new Date().toISOString()
+      };
+    }
+
+    function readCookie(name) {
+      const pattern = new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)');
+      const matches = document.cookie.match(pattern);
+
+      return matches ? matches[1] : null;
+    }
+
+    function parseConsent() {
+      const storedValue = readCookie(consentCookieName);
+
+      if (!storedValue) {
+        return null;
+      }
+
+      try {
+        return JSON.parse(decodeURIComponent(storedValue));
+      } catch (error) {
+        return null;
+      }
+    }
+
+    function storeConsent(consent) {
+      document.cookie = consentCookieName + '=' + encodeURIComponent(JSON.stringify(consent)) + '; Max-Age=' + consentLifetimeSeconds + '; Path=/; SameSite=Lax';
+    }
+
+    function clearConsentCookie() {
+      document.cookie = consentCookieName + '=; Max-Age=0; Path=/; SameSite=Lax';
+    }
+
+    function setBannerOffset(active) {
+      if (active) {
+        rootElement.style.setProperty(bannerOffsetVar, banner.offsetHeight + 'px');
+      } else {
+        rootElement.style.setProperty(bannerOffsetVar, '0px');
+      }
+    }
+
+    function showBanner() {
+      banner.hidden = false;
+      bodyElement.classList.add('has-cookie-banner');
+      requestAnimationFrame(function() {
+        setBannerOffset(true);
+      });
+    }
+
+    function hideBanner() {
+      bodyElement.classList.remove('has-cookie-banner');
+      setBannerOffset(false);
+      banner.hidden = true;
+    }
+
+    function loadAnalytics() {
+      window[gaDisableFlag] = false;
+
+      if (window.__cookieBannerAnalyticsLoaded) {
+        return;
+      }
+
+      window.GoogleAnalyticsObject = 'ga';
+      window.ga = window.ga || function() {
+        (window.ga.q = window.ga.q || []).push(arguments);
+      };
+      window.ga.l = 1 * new Date();
+
+      const analyticsScript = document.createElement('script');
+      analyticsScript.async = true;
+      analyticsScript.src = 'https://www.google-analytics.com/analytics.js';
+      analyticsScript.setAttribute('data-cookie-banner-analytics', 'true');
+      document.head.appendChild(analyticsScript);
+
+      window.ga('create', analyticsID, 'auto');
+      window.ga('send', 'pageview');
+      window.__cookieBannerAnalyticsLoaded = true;
+    }
+
+    function setConsent(analyticsAllowed) {
+      const consent = createConsent(analyticsAllowed);
+
+      storeConsent(consent);
+
+      if (!analyticsAllowed) {
+        window[gaDisableFlag] = true;
+      }
+
+      applyConsent(consent);
+
+      return consent;
+    }
+
+    function resetConsent() {
+      clearConsentCookie();
+      window[gaDisableFlag] = true;
+      applyConsent(null);
+    }
+
+    function applyConsent(consent) {
+      if (consent && consent.analytics) {
+        hideBanner();
+        loadAnalytics();
+        return;
+      }
+
+      if (consent) {
+        window[gaDisableFlag] = true;
+        hideBanner();
+        return;
+      }
+
+      showBanner();
+    }
+
+    banner.addEventListener('click', function(event) {
+      const button = event.target.closest('[data-cookie-choice]');
+
+      if (!button) {
+        return;
+      }
+
+      setConsent(button.dataset.cookieChoice === 'accept');
+    });
+
+    const storedConsent = parseConsent();
+
+    window.CookieConsent = {
+      getConsent: parseConsent,
+      setConsent: setConsent,
+      clearConsent: resetConsent,
+      openBanner: showBanner,
+      hideBanner: hideBanner
+    };
+
+    applyConsent(storedConsent);
+
+    if (!storedConsent) {
+      window.addEventListener('resize', function() {
+        if (!banner.hidden) {
+          setBannerOffset(true);
+        }
+      });
+    }
+  })();
+</script>

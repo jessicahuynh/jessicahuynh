@@ -1,0 +1,71 @@
+<div class="section-body section-body--narrow cookie-management" id="cookie-management">
+	<h3 class="cookie-management__heading">Manage analytics cookies</h3>
+	<p class="cookie-management__status" id="cookie-management-status" data-cookie-management-status>
+		Loading your current choice...
+	</p>
+	<p class="cookie-management__copy">
+		Use these controls to change your analytics cookie choice at any time.
+	</p>
+	<div class="cookie-management__actions">
+		<button type="button" class="cookie-management__button" data-cookie-management-choice="accept">Accept analytics</button>
+		<button type="button" class="cookie-management__button cookie-management__button--secondary" data-cookie-management-choice="reject">Reject analytics</button>
+		<button type="button" class="cookie-management__button cookie-management__button--ghost" data-cookie-management-choice="reset">Reset choice</button>
+	</div>
+</div>
+
+<script>
+  (function() {
+    const management = document.getElementById('cookie-management');
+
+    function renderStatus() {
+      const consent = window.CookieConsent.getConsent();
+      const status = management.querySelector('[data-cookie-management-status]');
+
+      if (!status) {
+        return;
+      }
+
+      if (!consent) {
+        status.textContent = 'No saved choice. You can accept or reject analytics below.';
+        return;
+      }
+
+      status.textContent = consent.analytics ? 'Analytics cookies are enabled.' : 'Analytics cookies are disabled.';
+    }
+
+    function initialize() {
+      if (!management || !window.CookieConsent) {
+        return;
+      }
+
+      management.addEventListener('click', function(event) {
+      const button = event.target.closest('[data-cookie-management-choice]');
+
+      if (!button) {
+        return;
+      }
+
+      const choice = button.dataset.cookieManagementChoice;
+
+      if (choice === 'accept') {
+        window.CookieConsent.setConsent(true);
+      } else if (choice === 'reject') {
+        window.CookieConsent.setConsent(false);
+      } else if (choice === 'reset') {
+        window.CookieConsent.clearConsent();
+        window.CookieConsent.openBanner();
+      }
+
+      renderStatus();
+      });
+
+      renderStatus();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initialize, { once: true });
+    } else {
+      initialize();
+    }
+  })();
+</script>
