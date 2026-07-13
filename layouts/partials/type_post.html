@@ -34,20 +34,20 @@
 						<ol>
 							<!-- go through every project again and list the ones with the same project as the current page-->
 							{{ range $key, $tax := $p }}
-								{{ if eq $key $c }}
+								{{if (eq $c ($key | urlize))}}
 									{{ range $tax.Pages }}
 										<li>
 											{{if (eq $t .Title)}}
 												{{ .Title }}
 											{{else}}
-											<a href="{{ .Permalink }}">{{ .Title }}</a>
+												<a href="{{ .Permalink }}">{{ .Title }}</a>
 											{{end}}
 										</li> 
 									{{ end }}
 								{{end}}
 							{{ end }}
 						</ol>
-						<span class="text-right"><a href="/portfolio/{{$c}}">About the project</a></span>
+						<div class="text-right"><a href="/portfolio/{{$c}}">About the project</a></div>
 					</div>
 				</aside>
 			{{ end }}

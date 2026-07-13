@@ -122,9 +122,10 @@ body.has-cookie-banner {
 .backToTop {
 	position:fixed;
 	right:1rem;
-	bottom: calc(0.25rem + var(--cookie-banner-offset, 0px));
+	bottom: calc(0.05rem + var(--cookie-banner-offset, 0px));
 	opacity:0.75;
 	display:none;
+	z-index: 1500;
 	
 	a {
 		fill:$secondaryDarker;
@@ -135,12 +136,9 @@ body.has-cookie-banner {
 		}
 	}
 
-	@media screen and (min-width:40rem) {
-		right: 2rem;
-	}
 	/* back to top button can be side by side with the cookie banner on wide enough screens */
 	@media screen and (min-width:1400px) {
-		bottom: 1rem;
+		bottom: 0.5rem;
 	}
 }
 .backToTop.show-backtotop {transition:opacity 750ms; display:block;}

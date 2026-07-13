@@ -173,6 +173,7 @@ section header {
 .sidebar aside {
 	@extend .prettySidebarBoxes;
 	background:$primaryDarkest;
+	color: $cream;
 
 	a {
 		color: $orangish;
