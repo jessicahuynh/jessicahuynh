@@ -138,6 +138,10 @@ body.has-cookie-banner {
 	@media screen and (min-width:40rem) {
 		right: 2rem;
 	}
+	/* back to top button can be side by side with the cookie banner on wide enough screens */
+	@media screen and (min-width:1400px) {
+		bottom: 1rem;
+	}
 }
 .backToTop.show-backtotop {transition:opacity 750ms; display:block;}
 .backToTop.hide-backtotop {transition:opacity 750ms; display:none;}
