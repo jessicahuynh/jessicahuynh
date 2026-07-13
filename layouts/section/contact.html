@@ -86,4 +86,38 @@
 	</section>
 </article>
 
+<script type="text/javascript">
+	const contactForm = document.getElementById('contact-form');
+	
+	contactForm.addEventListener('submit', function(e) {
+		e.preventDefault();
+
+		const successfulSubmissionAlert = document.getElementById('successfulSubmission');
+		const errorSubmissionAlert = document.getElementById('errorSubmission');
+
+		successfulSubmissionAlert.style.display = 'none';
+		errorSubmissionAlert.style.display = 'none';
+		
+		if (document.querySelector('input.hidden').value == '' && contactForm.checkValidity()) {
+			const formData = new FormData(contactForm);
+
+			fetch('/contact', {
+				method: "POST",
+				headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+				body: new URLSearchParams(formData).toString()
+			}).then(() => {
+				successfulSubmissionAlert.style.display = 'block';
+				contactForm.reset();
+			})
+			  .catch(() => {
+				errorSubmissionAlert.style.display = 'block';
+			});
+			
+		}
+		else {
+			errorSubmissionAlert.style.display = 'block';
+		}
+	});
+</script>
+
 {{ partial "footer.html" . }}

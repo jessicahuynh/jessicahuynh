@@ -102,67 +102,6 @@
     </div>
     
     <script type="text/javascript" src="/js/scripts.js?v=4"></script>
-    
-    {{ if .IsPage }}
-    {{ if eq .Type "contact" }}
-    <script type="text/javascript">
 
-      let contactForm = document.getElementById('contact-form');
-      
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        let successfulSubmissionAlert = document.getElementById('successfulSubmission');
-        let errorSubmissionAlert = document.getElementById('errorSubmission');
-
-        successfulSubmissionAlert.style.display = 'none';
-        errorSubmissionAlert.style.display = 'none';
-
-        let name = document.getElementById("name");
-        let email = document.getElementById("email");
-        let subject = document.getElementById("subject");
-        let message = document.getElementById("message");
-        
-        if (document.querySelectorAll('input.hidden').value == '' && 
-            name.value != '' && email.value != '' && 
-            subject.value != '' && message.value != '') {
-          
-          var query_string = 'name=' + name.value + '&email=' + email.value + '&subject=' + subject.value + '&message=' + message.value;
-          
-          var request = new XMLHttpRequest();
-          request.open('POST', contactForm.action, true);
-          request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-
-          request.onload = function() {
-            if (this.status >= 200 && this.status < 400) {
-              // success
-              successfulSubmissionAlert.style.display = 'block';
-              
-              name.value = '';
-              email.value = '';
-              subject.value = '';
-              message.value = '';
-            }
-            else {
-              // an error message after reaching netlify
-              errorSubmissionAlert.style.display = 'block';
-            }
-          };
-
-          request.onerror = function() {
-            // connection error
-            errorSubmissionAlert.style.display = 'block';
-          };
-
-          request.send(query_string);
-   
-        }
-        else {
-          errorSubmissionAlert.style.display = 'block';
-        }
-      });
-    </script>
-    {{ end }}
-    {{ end }}
   </body>
 </html>
