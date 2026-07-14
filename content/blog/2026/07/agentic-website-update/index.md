@@ -9,7 +9,7 @@ description: How I finally got around to updating this website
 
 Six years between posts is *probably* not breaking a world record for time between blog updates but it might be close. I've made a number of fixes/improvements (most notably, fixing the RSS feed and category/tag pages and adding the [privacy policy]({{< relref "/privacy" >}})) but before that, I had to bring how the site is laid out up to date and in line with the latest version of Hugo.
 
-Last time I touched this site, I was on Hugo 0.79.0 and there was a toolchain set up to do LESS preprocessing. We are now on Hugo 0.164.0, which includes built-in [Dart Sass](https://sass-lang.com/dart-sass/) preprocessing via the binary. Bringing things six years and 83 versions into the future seemed both annoying and not exactly fun, so I decided to see what would happen with agentic coding.<!--more-->
+Last time I touched this site, I was on Hugo 0.79.0 and there was a toolchain set up to do LESS preprocessing. We are now on Hugo 0.164.0, which includes built-in [Dart Sass](https://sass-lang.com/dart-sass/) preprocessing via the binary. Bringing things six years and 85 versions into the future seemed both annoying and not exactly fun, so I decided to see what would happen with agentic coding.<!--more-->
 
 ## What are you talking about?
 
