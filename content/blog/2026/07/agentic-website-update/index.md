@@ -145,6 +145,10 @@ I hit implement on the plan and GPT-5.3-Codex actually one-shot it! The sticky T
 
 The only change I remember making manually was fixing the color of the "MENU" text on mobile.
 
+## copilot-instructions.md
+
+For fun, I also decided to make use of the Copilot web agent and have it generate instructions (really something more like a README). You can view it in [my repo under .github/copilot-instructions.md](https://github.com/jessicahuynh/jessicahuynh/blob/main/.github/copilot-instructions.md).
+
 ## No more scut work for me
 
 I'm still poking through the Hugo docs to see all the new features I can implement (there are footnotes now!!) and doing most of the CSS myself, but doing the boring stuff with an LLM was great.
