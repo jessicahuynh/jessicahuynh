@@ -3,13 +3,13 @@ date: "2020-07-13T18:29:38-04:00"
 tags: ["vietnamese", "covid-19"]
 categories: ["Lifestyle"]
 types: ["recipe"]
-title: Đậu hũ nhồi thịt sơt cà chua
-description: Đậu hũ nhồi thịt sơt cà chua (tofu stuffed with pork braised in tomato sauce) is a classic Vietnamese dish with lots of family variation. This is my own adaptation of my mom's recipe.
+title: Đậu hũ nhồi thịt sốt cà chua
+description: Đậu hũ nhồi thịt sốt cà chua (tofu stuffed with pork braised in tomato sauce) is a classic Vietnamese dish with lots of family variation. This is my own adaptation of my mom's recipe.
 hero: served-with-rice.JPG
 hero_alt: Tofu stuffed with pork, braised in tomato sauce, with straw mushrooms, jasmine rice, cilantro, and green onion
 ---
 
-Đậu hũ nhồi thịt sơt cà chua (tofu stuffed with meat/pork braised in tomato sauce) is one of my favorite dishes to make---it's really simple, doesn't require a ton of fuss, but tastes good. This is an adaptation of my mom's recipe. Normally the tofu is fried but I didn't do that here (it's too warm for that right now!). I also added in straw mushrooms. I'm a believer in the "never-too-many-mushrooms" school of culinary arts.
+Đậu hũ nhồi thịt sốt cà chua (tofu stuffed with meat/pork braised in tomato sauce) is one of my favorite dishes to make---it's really simple, doesn't require a ton of fuss, but tastes good. This is an adaptation of my mom's recipe. Normally the tofu is fried but I didn't do that here (it's too warm for that right now!). I also added in straw mushrooms. I'm a believer in the "never-too-many-mushrooms" school of culinary arts.
 
 You don't need any special tools for this. I used a simple stainless steel sauce pan from IKEA. If I were frying the tofu, I'd use my wok. Or you could buy pre-fried tofu if you're in an area with a large East or Southeast Asian population.<!--more-->
 

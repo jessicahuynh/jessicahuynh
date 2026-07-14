@@ -15,10 +15,14 @@
 	}
 }
 
-.sideBoxContent {
+.collapsible-content {
 	display:none;
+}
+
+.sideBoxContent {
+	@extend .collapsible-content;
 	padding:0.5rem;
-	
+
 	@media screen and (min-width:40rem) {
 		display:block;
 	}
@@ -180,32 +184,51 @@ section header {
 	}
 }
 
-.sideBoxHeader {
-	a {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 0.5rem;
-	}
+.blogbar aside .sideBoxHeader a,
+.content-sidebar aside .sideBoxHeader a,
+.collapsible-toggle {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
 
-	.sideBoxChevron {
-		display: inline-flex;
-		align-items: center;
+aside .sideBoxHeader a span {
+	flex-basis: auto;
+}
 
-		svg {
-			width: 1em;
-			height: 1em;
-			transition: transform 220ms ease;
-		}
-	}
+.collapsible-toggle {
+	width: 100%;
+}
 
-	&.is-open .sideBoxChevron svg {
-		transform: rotate(180deg);
+summary.collapsible-toggle {
+	list-style: none;
+
+	&::-webkit-details-marker {
+		display: none;
 	}
 }
 
+.sideBoxHeader .collapsible-chevron,
+.collapsible-toggle .collapsible-chevron {
+	display: inline-flex;
+	align-items: center;
+
+	svg {
+		width: 1em;
+		height: 1em;
+		transition: transform 220ms ease;
+	}
+}
+
+.sideBoxHeader.is-open .collapsible-chevron svg,
+.collapsible-toggle.is-open .collapsible-chevron svg {
+	transform: rotate(180deg);
+}
+
 @media (prefers-reduced-motion: reduce) {
-	.sideBoxHeader .sideBoxChevron svg {
+	.sideBoxHeader .collapsible-chevron svg,
+	.collapsible-toggle .collapsible-chevron svg {
 		transition: none;
 	}
 }

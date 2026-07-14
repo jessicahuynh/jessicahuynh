@@ -9,7 +9,7 @@ $navBar: color.adjust($primaryColor, $lightness: 15%);
 
 $bodyText: #220e10;
 
-$offWhite: #eeeeee;
+$offWhite: color.adjust($cream, $whiteness: 10%);
 $orangish:#ea9629;
 
 $secondaryColor: #c3f600;
