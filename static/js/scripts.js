@@ -111,26 +111,87 @@ const setExpandedState = (control, isExpanded) => {
 	control.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
 };
 
-const ensureChevronSvg = (chevronContainer) => {
-	if (!chevronContainer || chevronContainer.querySelector('svg')) {
-		return;
-	}
-
-	chevronContainer.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="img" width="1em" height="1em" viewBox="0 0 32 32"><path d="M4.22 10.78l-1.44 1.44l12.5 12.5l.72.686l.72-.687l12.5-12.5l-1.44-1.44L16 22.564L4.22 10.78z" /></svg>';
-};
-
-const syncSidebarControlState = (header, content) => {
-	if (!header || !content) {
+const syncCollapsibleState = (control, content) => {
+	if (!control || !content) {
 		return;
 	}
 
 	const isExpanded = getComputedStyle(content).display !== 'none';
-	const link = header.querySelector('a');
+	const trigger = control.matches('a, button, summary') ? control : control.querySelector('a, button, summary');
 
-	header.classList.toggle('is-open', isExpanded);
-	if (link) {
-		link.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+	control.classList.toggle('is-open', isExpanded);
+	if (trigger) {
+		trigger.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
 	}
+};
+
+const initializeCollapsible = (control, content, activator = control, duration = 400) => {
+	if (!control || !content || !activator) {
+		return;
+	}
+
+	const trigger = control.matches('a, button, summary') ? control : control.querySelector('a, button, summary');
+
+	if (!content.id) {
+		content.id = 'collapsible-content-' + Math.random().toString(36).slice(2, 9);
+	}
+
+	if (trigger) {
+		trigger.setAttribute('aria-controls', content.id);
+	}
+
+	syncCollapsibleState(control, content);
+
+	activator.addEventListener('click', function (event) {
+		event.preventDefault();
+
+		const shouldOpen = getComputedStyle(content).display === 'none';
+		slideToggle(content, duration);
+		control.classList.toggle('is-open', shouldOpen);
+		if (trigger) {
+			trigger.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+		}
+	});
+	};
+
+const initializeDetailsCollapsible = (details, summary, content, duration = 400) => {
+	if (!details || !summary || !content) {
+		return;
+	}
+
+	if (!content.id) {
+		content.id = 'collapsible-content-' + Math.random().toString(36).slice(2, 9);
+	}
+
+	summary.setAttribute('aria-controls', content.id);
+	summary.setAttribute('aria-expanded', details.open ? 'true' : 'false');
+	summary.classList.toggle('is-open', details.open);
+
+	if (details.open) {
+		content.style.removeProperty('display');
+	}
+	else {
+		content.style.display = 'none';
+	}
+
+	summary.addEventListener('click', function (event) {
+		event.preventDefault();
+
+		const shouldOpen = !details.open;
+		summary.classList.toggle('is-open', shouldOpen);
+		summary.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+
+		if (shouldOpen) {
+			details.open = true;
+			slideDown(content, duration);
+			return;
+		}
+
+		slideUp(content, duration);
+		window.setTimeout(function () {
+			details.open = false;
+		}, getDuration(duration) + 40);
+	});
 };
 
 const syncMenuStateByViewport = (menuToggler, navToggle) => {
@@ -183,33 +244,14 @@ window.onload = function () {
 	const sideboxes = document.getElementsByClassName('sideBoxHeader');
 	Array.from(sideboxes).forEach(function (header) {
 		const content = header.nextElementSibling;
-		const link = header.querySelector('a');
-		const chevronContainer = header.querySelector('.sideBoxChevron');
+		initializeCollapsible(header, content, header, 400);
+	});
 
-		ensureChevronSvg(chevronContainer);
-
-		if (link && content) {
-			if (!content.id) {
-				content.id = 'sidebox-content-' + Math.random().toString(36).slice(2, 9);
-			}
-
-			link.setAttribute('aria-controls', content.id);
-			syncSidebarControlState(header, content);
-		}
-
-		header.addEventListener('click', function (event) {
-			event.preventDefault();
-			if (!content) {
-				return;
-			}
-
-			const shouldOpen = getComputedStyle(content).display === 'none';
-			slideToggle(content, 400);
-			header.classList.toggle('is-open', shouldOpen);
-			if (link) {
-				link.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
-			}
-		});
+	const expandShortcodes = document.getElementsByClassName('expand-shortcode');
+	Array.from(expandShortcodes).forEach(function (expandShortcode) {
+		const toggle = expandShortcode.querySelector('summary.collapsible-toggle');
+		const content = expandShortcode.querySelector('.collapsible-content');
+		initializeDetailsCollapsible(expandShortcode, toggle, content, 400);
 	});
 
 	window.addEventListener('scroll', function () {

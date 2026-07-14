@@ -9,6 +9,8 @@ author:
 pygmentsUseClasses: true
 pygmentsCodefences: true
 
+enableEmoji: true
+
 params:
   subtitle: "/hwɪn/"
   analytics:

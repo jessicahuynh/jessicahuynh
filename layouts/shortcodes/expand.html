@@ -1,0 +1,9 @@
+<details class="expand-shortcode">
+    <summary class="collapsible-toggle">
+        <span>{{ .Get 0 }}</span>
+        <span class="collapsible-chevron">{{ partial "svg/collapsible-chevron.html" . }}</span>
+    </summary>
+    <div class="collapsible-content expand-shortcode__content">
+        {{ .Inner | markdownify }}
+    </div>
+</details>
