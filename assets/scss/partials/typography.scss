@@ -54,6 +54,11 @@ hr {
     background-image: linear-gradient(to right, $offWhite, $primaryColor, $primaryColor, $primaryColor, $offWhite);
 }
 
+figcaption {
+	font-size: 0.9rem;
+	font-style: italic;
+}
+
 abbr {
 	border-bottom: 1px dotted $bodyText;
 	text-decoration: none;
