@@ -1,6 +1,6 @@
 {{ $analyticsID := site.Params.analytics.googleAnalyticsId | default "UA-34043400-1" }}
 
-<div id="cookie-banner" class="cookie-banner" hidden>
+<div id="cookie-banner" class="cookie-banner" data-analytics-id='{{ $analyticsID }}' hidden>
   <div class="cookie-banner__inner" role="dialog" aria-labelledby="cookie-banner-title" aria-describedby="cookie-banner-copy">
     <p id="cookie-banner-title" class="cookie-banner__title">Cookies</p>
     <p id="cookie-banner-copy" class="cookie-banner__copy">
@@ -10,6 +10,7 @@
     <div class="cookie-banner__actions">
       <button type="button" class="cookie-banner__button cookie-banner__button--secondary" data-cookie-choice="reject">Reject</button>
       <button type="button" class="cookie-banner__button" data-cookie-choice="accept">Accept</button>
+      <button type="button" class="cookie-banner__button" data-cookie-choice="thanks" hidden>Thanks</button>
     </div>
   </div>
 </div>
@@ -17,76 +18,18 @@
 <script>
   (function() {
     const banner = document.getElementById('cookie-banner');
-
-    if (!banner) {
-      return;
-    }
-
-    const consentCookieName = 'cookie_consent';
-    const analyticsID = {{ $analyticsID | jsonify }};
-    const consentLifetimeSeconds = 60 * 60 * 24 * 365;
-    const gaDisableFlag = 'ga-disable-' + analyticsID;
+    const analyticsID = banner ? banner.getAttribute('data-analytics-id') : '';
     const bannerOffsetVar = '--cookie-banner-offset';
     const rootElement = document.documentElement;
     const bodyElement = document.body;
+    const copyElement = banner ? banner.querySelector('#cookie-banner-copy') : null;
+    const acceptButton = banner ? banner.querySelector('[data-cookie-choice="accept"]') : null;
+    const rejectButton = banner ? banner.querySelector('[data-cookie-choice="reject"]') : null;
+    const thanksButton = banner ? banner.querySelector('[data-cookie-choice="thanks"]') : null;
+    let isVisible = false;
 
-    function createConsent(analyticsAllowed) {
-      return {
-        version: 1,
-        analytics: analyticsAllowed,
-        preferences: false,
-        updatedAt: new Date().toISOString()
-      };
-    }
-
-    function readCookie(name) {
-      const pattern = new RegExp('(?:^|; )' + name.replace(/([.$?*|{}()\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)');
-      const matches = document.cookie.match(pattern);
-
-      return matches ? matches[1] : null;
-    }
-
-    function parseConsent() {
-      const storedValue = readCookie(consentCookieName);
-
-      if (!storedValue) {
-        return null;
-      }
-
-      try {
-        return JSON.parse(decodeURIComponent(storedValue));
-      } catch (error) {
-        return null;
-      }
-    }
-
-    function storeConsent(consent) {
-      document.cookie = consentCookieName + '=' + encodeURIComponent(JSON.stringify(consent)) + '; Max-Age=' + consentLifetimeSeconds + '; Path=/; SameSite=Lax';
-    }
-
-    function clearConsentCookie() {
-      document.cookie = consentCookieName + '=; Max-Age=0; Path=/; SameSite=Lax';
-    }
-
-    function deleteCookie(name) {
-      const hostname = window.location.hostname;
-      const expiry = 'Max-Age=0; Path=/; SameSite=Lax';
-
-      document.cookie = name + '=; ' + expiry;
-      document.cookie = name + '=; ' + expiry + '; Domain=' + hostname;
-      document.cookie = name + '=; ' + expiry + '; Domain=.' + hostname;
-    }
-
-    function deleteAnalyticsCookies() {
-      const cookieNames = document.cookie.split(';').map(function(cookie) {
-        return cookie.split('=')[0].trim();
-      });
-
-      cookieNames.forEach(function(name) {
-        if (/^_ga($|_)/.test(name) || /^_gid$/.test(name) || /^_gat($|_)/.test(name) || /^__utm/.test(name)) {
-          deleteCookie(name);
-        }
-      });
+    if (!banner || !window.CookieConsent) {
+      return;
     }
 
     function setBannerOffset(active) {
@@ -98,6 +41,12 @@
     }
 
     function showBanner() {
+      if (isVisible) {
+        setBannerOffset(true);
+        return;
+      }
+
+      isVisible = true;
       banner.hidden = false;
       bodyElement.classList.add('has-cookie-banner');
       requestAnimationFrame(function() {
@@ -106,88 +55,40 @@
     }
 
     function hideBanner() {
+      if (!isVisible) {
+        return;
+      }
+
+      isVisible = false;
       bodyElement.classList.remove('has-cookie-banner');
       setBannerOffset(false);
       banner.hidden = true;
     }
 
-    function startAnalytics() {
-      window.GoogleAnalyticsObject = 'ga';
-      window.ga = window.ga || function() {
-        (window.ga.q = window.ga.q || []).push(arguments);
-      };
-      window.ga.l = 1 * new Date();
+    function renderBanner(state) {
+      const informationalMode = state.reason === 'privacy-signal';
 
-      window.ga('create', analyticsID, 'auto');
-      window.ga('send', 'pageview');
-      window.__cookieBannerAnalyticsLoaded = true;
-      window.__cookieBannerAnalyticsPageviewSent = true;
-    }
-
-    function loadAnalytics() {
-      window[gaDisableFlag] = false;
-
-      if (window.__cookieBannerAnalyticsLoaded) {
-        if (!window.__cookieBannerAnalyticsPageviewSent) {
-          window.ga('send', 'pageview');
-          window.__cookieBannerAnalyticsPageviewSent = true;
-        }
-
-        return;
+      if (copyElement) {
+        copyElement.innerHTML = state.bannerCopyHTML;
       }
 
-      const analyticsScript = document.createElement('script');
-      analyticsScript.async = true;
-      analyticsScript.src = 'https://www.google-analytics.com/analytics.js';
-      analyticsScript.setAttribute('data-cookie-banner-analytics', 'true');
-      analyticsScript.onload = function() {
-        if (!window.__cookieBannerAnalyticsLoaded) {
-          startAnalytics();
-        }
-      };
-      document.head.appendChild(analyticsScript);
-    }
-
-    function setConsent(analyticsAllowed) {
-      const consent = createConsent(analyticsAllowed);
-
-      storeConsent(consent);
-
-      if (!analyticsAllowed) {
-        window[gaDisableFlag] = true;
+      if (acceptButton) {
+        acceptButton.hidden = informationalMode;
       }
 
-      applyConsent(consent);
+      if (rejectButton) {
+        rejectButton.hidden = informationalMode;
+      }
 
-      return consent;
-    }
+      if (thanksButton) {
+        thanksButton.hidden = !informationalMode;
+      }
 
-    function resetConsent() {
-      clearConsentCookie();
-      window[gaDisableFlag] = true;
-      deleteAnalyticsCookies();
-      window.__cookieBannerAnalyticsPageviewSent = false;
-      applyConsent(null);
-    }
-
-    function applyConsent(consent) {
-      if (consent && consent.analytics) {
+      if (state.showBanner) {
+        showBanner();
+      } else {
         hideBanner();
-        loadAnalytics();
-        return;
       }
-
-      if (consent) {
-        window[gaDisableFlag] = true;
-        deleteAnalyticsCookies();
-        window.__cookieBannerAnalyticsPageviewSent = false;
-        hideBanner();
-        return;
-      }
-
-      deleteAnalyticsCookies();
-      window.__cookieBannerAnalyticsPageviewSent = false;
-      showBanner();
     }
 
     banner.addEventListener('click', function(event) {
@@ -197,27 +98,31 @@
         return;
       }
 
-      setConsent(button.dataset.cookieChoice === 'accept');
+      const choice = button.dataset.cookieChoice;
+
+      if (choice === 'accept') {
+        window.CookieConsent.setConsent(true);
+        return;
+      }
+
+      if (choice === 'reject') {
+        window.CookieConsent.setConsent(false);
+        return;
+      }
+
+      if (choice === 'thanks') {
+        window.CookieConsent.hideBanner();
+      }
     });
 
-    const storedConsent = parseConsent();
+    window.CookieConsent.initialize({ analyticsID: analyticsID });
+    window.CookieConsent.subscribe(renderBanner);
+    renderBanner(window.CookieConsent.applyState());
 
-    window.CookieConsent = {
-      getConsent: parseConsent,
-      setConsent: setConsent,
-      clearConsent: resetConsent,
-      openBanner: showBanner,
-      hideBanner: hideBanner
-    };
-
-    applyConsent(storedConsent);
-
-    if (!storedConsent) {
-      window.addEventListener('resize', function() {
-        if (!banner.hidden) {
-          setBannerOffset(true);
-        }
-      });
-    }
+    window.addEventListener('resize', function() {
+      if (!banner.hidden) {
+        setBannerOffset(true);
+      }
+    });
   })();
 </script>

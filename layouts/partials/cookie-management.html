@@ -18,19 +18,14 @@
     const management = document.getElementById('cookie-management');
 
     function renderStatus() {
-      const consent = window.CookieConsent.getConsent();
+      const state = window.CookieConsent.getState();
       const status = management.querySelector('[data-cookie-management-status]');
 
       if (!status) {
         return;
       }
 
-      if (!consent) {
-        status.textContent = 'No saved choice. You can accept or reject analytics below.';
-        return;
-      }
-
-      status.textContent = consent.analytics ? 'Analytics cookies are enabled.' : 'Analytics cookies are disabled.';
+      status.textContent = state.managementStatusMessage;
     }
 
     function initialize() {
@@ -53,12 +48,12 @@
         window.CookieConsent.setConsent(false);
       } else if (choice === 'reset') {
         window.CookieConsent.clearConsent();
-        window.CookieConsent.openBanner();
       }
 
       renderStatus();
       });
 
+      window.CookieConsent.subscribe(renderStatus);
       renderStatus();
     }
 
