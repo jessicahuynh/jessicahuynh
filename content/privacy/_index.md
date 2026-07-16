@@ -13,6 +13,8 @@ The Google Analytics cookies are only loaded after you explicitly accept the coo
 
 If you reject analytics, the tracking script is not loaded; the functionality of the website will not be affected. If you initially opt-in then opt-out or reset, the Google Analytics cookies are deleted immediately.
 
+If your browser sends either a Do Not Track or Global Privacy Control signal, analytics is treated as rejected until you make an explicit analytics choice.
+
 The first-party cookie I set on my end to remember your analytics preference lasts one year.
 
 <!-- ## Preferences

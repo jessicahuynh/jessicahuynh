@@ -1,5 +1,7 @@
 # jessicahuynh.info
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/03265777-1122-4d96-ae35-d94f51d7c73e/deploy-status)](https://app.netlify.com/projects/jessicahuynh/deploys)
+
 Personal website built with the [hugo](gohugo.io) static site generator. Continuously deployed every time I push with Netlify.
 
 ## Prerequisites
