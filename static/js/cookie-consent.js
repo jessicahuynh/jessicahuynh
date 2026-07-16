@@ -4,6 +4,7 @@
   }
 
   const CONSENT_COOKIE_NAME = 'cookie_consent';
+  const SIGNAL_BANNER_DISMISSED_COOKIE_NAME = 'cookie_signal_banner_dismissed';
   const CONSENT_LIFETIME_SECONDS = 60 * 60 * 24 * 365;
   const MESSAGES = {
     bannerDefaultHTML: 'This site uses analytics cookies only if you accept. Read the <a href="/privacy/">Privacy Policy</a> for details.',
@@ -74,6 +75,18 @@
     document.cookie = CONSENT_COOKIE_NAME + '=; Max-Age=0; Path=/; SameSite=Lax';
   }
 
+  function storeSignalBannerDismissed() {
+    document.cookie = SIGNAL_BANNER_DISMISSED_COOKIE_NAME + '=1; Max-Age=' + CONSENT_LIFETIME_SECONDS + '; Path=/; SameSite=Lax';
+  }
+
+  function readSignalBannerDismissed() {
+    return readCookie(SIGNAL_BANNER_DISMISSED_COOKIE_NAME) === '1';
+  }
+
+  function clearSignalBannerDismissed() {
+    document.cookie = SIGNAL_BANNER_DISMISSED_COOKIE_NAME + '=; Max-Age=0; Path=/; SameSite=Lax';
+  }
+
   function deleteCookie(name) {
     const hostname = window.location.hostname;
     const expiry = 'Max-Age=0; Path=/; SameSite=Lax';
@@ -111,6 +124,8 @@
     const consent = parseConsent();
     const privacySignal = detectPrivacySignal();
     const hasManualConsent = Boolean(consent);
+    const informationalMode = !hasManualConsent && privacySignal.active;
+    const isSignalBannerDismissed = readSignalBannerDismissed();
 
     let effectiveAnalytics = false;
     let reason = 'manual-reject';
@@ -118,11 +133,15 @@
     if (hasManualConsent && consent.analytics) {
       effectiveAnalytics = true;
       reason = 'manual-accept';
-    } else if (!hasManualConsent && privacySignal.active) {
+    } else if (informationalMode) {
       reason = 'privacy-signal';
     }
 
     let showBanner = !hasManualConsent;
+
+    if (informationalMode && isSignalBannerDismissed) {
+      showBanner = false;
+    }
 
     if (bannerVisibilityOverride === true) {
       showBanner = true;
@@ -132,7 +151,7 @@
 
     let managementStatusMessage = MESSAGES.managementDisabled;
 
-    if (!hasManualConsent && privacySignal.active) {
+    if (informationalMode) {
       managementStatusMessage = MESSAGES.managementPrivacySignalNoChoice;
     } else if (!hasManualConsent) {
       managementStatusMessage = MESSAGES.managementNoChoice;
@@ -150,7 +169,8 @@
       reason: reason,
       showBanner: showBanner,
       bannerCopyHTML: reason === 'privacy-signal' ? MESSAGES.bannerPrivacySignalHTML : MESSAGES.bannerDefaultHTML,
-      managementStatusMessage: managementStatusMessage
+      managementStatusMessage: managementStatusMessage,
+      isSignalBannerDismissed: isSignalBannerDismissed
     };
   }
 
@@ -265,6 +285,7 @@
     const consent = createConsent(Boolean(analyticsAllowed));
 
     storeConsent(consent);
+    clearSignalBannerDismissed();
     bannerVisibilityOverride = null;
     applyState();
 
@@ -273,6 +294,7 @@
 
   function clearConsent() {
     clearConsentCookie();
+    clearSignalBannerDismissed();
     bannerVisibilityOverride = null;
 
     return applyState();
@@ -285,6 +307,13 @@
   }
 
   function hideBanner() {
+    bannerVisibilityOverride = false;
+
+    return applyState();
+  }
+
+  function dismissInformationalBanner() {
+    storeSignalBannerDismissed();
     bannerVisibilityOverride = false;
 
     return applyState();
@@ -316,6 +345,7 @@
     clearConsent: clearConsent,
     openBanner: openBanner,
     hideBanner: hideBanner,
+    dismissInformationalBanner: dismissInformationalBanner,
     subscribe: subscribe,
     getMessages: function() {
       return Object.assign({}, MESSAGES);
