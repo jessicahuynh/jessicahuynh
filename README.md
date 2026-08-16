@@ -14,3 +14,12 @@ Personal website built with the [hugo](gohugo.io) static site generator. Continu
 Run `hugo server` from the project root to see the site locally. You can edit the Sass source in `assets/scss/*.scss` and Hugo will rebuild the stylesheet automatically.
 
 Modify pages or add blog posts under `/content`.
+
+## To update
+
+To add a new blog post, do `hugo new content /blog/month/post-name.md`.
+
+To update the version of Hugo:
+
+* Windows: `winget upgrade Hugo.Hugo.Extended`
+* macOS: (assuming Homebrew is installed) `brew upgrade hugo`
