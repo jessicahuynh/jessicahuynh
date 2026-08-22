@@ -5,9 +5,11 @@ description: "How this site uses analytics and cookie preferences."
 
 ## Purposes
 
-I use personal data to get in contact with people if they've submitted my contact form. I also use a third-party provider to get analytics about who is viewing my site, which includes tracking.
+I use personal data to get in contact with people if they've submitted my contact form. I also use third-party providers to get analytics about who is viewing my site, which includes tracking.
 
 ### Analytics
+
+#### Google
 
 The Google Analytics cookies are only loaded after you explicitly accept the cookie banner. They help me understand basic site usage, such as which pages are visited most often and what other content visitors are interested in.
 
@@ -16,6 +18,10 @@ If you reject analytics, the tracking script is not loaded; the functionality of
 If your browser sends either a Do Not Track or Global Privacy Control signal, analytics is treated as rejected until you make an explicit analytics choice. I store a cookie if you dismiss the informational banner to remember that you dismissed the informational banner; this cookie is only used for this purpose.
 
 The first-party cookie I set on my end to remember your analytics preference lasts one year.
+
+#### Umami
+
+I use [Umami](https://umami.is/) to track traffic, without storing cookies. You are not tracked across websites with Umami; it is not possible to opt out. See [Umami's privacy policy](https://umami.is/privacy).
 
 <!-- ## Preferences
 
@@ -33,7 +39,7 @@ If you want to ensure that your data is deleted sooner, you can use the contact 
 
 My site is hosted by [Netlify](https://www.netlify.com), which by default is on **us-east-1**, in northern Virginia, United States, including processing the information sent in my contact form to me. You can read [their GDPR/CCPA policy](https://www.netlify.com/gdpr-ccpa/).
 
-If you opt into analytics, the information tracked by Google is [processed and stored in the United States](https://business.safety.google/adsdatatransfers/).
+If you opt into analytics, the information tracked by Google is [processed and stored in the United States](https://business.safety.google/adsdatatransfers/). For Umami, I also chose to store data in the US.
 
 ## Changing your choice
 
